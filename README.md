@@ -1,6 +1,6 @@
 # numerology
 
-> My fine Nuxt.js project
+> My glorious Nuxt.js project
 
 ## Build Setup
 

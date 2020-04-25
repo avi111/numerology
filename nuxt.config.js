@@ -46,45 +46,8 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv',
-    '@nuxtjs/firebase'
+    '@nuxtjs/dotenv'
   ],
-  firebase: {
-    config: {
-      production: {
-        apiKey: process.env.APIKEY,
-        authDomain: process.env.AUTHDOMAIN,
-        databaseURL: process.env.DATABASEURL,
-        projectId: process.env.PROJECTID,
-        storageBucket: process.env.STORAGEBUCKET,
-        messagingSenderId: process.env.MESSAGINGSENDERID,
-        appId: process.env.APPID,
-        measurementId: process.env.MEASUREMENTID
-      },
-      development: {
-        apiKey: process.env.APIKEY,
-        authDomain: process.env.AUTHDOMAIN,
-        databaseURL: process.env.DATABASEURL,
-        projectId: process.env.PROJECTID,
-        storageBucket: process.env.STORAGEBUCKET,
-        messagingSenderId: process.env.MESSAGINGSENDERID,
-        appId: process.env.APPID,
-        measurementId: process.env.MEASUREMENTID
-      }
-    },
-    customEnv: true,
-    onFirebaseHosting: true,
-    services: {
-      auth: true,
-      firestore: true,
-      functions: {
-        location: 'europe-west', // Default
-        emulatorPort: 12345
-      },
-      storage: true,
-      analytics: true
-    }
-  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
@@ -98,8 +61,5 @@ module.exports = {
      ** You can extend webpack config here
      */
     // extend(config, ctx) {}
-  },
-  env: {
-    FIRE_ENV: process.env.FIRE_ENV
   }
 }

@@ -6,7 +6,7 @@
         numerology
       </h1>
       <h2 class="subtitle">
-        My fine Nuxt.js project
+        My glorious Nuxt.js project
       </h2>
       <div class="links">
         <a href="https://nuxtjs.org/" target="_blank" class="button--green">
