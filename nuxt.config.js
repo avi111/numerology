@@ -46,8 +46,45 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    '@nuxtjs/firebase'
   ],
+  firebase: {
+    config: {
+      foofoofoo: {
+        apiKey: process.env.APIKEY,
+        authDomain: process.env.AUTHDOMAIN,
+        databaseURL: process.env.DATABASEURL,
+        projectId: process.env.PROJECTID,
+        storageBucket: process.env.STORAGEBUCKET,
+        messagingSenderId: process.env.MESSAGINGSENDERID,
+        appId: process.env.APPID,
+        measurementId: process.env.MEASUREMENTID
+      },
+      faafaafaa: {
+        apiKey: process.env.APIKEY,
+        authDomain: process.env.AUTHDOMAIN,
+        databaseURL: process.env.DATABASEURL,
+        projectId: process.env.PROJECTID,
+        storageBucket: process.env.STORAGEBUCKET,
+        messagingSenderId: process.env.MESSAGINGSENDERID,
+        appId: process.env.APPID,
+        measurementId: process.env.MEASUREMENTID
+      }
+    },
+    customEnv: true,
+    onFirebaseHosting: true,
+    services: {
+      auth: true,
+      firestore: true,
+      functions: true,
+      storage: true,
+      analytics: true
+    }
+  },
+  env: {
+    FIRE_ENV: process.env.FIRE_ENV
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
