@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="33639d11-321f-4f75-ad64-1b55098fddae" name="Default Changelist" comment="" />
+    <list default="true" id="33639d11-321f-4f75-ad64-1b55098fddae" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.firebaserc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/firebase.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage.rules" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -26,6 +32,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -116,7 +123,7 @@
       <updated>1587840708916</updated>
       <workItem from="1587840710704" duration="16029000" />
       <workItem from="1596890971947" duration="117000" />
-      <workItem from="1596891108956" duration="313000" />
+      <workItem from="1596891108956" duration="693000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1587841079915</created>
@@ -139,7 +146,14 @@
       <option name="project" value="LOCAL" />
       <updated>1596891153325</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="reinstall firebase">
+      <created>1596891707143</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1596891707143</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,10 +174,12 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="first commit" />
     <MESSAGE value="adding firebase" />
     <MESSAGE value="remove all" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove all" />
+    <MESSAGE value="reinstall firebase" />
+    <option name="LAST_COMMIT_MESSAGE" value="reinstall firebase" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -171,13 +187,13 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="648" y="283" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/-1792.0.1792.1120/0.0.1920.1080@0.0.1920.1080" timestamp="1596891077241" />
-    <state x="567" y="115" key="CommitChangelistDialog2" timestamp="1596891153149">
+    <state x="567" y="115" key="CommitChangelistDialog2" timestamp="1596891706997">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="567" y="115" key="CommitChangelistDialog2/-1792.0.1792.1120/0.0.1920.1080@0.0.1920.1080" timestamp="1596891153149" />
-    <state x="560" y="280" key="Vcs.Push.Dialog.v2" timestamp="1596891156121">
+    <state x="567" y="115" key="CommitChangelistDialog2/-1792.0.1792.1120/0.0.1920.1080@0.0.1920.1080" timestamp="1596891706997" />
+    <state x="560" y="280" key="Vcs.Push.Dialog.v2" timestamp="1596891708969">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="560" y="280" key="Vcs.Push.Dialog.v2/-1792.0.1792.1120/0.0.1920.1080@0.0.1920.1080" timestamp="1596891156121" />
+    <state x="560" y="280" key="Vcs.Push.Dialog.v2/-1792.0.1792.1120/0.0.1920.1080@0.0.1920.1080" timestamp="1596891708969" />
   </component>
 </project>
