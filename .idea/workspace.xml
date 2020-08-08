@@ -2,16 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33639d11-321f-4f75-ad64-1b55098fddae" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.firebaserc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/firebase.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage.rules" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/react-app-env.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -35,7 +41,9 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.stylelint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -124,6 +132,7 @@
       <workItem from="1587840710704" duration="16029000" />
       <workItem from="1596890971947" duration="117000" />
       <workItem from="1596891108956" duration="693000" />
+      <workItem from="1596897418838" duration="784000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1587841079915</created>
@@ -153,23 +162,30 @@
       <option name="project" value="LOCAL" />
       <updated>1596891707143</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL‎00005" summary="clear all again">
+      <created>1596897468938</created>
+      <option name="number" value="LOCAL‎00005" />
+      <option name="presentableId" value="LOCAL‎00005" />
+      <updated>1596897468938</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
@@ -179,7 +195,8 @@
     <MESSAGE value="adding firebase" />
     <MESSAGE value="remove all" />
     <MESSAGE value="reinstall firebase" />
-    <option name="LAST_COMMIT_MESSAGE" value="reinstall firebase" />
+    <MESSAGE value="clear all again" />
+    <option name="LAST_COMMIT_MESSAGE" value="clear all again" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
@@ -187,13 +204,19 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="648" y="283" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/-1792.0.1792.1120/0.0.1920.1080@0.0.1920.1080" timestamp="1596891077241" />
-    <state x="567" y="115" key="CommitChangelistDialog2" timestamp="1596891706997">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="567" y="112" key="CommitChangelistDialog2" timestamp="1596897468448">
+      <screen x="0" y="0" width="1920" height="1048" />
     </state>
     <state x="567" y="115" key="CommitChangelistDialog2/-1792.0.1792.1120/0.0.1920.1080@0.0.1920.1080" timestamp="1596891706997" />
-    <state x="560" y="280" key="Vcs.Push.Dialog.v2" timestamp="1596891708969">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="567" y="112" key="CommitChangelistDialog2/0.0.1920.1048@0.0.1920.1048" timestamp="1596897468448" />
+    <state x="560" y="272" key="Vcs.Push.Dialog.v2" timestamp="1596897471703">
+      <screen x="0" y="0" width="1920" height="1048" />
     </state>
     <state x="560" y="280" key="Vcs.Push.Dialog.v2/-1792.0.1792.1120/0.0.1920.1080@0.0.1920.1080" timestamp="1596891708969" />
+    <state x="560" y="272" key="Vcs.Push.Dialog.v2/0.0.1920.1048@0.0.1920.1048" timestamp="1596897471703" />
+    <state x="668" y="351" key="com.intellij.ide.util.TipDialog" timestamp="1596897424666">
+      <screen x="0" y="0" width="1920" height="1048" />
+    </state>
+    <state x="668" y="351" key="com.intellij.ide.util.TipDialog/0.0.1920.1048@0.0.1920.1048" timestamp="1596897424666" />
   </component>
 </project>
