@@ -2,53 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33639d11-321f-4f75-ad64-1b55098fddae" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.github/workflows/firebase-hosting-merge.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.github/workflows/firebase-hosting-pull-request.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/numerology-engine/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/numerology-functions/.data/service-account.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/numerology-functions/.firebaserc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/numerology-functions/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/numerology-functions/firebase-debug.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/numerology-functions/firebase.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/numerology-functions/functions/.eslintrc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/numerology-functions/functions/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/numerology-functions/functions/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/numerology-functions/functions/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/numerology-functions/functions/src/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/numerology-functions/functions/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/numerology-functions/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/numerology-functions/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/numerology-functions/tsconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/numerology-functions/yarn-error.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/numerology/.firebaserc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/numerology/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/numerology/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/numerology/firebase.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/numerology/firestore.indexes.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/numerology/firestore.rules" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/numerology/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/numerology/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/numerology/public/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/numerology/src/.data/firebaseConfig.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/numerology/src/App.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/numerology/src/App.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/numerology/src/App.test.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/numerology/src/firebase.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/numerology/src/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/numerology/src/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/numerology/src/logo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/numerology/src/reportWebVitals.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/numerology/src/setupTests.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/numerology/storage.rules" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/module-a/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/module-a/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/module-b/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/module-b/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/numerology-engine/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/numerology/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/packages/numerology/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,7 +171,7 @@
       <workItem from="1596897418838" duration="6579000" />
       <workItem from="1596910782036" duration="1257000" />
       <workItem from="1608905680291" duration="989000" />
-      <workItem from="1608913163230" duration="11917000" />
+      <workItem from="1608913163230" duration="12484000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1587841079915</created>
