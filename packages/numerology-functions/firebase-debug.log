@@ -1,0 +1,166 @@
+[debug] [2020-12-25T20:06:04.073Z] ----------------------------------------------------------------------
+[debug] [2020-12-25T20:06:04.075Z] Command:       /Users/avi111/.nvm/versions/node/v12.20.0/bin/node /usr/local/bin/firebase functions:shell
+[debug] [2020-12-25T20:06:04.075Z] CLI Version:   9.1.0
+[debug] [2020-12-25T20:06:04.075Z] Platform:      darwin
+[debug] [2020-12-25T20:06:04.075Z] Node Version:  v12.20.0
+[debug] [2020-12-25T20:06:04.076Z] Time:          Fri Dec 25 2020 22:06:04 GMT+0200 (Israel Standard Time)
+[debug] [2020-12-25T20:06:04.076Z] ----------------------------------------------------------------------
+[debug] [2020-12-25T20:06:04.077Z] 
+[debug] [2020-12-25T20:06:04.083Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-12-25T20:06:04.083Z] > authorizing via signed-in user
+[debug] [2020-12-25T20:06:04.083Z] [iam] checking project numerology-ae61d for permissions ["firebase.projects.get"]
+[debug] [2020-12-25T20:06:04.086Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/numerology-ae61d:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2020-12-25T20:06:04.588Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 25 Dec 2020 20:06:04 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=132","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-12-25T20:06:04.599Z] [functions] Using node@12 from host.
+[debug] [2020-12-25T20:06:04.600Z] defaultcredentials: writing to file /Users/avi111/.config/firebase/avi111_gmail_com_application_default_credentials.json
+[debug] [2020-12-25T20:06:04.601Z] DEBUG: Setting GAC to /Users/avi111/.config/firebase/avi111_gmail_com_application_default_credentials.json
+[debug] [2020-12-25T20:06:04.608Z] [functions] Watching "/Users/avi111/numerology/packages/numerology-functions/functions" for Cloud Functions...
+[debug] [2020-12-25T20:06:04.617Z] DEBUG: [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-12-25T20:06:04.617Z] DEBUG: [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2020-12-25T20:06:04.617Z] DEBUG: [worker-pool] submitWork(triggerId=)
+[debug] [2020-12-25T20:06:04.618Z] DEBUG: [worker-~diagnostic~-65b7b416-ab54-4533-a127-62fcc9f80a83]: Assigning socketPath: /var/folders/7w/sjptyl8s41db5tc_gcx2n0g80000gp/T/fire_emu_15490.sock
+[debug] [2020-12-25T20:06:04.618Z] DEBUG: [worker-~diagnostic~-65b7b416-ab54-4533-a127-62fcc9f80a83]: BUSY
+[debug] [2020-12-25T20:06:04.761Z] DEBUG: [runtime-status] [15490] Functions runtime initialized. {"cwd":"/Users/avi111/numerology/packages/numerology-functions/functions","node_version":"12.20.0"}
+[debug] [2020-12-25T20:06:04.762Z] DEBUG: [runtime-status] [15490] Disabled runtime features: undefined
+[debug] [2020-12-25T20:06:04.769Z] DEBUG: [runtime-status] [15490] Resolved module firebase-admin {"declared":true,"installed":true,"version":"9.4.2","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-12-25T20:06:04.770Z] DEBUG: [runtime-status] [15490] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-12-25T20:06:04.770Z] DEBUG: [runtime-status] [15490] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-12-25T20:06:04.770Z] DEBUG: [runtime-status] [15490] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}]
+[debug] [2020-12-25T20:06:04.770Z] DEBUG: [runtime-status] [15490] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-12-25T20:06:04.831Z] DEBUG: [runtime-status] [15490] Checked functions.config() {"config":{}}
+[debug] [2020-12-25T20:06:04.832Z] DEBUG: [runtime-status] [15490] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"3.13.0","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-functions/lib/index.js"}}
+[debug] [2020-12-25T20:06:04.832Z] DEBUG: [runtime-status] [15490] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-12-25T20:06:04.833Z] DEBUG: [runtime-status] [15490] Resolved module firebase-admin {"declared":true,"installed":true,"version":"9.4.2","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-12-25T20:06:04.833Z] DEBUG: [runtime-status] [15490] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-12-25T20:06:04.833Z] DEBUG: [runtime-status] [15490] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"9.4.2","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-admin/lib/index.js"}}
+[warn] ⚠  Error: Cannot find module '/Users/avi111/numerology/packages/numerology-functions/functions/lib/index.js'. Please verify that the package.json has a valid "main" entry
+    at tryPackage (internal/modules/cjs/loader.js:295:19)
+    at Function.Module._findPath (internal/modules/cjs/loader.js:508:18)
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:802:27)
+    at Function.Module._load (internal/modules/cjs/loader.js:667:27)
+    at Module.require (internal/modules/cjs/loader.js:887:19)
+    at require (internal/modules/cjs/helpers.js:74:18)
+    at initializeRuntime (/usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:674:29)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async handleMessage (/usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:712:20) {"metadata":{"emulator":{"name":"functions"},"message":"Error: Cannot find module '/Users/avi111/numerology/packages/numerology-functions/functions/lib/index.js'. Please verify that the package.json has a valid \"main\" entry\n    at tryPackage (internal/modules/cjs/loader.js:295:19)\n    at Function.Module._findPath (internal/modules/cjs/loader.js:508:18)\n    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:802:27)\n    at Function.Module._load (internal/modules/cjs/loader.js:667:27)\n    at Module.require (internal/modules/cjs/loader.js:887:19)\n    at require (internal/modules/cjs/helpers.js:74:18)\n    at initializeRuntime (/usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:674:29)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at async handleMessage (/usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:712:20)"}}
+[warn] ⚠  We were unable to load your functions code. (see above)
+   - It appears your code is written in Typescript, which must be compiled before emulation.
+   - You may be able to run "npm run build" in your functions directory to resolve this. {"metadata":{"emulator":{"name":"functions"}}}
+[debug] [2020-12-25T20:06:04.851Z] DEBUG: [worker-~diagnostic~-65b7b416-ab54-4533-a127-62fcc9f80a83]: exited
+[debug] [2020-12-25T20:06:04.851Z] DEBUG: [worker-~diagnostic~-65b7b416-ab54-4533-a127-62fcc9f80a83]: FINISHED
+[debug] [2020-12-25T20:06:58.357Z] DEBUG: File /Users/avi111/numerology/packages/numerology-functions/functions/package.json changed, reloading triggers
+[debug] [2020-12-25T20:06:59.360Z] DEBUG: [worker-pool] Cleaned up workers for ~diagnostic~: 1 --> 0
+[debug] [2020-12-25T20:06:59.369Z] DEBUG: [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-12-25T20:06:59.369Z] DEBUG: [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2020-12-25T20:06:59.369Z] DEBUG: [worker-pool] submitWork(triggerId=)
+[debug] [2020-12-25T20:06:59.369Z] DEBUG: [worker-~diagnostic~-3b7b1312-2fde-4dc4-bcca-47e0f537b3b5]: Assigning socketPath: /var/folders/7w/sjptyl8s41db5tc_gcx2n0g80000gp/T/fire_emu_15506.sock
+[debug] [2020-12-25T20:06:59.369Z] DEBUG: [worker-~diagnostic~-3b7b1312-2fde-4dc4-bcca-47e0f537b3b5]: BUSY
+[debug] [2020-12-25T20:06:59.664Z] DEBUG: [runtime-status] [15506] Functions runtime initialized. {"cwd":"/Users/avi111/numerology/packages/numerology-functions/functions","node_version":"12.20.0"}
+[debug] [2020-12-25T20:06:59.666Z] DEBUG: [runtime-status] [15506] Disabled runtime features: undefined
+[debug] [2020-12-25T20:06:59.675Z] DEBUG: [runtime-status] [15506] Resolved module firebase-admin {"declared":true,"installed":true,"version":"9.4.2","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-12-25T20:06:59.679Z] DEBUG: [runtime-status] [15506] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-12-25T20:06:59.681Z] DEBUG: [runtime-status] [15506] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-12-25T20:06:59.683Z] DEBUG: [runtime-status] [15506] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}]
+[debug] [2020-12-25T20:06:59.685Z] DEBUG: [runtime-status] [15506] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-12-25T20:06:59.728Z] DEBUG: [runtime-status] [15506] Checked functions.config() {"config":{}}
+[debug] [2020-12-25T20:06:59.728Z] DEBUG: [runtime-status] [15506] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"3.13.0","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-functions/lib/index.js"}}
+[debug] [2020-12-25T20:06:59.728Z] DEBUG: [runtime-status] [15506] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-12-25T20:06:59.729Z] DEBUG: [runtime-status] [15506] Resolved module firebase-admin {"declared":true,"installed":true,"version":"9.4.2","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-12-25T20:06:59.729Z] DEBUG: [runtime-status] [15506] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-12-25T20:06:59.729Z] DEBUG: [runtime-status] [15506] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"9.4.2","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-admin/lib/index.js"}}
+[warn] ⚠  Error: Cannot find module '/Users/avi111/numerology/packages/numerology-functions/functions/lib/index.js'. Please verify that the package.json has a valid "main" entry
+    at tryPackage (internal/modules/cjs/loader.js:295:19)
+    at Function.Module._findPath (internal/modules/cjs/loader.js:508:18)
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:802:27)
+    at Function.Module._load (internal/modules/cjs/loader.js:667:27)
+    at Module.require (internal/modules/cjs/loader.js:887:19)
+    at require (internal/modules/cjs/helpers.js:74:18)
+    at initializeRuntime (/usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:674:29)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async handleMessage (/usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:712:20) {"metadata":{"emulator":{"name":"functions"},"message":"Error: Cannot find module '/Users/avi111/numerology/packages/numerology-functions/functions/lib/index.js'. Please verify that the package.json has a valid \"main\" entry\n    at tryPackage (internal/modules/cjs/loader.js:295:19)\n    at Function.Module._findPath (internal/modules/cjs/loader.js:508:18)\n    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:802:27)\n    at Function.Module._load (internal/modules/cjs/loader.js:667:27)\n    at Module.require (internal/modules/cjs/loader.js:887:19)\n    at require (internal/modules/cjs/helpers.js:74:18)\n    at initializeRuntime (/usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:674:29)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at async handleMessage (/usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:712:20)"}}
+[warn] ⚠  We were unable to load your functions code. (see above)
+   - It appears your code is written in Typescript, which must be compiled before emulation.
+   - You may be able to run "npm run build" in your functions directory to resolve this. {"metadata":{"emulator":{"name":"functions"}}}
+[debug] [2020-12-25T20:06:59.750Z] DEBUG: [worker-~diagnostic~-3b7b1312-2fde-4dc4-bcca-47e0f537b3b5]: exited
+[debug] [2020-12-25T20:06:59.750Z] DEBUG: [worker-~diagnostic~-3b7b1312-2fde-4dc4-bcca-47e0f537b3b5]: FINISHED
+[debug] [2020-12-25T20:08:45.582Z] DEBUG: File /Users/avi111/numerology/packages/numerology-functions/functions/package.json changed, reloading triggers
+[debug] [2020-12-25T20:08:46.586Z] DEBUG: [worker-pool] Cleaned up workers for ~diagnostic~: 1 --> 0
+[debug] [2020-12-25T20:08:46.591Z] DEBUG: [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-12-25T20:08:46.591Z] DEBUG: [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2020-12-25T20:08:46.591Z] DEBUG: [worker-pool] submitWork(triggerId=)
+[debug] [2020-12-25T20:08:46.592Z] DEBUG: [worker-~diagnostic~-69fd7c7d-a602-46ef-86ee-93480c0822f3]: Assigning socketPath: /var/folders/7w/sjptyl8s41db5tc_gcx2n0g80000gp/T/fire_emu_15527.sock
+[debug] [2020-12-25T20:08:46.592Z] DEBUG: [worker-~diagnostic~-69fd7c7d-a602-46ef-86ee-93480c0822f3]: BUSY
+[debug] [2020-12-25T20:08:46.758Z] DEBUG: [runtime-status] [15527] Functions runtime initialized. {"cwd":"/Users/avi111/numerology/packages/numerology-functions/functions","node_version":"12.20.0"}
+[debug] [2020-12-25T20:08:46.759Z] DEBUG: [runtime-status] [15527] Disabled runtime features: undefined
+[debug] [2020-12-25T20:08:46.762Z] DEBUG: [runtime-status] [15527] Resolved module firebase-admin {"declared":true,"installed":true,"version":"9.4.2","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-12-25T20:08:46.766Z] DEBUG: [runtime-status] [15527] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-12-25T20:08:46.767Z] DEBUG: [runtime-status] [15527] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-12-25T20:08:46.769Z] DEBUG: [runtime-status] [15527] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}]
+[debug] [2020-12-25T20:08:46.769Z] DEBUG: [runtime-status] [15527] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-12-25T20:08:46.818Z] DEBUG: [runtime-status] [15527] Checked functions.config() {"config":{}}
+[debug] [2020-12-25T20:08:46.818Z] DEBUG: [runtime-status] [15527] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"3.13.0","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-functions/lib/index.js"}}
+[debug] [2020-12-25T20:08:46.818Z] DEBUG: [runtime-status] [15527] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-12-25T20:08:46.819Z] DEBUG: [runtime-status] [15527] Resolved module firebase-admin {"declared":true,"installed":true,"version":"9.4.2","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-12-25T20:08:46.821Z] DEBUG: [runtime-status] [15527] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-12-25T20:08:46.821Z] DEBUG: [runtime-status] [15527] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"9.4.2","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-admin/lib/index.js"}}
+[warn] ⚠  Error: Cannot find module '/Users/avi111/numerology/packages/numerology-functions/functions/lib/index.js'. Please verify that the package.json has a valid "main" entry
+    at tryPackage (internal/modules/cjs/loader.js:295:19)
+    at Function.Module._findPath (internal/modules/cjs/loader.js:508:18)
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:802:27)
+    at Function.Module._load (internal/modules/cjs/loader.js:667:27)
+    at Module.require (internal/modules/cjs/loader.js:887:19)
+    at require (internal/modules/cjs/helpers.js:74:18)
+    at initializeRuntime (/usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:674:29)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+    at async handleMessage (/usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:712:20) {"metadata":{"emulator":{"name":"functions"},"message":"Error: Cannot find module '/Users/avi111/numerology/packages/numerology-functions/functions/lib/index.js'. Please verify that the package.json has a valid \"main\" entry\n    at tryPackage (internal/modules/cjs/loader.js:295:19)\n    at Function.Module._findPath (internal/modules/cjs/loader.js:508:18)\n    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:802:27)\n    at Function.Module._load (internal/modules/cjs/loader.js:667:27)\n    at Module.require (internal/modules/cjs/loader.js:887:19)\n    at require (internal/modules/cjs/helpers.js:74:18)\n    at initializeRuntime (/usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:674:29)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)\n    at async handleMessage (/usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:712:20)"}}
+[warn] ⚠  We were unable to load your functions code. (see above)
+   - It appears your code is written in Typescript, which must be compiled before emulation.
+   - You may be able to run "npm run build" in your functions directory to resolve this. {"metadata":{"emulator":{"name":"functions"}}}
+[debug] [2020-12-25T20:08:46.847Z] DEBUG: [worker-~diagnostic~-69fd7c7d-a602-46ef-86ee-93480c0822f3]: exited
+[debug] [2020-12-25T20:08:46.847Z] DEBUG: [worker-~diagnostic~-69fd7c7d-a602-46ef-86ee-93480c0822f3]: FINISHED
+[debug] [2020-12-25T20:10:54.373Z] DEBUG: File /Users/avi111/numerology/packages/numerology-functions/functions/src/index.ts changed, reloading triggers
+[debug] [2020-12-25T20:10:55.375Z] DEBUG: [worker-pool] Cleaned up workers for ~diagnostic~: 1 --> 0
+[debug] [2020-12-25T20:10:55.384Z] DEBUG: [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-12-25T20:10:55.384Z] DEBUG: [worker-pool] Adding worker with key ~diagnostic~, total=1
+[debug] [2020-12-25T20:10:55.385Z] DEBUG: [worker-pool] submitWork(triggerId=)
+[debug] [2020-12-25T20:10:55.385Z] DEBUG: [worker-~diagnostic~-0f4d5593-35b8-48ba-91c9-1773f404a742]: Assigning socketPath: /var/folders/7w/sjptyl8s41db5tc_gcx2n0g80000gp/T/fire_emu_15564.sock
+[debug] [2020-12-25T20:10:55.385Z] DEBUG: [worker-~diagnostic~-0f4d5593-35b8-48ba-91c9-1773f404a742]: BUSY
+[debug] [2020-12-25T20:10:55.659Z] DEBUG: [runtime-status] [15564] Functions runtime initialized. {"cwd":"/Users/avi111/numerology/packages/numerology-functions/functions","node_version":"12.20.0"}
+[debug] [2020-12-25T20:10:55.660Z] DEBUG: [runtime-status] [15564] Disabled runtime features: undefined
+[debug] [2020-12-25T20:10:55.667Z] DEBUG: [runtime-status] [15564] Resolved module firebase-admin {"declared":true,"installed":true,"version":"9.4.2","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-12-25T20:10:55.667Z] DEBUG: [runtime-status] [15564] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-12-25T20:10:55.667Z] DEBUG: [runtime-status] [15564] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-12-25T20:10:55.668Z] DEBUG: [runtime-status] [15564] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}]
+[debug] [2020-12-25T20:10:55.669Z] DEBUG: [runtime-status] [15564] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-12-25T20:10:55.731Z] DEBUG: [runtime-status] [15564] Checked functions.config() {"config":{}}
+[debug] [2020-12-25T20:10:55.731Z] DEBUG: [runtime-status] [15564] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"3.13.0","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-functions/lib/index.js"}}
+[debug] [2020-12-25T20:10:55.731Z] DEBUG: [runtime-status] [15564] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-12-25T20:10:55.732Z] DEBUG: [runtime-status] [15564] Resolved module firebase-admin {"declared":true,"installed":true,"version":"9.4.2","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-12-25T20:10:55.732Z] DEBUG: [runtime-status] [15564] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-12-25T20:10:55.733Z] DEBUG: [runtime-status] [15564] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"9.4.2","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-admin/lib/index.js"}}
+[debug] [2020-12-25T20:10:55.736Z] DEBUG: [worker-~diagnostic~-0f4d5593-35b8-48ba-91c9-1773f404a742]: IDLE
+[debug] [2020-12-25T20:11:08.723Z] DEBUG: File /Users/avi111/numerology/packages/numerology-functions/functions/src/index.ts changed, reloading triggers
+[debug] [2020-12-25T20:11:09.726Z] DEBUG: [worker-pool] Shutting down IDLE worker (~diagnostic~)
+[debug] [2020-12-25T20:11:09.726Z] DEBUG: [worker-~diagnostic~-0f4d5593-35b8-48ba-91c9-1773f404a742]: FINISHING
+[debug] [2020-12-25T20:11:09.736Z] DEBUG: [worker-pool] addWorker(~diagnostic~)
+[debug] [2020-12-25T20:11:09.736Z] DEBUG: [worker-pool] Adding worker with key ~diagnostic~, total=2
+[debug] [2020-12-25T20:11:09.736Z] DEBUG: [worker-pool] submitWork(triggerId=)
+[debug] [2020-12-25T20:11:09.737Z] DEBUG: [worker-~diagnostic~-0265a99c-2a8b-466c-ac23-07cf5133709e]: Assigning socketPath: /var/folders/7w/sjptyl8s41db5tc_gcx2n0g80000gp/T/fire_emu_15568.sock
+[debug] [2020-12-25T20:11:09.737Z] DEBUG: [worker-~diagnostic~-0265a99c-2a8b-466c-ac23-07cf5133709e]: BUSY
+[debug] [2020-12-25T20:11:09.738Z] DEBUG: [worker-~diagnostic~-0f4d5593-35b8-48ba-91c9-1773f404a742]: exited
+[debug] [2020-12-25T20:11:09.738Z] DEBUG: [worker-~diagnostic~-0f4d5593-35b8-48ba-91c9-1773f404a742]: FINISHED
+[debug] [2020-12-25T20:11:09.894Z] DEBUG: [runtime-status] [15568] Functions runtime initialized. {"cwd":"/Users/avi111/numerology/packages/numerology-functions/functions","node_version":"12.20.0"}
+[debug] [2020-12-25T20:11:09.895Z] DEBUG: [runtime-status] [15568] Disabled runtime features: undefined
+[debug] [2020-12-25T20:11:09.898Z] DEBUG: [runtime-status] [15568] Resolved module firebase-admin {"declared":true,"installed":true,"version":"9.4.2","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-12-25T20:11:09.902Z] DEBUG: [runtime-status] [15568] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-12-25T20:11:09.902Z] DEBUG: [runtime-status] [15568] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-12-25T20:11:09.902Z] DEBUG: [runtime-status] [15568] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}]
+[debug] [2020-12-25T20:11:09.905Z] DEBUG: [runtime-status] [15568] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-12-25T20:11:09.938Z] DEBUG: [runtime-status] [15568] Checked functions.config() {"config":{}}
+[debug] [2020-12-25T20:11:09.938Z] DEBUG: [runtime-status] [15568] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"3.13.0","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-functions/lib/index.js"}}
+[debug] [2020-12-25T20:11:09.939Z] DEBUG: [runtime-status] [15568] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-12-25T20:11:09.939Z] DEBUG: [runtime-status] [15568] Resolved module firebase-admin {"declared":true,"installed":true,"version":"9.4.2","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2020-12-25T20:11:09.940Z] DEBUG: [runtime-status] [15568] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2020-12-25T20:11:09.940Z] DEBUG: [runtime-status] [15568] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"9.4.2","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-admin/lib/index.js"}}
+[debug] [2020-12-25T20:11:09.941Z] DEBUG: [worker-~diagnostic~-0265a99c-2a8b-466c-ac23-07cf5133709e]: IDLE

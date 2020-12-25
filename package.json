@@ -9,13 +9,12 @@
   "workspaces": {
     "packages": [
       "packages/*"
-    ],
-    "nohoist": [
-      "**/lodash"
     ]
   },
   "scripts": {
-    "start": "mdb",
+    "start": "lerna run start",
+    "build": "lerna run build",
+    "deploy": "lerna run deploy",
     "lerna": "lerna"
   },
   "devDependencies": {

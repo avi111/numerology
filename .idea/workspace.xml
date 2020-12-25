@@ -2,134 +2,52 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33639d11-321f-4f75-ad64-1b55098fddae" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lerna.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/module-a/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/module-a/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/module-b/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/module-b/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.firebaserc" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.github/workflows/firebase-hosting-merge.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.github/workflows/firebase-hosting-pull-request.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/numerology-engine/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/numerology-functions/.data/service-account.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/numerology-functions/.firebaserc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/numerology-functions/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/numerology-functions/firebase-debug.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/numerology-functions/firebase.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/numerology-functions/functions/.eslintrc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/numerology-functions/functions/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/numerology-functions/functions/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/numerology-functions/functions/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/numerology-functions/functions/src/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/numerology-functions/functions/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/numerology-functions/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/numerology-functions/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/numerology-functions/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/numerology-functions/yarn-error.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/numerology/.firebaserc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/numerology/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/numerology/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/numerology/firebase.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/numerology/firestore.indexes.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/numerology/firestore.rules" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/numerology/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/numerology/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/numerology/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/numerology/src/.data/firebaseConfig.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/numerology/src/App.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/numerology/src/App.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/numerology/src/App.test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/numerology/src/firebase.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/numerology/src/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/numerology/src/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/numerology/src/logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/numerology/src/reportWebVitals.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/numerology/src/setupTests.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/numerology/storage.rules" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/firebase.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/firestore.indexes.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/firestore.rules" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/src/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/functions/tslint.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.test.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/consts/chakra.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/consts/letters.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/consts/maps.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/consts/parashot.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/firebase.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interfaces/IChakra.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interfaces/IExportDoc.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interfaces/dates.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interfaces/dictionary.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interfaces/fields.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interfaces/info.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interfaces/inputField.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interfaces/inputTypes.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interfaces/meaning.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interfaces/minimalInput.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interfaces/parashah.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interfaces/promises.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interfaces/props.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interfaces/reportType.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interfaces/siteOptions.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interfaces/status.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interfaces/store.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interfaces/token.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interfaces/triangle.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/interfaces/updates.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/calculations/Chakra.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/calculations/GayOrientation.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/calculations/children.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/calculations/divorce.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/calculations/dragon.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/calculations/genderNumbers.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/calculations/hilltops.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/calculations/kabbalah.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/calculations/lifeRoute.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/calculations/magicSquare.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/calculations/mainTriangle.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/calculations/matchNameBirth.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/calculations/missingNumbers.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/calculations/name.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/calculations/periods.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/calculations/personalYear.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/calculations/prominentAgesDate.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/calculations/prominentAgesName.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/calculations/quarters.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/calculations/triangle/BirthMonth.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/calculations/triangle/BirthYear.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/calculations/triangle/Birthday.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/calculations/triangle/Destiny.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/calculations/triangle/HowFunctionsAsPartner.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/calculations/triangle/NumberCalculation.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/calculations/triangle/Power.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/calculations/triangle/StringCalculation.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/calculations/triangle/SumTriangle.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/calculations/triangle/WhatWantsInPartner.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/calculations/triangle/firstName.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/calculations/triangle/healthSensitivities.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/calculations/triangle/personalMagic.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/calculations/validate/IBusiness.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/calculations/validate/ICouple.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/calculations/validate/IProfile.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/calculations/validate/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/calculations/year.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/calculations/zodiac.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/export/Business.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/export/Chakra.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/export/Couple.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/export/NameMapClass.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/export/Profile.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/helpers/contraGimatria.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/helpers/fakeTime.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/helpers/gimatria.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/helpers/hebDates.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/helpers/letters.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/helpers/months.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/helpers/square.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/helpers/validations.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/mainTools/NameMapClass.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/mainTools/PrepareDoc.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/mainTools/Profile.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/mainTools/batchAdapter.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/mainTools/business.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/mainTools/couple.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/mainTools/exportDoc.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/mainTools/readFile.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/services/dictionary.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/services/loader.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/services/login.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/services/meanings.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/services/options.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/services/updatesProvider.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/react-app-env.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serviceWorker.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/setupTests.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage.rules" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/module-a/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/module-a/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/module-b/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/module-b/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/numerology-engine/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -146,6 +64,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript File" />
+        <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -162,13 +82,14 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="javascript.nodejs.core.library.configured.version" value="14.7.0" />
     <property name="javascript.nodejs.core.library.typings.version" value="14.14.16" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/packages/numerology-functions" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.stylelint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -181,19 +102,27 @@
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
     <property name="settings.editor.selected.configurable" value="settings.nodejs" />
-    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/packages/numerology/functions/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages/numerology-functions" />
+      <recent name="$PROJECT_DIR$/packages/firebaseConfig" />
+      <recent name="$PROJECT_DIR$/packages" />
+      <recent name="$PROJECT_DIR$/packages/firebase" />
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages/numerology/src" />
+      <recent name="$PROJECT_DIR$/packages/numerology/.data" />
+      <recent name="$PROJECT_DIR$/packages/numerology-functions/.data" />
+      <recent name="$PROJECT_DIR$/packages/firebase-config" />
       <recent name="$PROJECT_DIR$/packages" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.start">
+  <component name="RunManager" selected="npm.deploy server">
     <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
+      <package-json value="$PROJECT_DIR$/packages/numerology/package.json" />
       <command value="run" />
       <scripts>
         <script value="build" />
@@ -202,37 +131,27 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="firebase-deploy" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+    <configuration name="deploy client" type="js.build_tools.npm" temporary="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
-        <script value="firebase-deploy" />
+        <script value="deploy" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="lerna" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
+    <configuration name="deploy server" type="js.build_tools.npm" temporary="true">
+      <package-json value="$PROJECT_DIR$/packages/numerology-functions/functions/package.json" />
       <command value="run" />
       <scripts>
-        <script value="lerna" />
+        <script value="deploy" />
       </scripts>
-      <node-interpreter value="project" />
+      <node-interpreter value="$PROJECT_DIR$/../.nvm/versions/node/v12.20.0/bin/node" />
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="lint" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="lint" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+    <configuration name="start client" type="js.build_tools.npm" temporary="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
       <scripts>
@@ -242,13 +161,40 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/packages/numerology-functions/functions/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="$PROJECT_DIR$/../.nvm/versions/node/v12.20.0/bin/node" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/packages/numerology-functions/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="$PROJECT_DIR$/../.nvm/versions/node/v12.20.0/bin/node" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="npm.start" />
+      <item itemvalue="npm.deploy server" />
+      <item itemvalue="npm.deploy client" />
+      <item itemvalue="npm.build" />
+      <item itemvalue="npm.start client" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.start" />
-        <item itemvalue="npm.lerna" />
-        <item itemvalue="npm.firebase-deploy" />
+        <item itemvalue="npm.deploy server" />
+        <item itemvalue="npm.deploy client" />
+        <item itemvalue="npm.start client" />
         <item itemvalue="npm.build" />
-        <item itemvalue="npm.lint" />
+        <item itemvalue="npm.start" />
       </list>
     </recent_temporary>
   </component>
@@ -269,7 +215,7 @@
       <workItem from="1596897418838" duration="6579000" />
       <workItem from="1596910782036" duration="1257000" />
       <workItem from="1608905680291" duration="989000" />
-      <workItem from="1608913163230" duration="718000" />
+      <workItem from="1608913163230" duration="11917000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1587841079915</created>
