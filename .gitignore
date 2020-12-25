@@ -2,3 +2,4 @@ node_modules/
 /packages/numerology/src/.data/
 /packages/numerology-functions/.data/
 /.idea/
+/packages/numerology-engine/dist/
