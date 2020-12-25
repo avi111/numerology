@@ -1,1 +1,3 @@
 node_modules/
+/packages/numerology/src/.data/
+/packages/numerology-functions/.data/
