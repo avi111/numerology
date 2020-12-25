@@ -3,6 +3,7 @@ const path = require('path');
 module.exports = {
     entry: './index.ts',
     devtool: 'inline-source-map',
+    mode: 'none',
     module: {
         rules: [
             {
@@ -17,7 +18,7 @@ module.exports = {
                 options: {
                     // eslint options (if necessary)
                 },
-            },
+            }
         ],
     },
     resolve: {
@@ -26,5 +27,7 @@ module.exports = {
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist'),
+        library: "numerologyEngine",
+        libraryTarget: "umd"
     },
 };

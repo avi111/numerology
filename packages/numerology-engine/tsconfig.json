@@ -3,8 +3,8 @@
     "outDir": "./dist/",
     "noImplicitAny": true,
     "esModuleInterop": true,
-    "target": "es6",
-    "module": "commonjs",
+    "target": "es5",
+    "module": "es6",
     "jsx": "react",
     "allowJs": true,
     "sourceMap": true

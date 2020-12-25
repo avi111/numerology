@@ -1,9 +1,7 @@
 import Gematria from "./helpers/Gematria/Gematria";
 
-const features = {
+const numerologyEngine = {
     Gematria
 }
 
-console.log(Object.keys(features));
-
-export default features;
+export default numerologyEngine;

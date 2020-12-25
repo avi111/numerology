@@ -1,7 +1,6 @@
 import {bigGimatria, contraGimatriaValues, letters, smallGimatria} from '../../consts/letters';
 
 class Gematria {
-
     get small(): number {
         return this._small;
     }
@@ -30,7 +29,7 @@ class Gematria {
     get isMaster(): number {
         return this._isMaster;
     }
-    
+
     constructor(input: string | string[]) {
         this.input = typeof input === 'string' ?
             Gematria.convertToWord(input.split('')) :
