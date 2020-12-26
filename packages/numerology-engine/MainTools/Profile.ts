@@ -193,6 +193,7 @@ class Profile implements ProfileProps {
     }
 
     public static getProfile(props: Props): Promise<Profile> {
+        // eslint-disable-next-line no-async-promise-executor
         return new Promise(async (resolve) => {
             const profile = new Profile(props);
             await profile.calculateAsync();
@@ -203,6 +204,8 @@ class Profile implements ProfileProps {
     public async calculateAsync() {
         const {birthDate, firstName, familyName} = this;
         const hebDateObj = new HebDates(birthDate);
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         const {hebDay, hebMonth, hebYear, hebDate} = await hebDateObj.getDate();
         const hebBirthDate = new Date([hebDay, hebMonth, hebYear].reverse().join('-'));
 

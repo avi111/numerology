@@ -1,7 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-import axios from "axios";
-
 import ContraGematria from "../Gematria/ContraGematria";
 import {enMonths, mapHebMonths, months} from "../../consts/letters";
 import {HebcalResponse, Item, Parashah, ParashahResponse, Portion} from "../../interfaces/parashah";
@@ -131,19 +127,17 @@ class HebDates {
             .replace('MM', this._month + '')
             .replace('DD', this._day + '');
         try {
-            const response = await axios.get(url);
+            const response = await (await fetch(url)).json();
             const data: HebcalResponse = response.data;
             const hebYear = this._hebYear = data.hy;
             const hebMonth = this._hebMonth = data.hm && mapHebMonths.get(data.hm.replace(/'/g, ''));
             const hebDay = this._hebDay = data.hd;
 
-            const HebDate = data.hebrew;
-
             return {
                 hebDay,
                 hebMonth,
                 hebYear,
-                HebDate,
+                HebDate: data.hebrew
             };
         } catch (e) {
             return {};
@@ -168,7 +162,7 @@ class HebDates {
         const parashaUrl = parashaApi.replace('YYYY', year + '')
             .replace('MM', month + '');
         try {
-            const parashaResponse = await axios.get(parashaUrl);
+            const parashaResponse = await (await fetch(parashaUrl)).json();
             const dataParashah: ParashahResponse = parashaResponse.data;
             return (
                 dataParashah.items
