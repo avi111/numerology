@@ -13,6 +13,7 @@ import LifeRoute from "../Calculations/lifeRoute";
 import GayOrientation from "../Calculations/GayOrientation";
 import {Parashah} from "../interfaces/parashah";
 import NameMapClass from "./NameMapClass";
+import HebDates from "../helpers/Dates/hebDates";
 
 export interface ProfileProps {
     props: Props;
@@ -201,7 +202,7 @@ class Profile implements ProfileProps {
 
     public async calculateAsync() {
         const {birthDate, firstName, familyName} = this;
-        const hebDateObj = new HebDate(birthDate);
+        const hebDateObj = new HebDates(birthDate);
         const {hebDay, hebMonth, hebYear, hebDate} = await hebDateObj.getDate();
         const hebBirthDate = new Date([hebDay, hebMonth, hebYear].reverse().join('-'));
 

@@ -1,13 +1,27 @@
 import logo from './logo.svg'
 import './App.css'
-import {Gematria} from "./numerologyEngine";
+import {Profile} from "./numerologyEngine";
 
 function App() {
-  const avi = new Gematria('אבי');
+  const props = {
+    birthDate: new Date('1980-9-16'),
+    familyName: 'לבקוביץ',
+    fatherName: 'יעקב',
+    fatherNameAtBirthOfPatient: '',
+    firstName: 'אבי',
+    firstNameAtBirth: '',
+    gender: 'male',
+    motherName: 'טובה',
+    motherNameAtBirthOfPatient: '',
+    birthHour: false,
+  };
+
+  const profile = new Profile(props);
+
   return (
     <div className="App">
       <header className="App-header">
-        <p>avi small: {avi.small}</p>
+        <p>{JSON.stringify(profile.props.firstName)}</p>
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.

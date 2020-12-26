@@ -137,13 +137,13 @@ class HebDates {
             const hebMonth = this._hebMonth = data.hm && mapHebMonths.get(data.hm.replace(/'/g, ''));
             const hebDay = this._hebDay = data.hd;
 
-            const HebDates = data.hebrew;
+            const HebDate = data.hebrew;
 
             return {
                 hebDay,
                 hebMonth,
                 hebYear,
-                HebDates,
+                HebDate,
             };
         } catch (e) {
             return {};

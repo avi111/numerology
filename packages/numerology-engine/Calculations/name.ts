@@ -79,9 +79,8 @@ class Name implements NameProps {
         const period = letters.map((letter, index) => {
             return letters.slice(0, index + 1).reduce((total, num) => total + parseInt(num + '', 10), 0);
         });
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        return [...Array(100).keys()].map((num) => {
+
+        return Array.from(Array(100).keys()).map((num) => {
             if ((num + 1) * summary <= 120) {
                 return period.map((p) => p + num * summary);
             }
