@@ -1,6 +1,6 @@
-import HebDates from '@/models/helpers/hebDates';
-import ContraGimatria from '@/models/helpers/contraGimatria';
-import {months} from '@/consts/letters';
+import ContraGematria from "../Gematria/ContraGematria";
+import HebDates from "./hebDates";
+import {months} from "../../consts/letters";
 
 describe('HebDate', () => {
     it('years', () => {
@@ -20,7 +20,7 @@ describe('HebDate', () => {
     it('days', () => {
         for (let day = 0; day < 40; day++) {
             if (day > 0 || day < 31) {
-                expect(HebDates.getHebDayName(day)).toBe(new ContraGimatria(day).gimatria);
+                expect(HebDates.getHebDayName(day)).toBe(new ContraGematria(day).gematria);
             } else {
                 expect(HebDates.getHebDayName(day)).toBe('');
             }

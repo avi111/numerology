@@ -1,16 +1,14 @@
-import axios from 'axios';
-import ContraGimatria from '@/models/helpers/contraGimatria';
-import {enMonths, mapHebMonths, months} from '@/consts/letters';
-import {HebcalResponse, Item, Parashah, ParashahResponse, Portion} from '@/interfaces/parashah';
-import parashot from '@/consts/parashot';
+import axios from "axios";
+import ContraGematria from "../Gematria/ContraGematria";
+import {enMonths, mapHebMonths, months} from "../../consts/letters";
+import {HebcalResponse, Item, Parashah, ParashahResponse, Portion} from "../../interfaces/parashah";
+import parashot from "../../consts/parashot";
 
 const api = 'https://www.hebcal.com/converter/?cfg=json&gy=YYYY&gm=MM&gd=DD&g2h=1&gs=on';
-
 const parashaApi = 'https://www.hebcal.com/hebcal/?v=1&cfg=json&maj=on&min=on&mod=on&nx=on&year=YYYY&month=MM&ss=on&mf=on&c=on&m=50&s=on';
 
 
-class HebDate {
-
+class HebDates {
     get year(): number {
         return this._year;
     }
@@ -42,13 +40,13 @@ class HebDate {
     private readonly _month: number;
     private readonly _day: number;
 
-    private _hebYear: number = 0;
+    private _hebYear = 0;
 
-    private _hebMonth: number = 0;
+    private _hebMonth = 0;
 
-    private _hebDay: number = 0;
+    private _hebDay = 0;
 
-    constructor(date: Date, geoid: number = 0) {
+    constructor(date: Date, geoid = 0) {
         this.date = date;
         this._year = date.getFullYear();
         this._month = date.getMonth() + 1;
@@ -64,11 +62,11 @@ class HebDate {
     }
 
     public static getHebDayName(day: number): string | void {
-        return new ContraGimatria(day).gimatria;
+        return new ContraGematria(day).gematria;
     }
 
     public static getHebYearName(year: number): string | void {
-        return new ContraGimatria(year).gimatria;
+        return new ContraGematria(year).gematria;
     }
 
     public static getHebMonthByEn(month: string): string | void {
@@ -80,7 +78,7 @@ class HebDate {
 
     public static splitParashah(str: string | undefined): Portion | undefined {
         if (str) {
-            const regex = /\b(\w+)\b ([\d\:]+(\-\d+)?)(([ -]+)([\d\:]+(\-\d+)?))?/g;
+            const regex = /\b(\w+)\b ([\d:]+(-\d+)?)(([ -]+)([\d:]+(-\d+)?))?/g;
 
             let m;
             let matches: string[] = [];
@@ -114,7 +112,7 @@ class HebDate {
 
     private static getRef(item: Item | undefined): string | undefined {
         if (item) {
-            const regex = item.link.match(/([^\/]+$)/g);
+            const regex = item.link.match(/([^/]+$)/g);
             const parashah = regex && regex[0];
             const ref = item.leyning && item.leyning.torah;
             if (!ref && parashah) {
@@ -136,13 +134,13 @@ class HebDate {
             const hebMonth = this._hebMonth = data.hm && mapHebMonths.get(data.hm.replace(/'/g, ''));
             const hebDay = this._hebDay = data.hd;
 
-            const hebDate = data.hebrew;
+            const HebDates = data.hebrew;
 
             return {
                 hebDay,
                 hebMonth,
                 hebYear,
-                hebDate,
+                HebDates,
             };
         } catch (e) {
             return {};
@@ -154,12 +152,12 @@ class HebDate {
         const dates: Item[] = await this.getShabbatot(year, month);
         const chosen = dates && dates.filter((d) => d.leyning && d.leyning.torah).map((d) => new Date(d.date).getDate()).findIndex((d) => d > day);
         const item: Item | undefined = chosen > -1 ? dates[chosen] : (await this.getShabbatot(year, month + 1)).shift();
-        const ref: string | undefined = HebDate.getRef(item);
+        const ref: string | undefined = HebDates.getRef(item);
 
         return {
             parashah: item && item.title.replace('Parashat ', ''),
             hebrew: item && item.hebrew.replace('פרשת ', ''),
-            ref: HebDate.splitParashah(ref),
+            ref: HebDates.splitParashah(ref),
         };
     }
 
@@ -179,5 +177,4 @@ class HebDate {
     }
 }
 
-export default HebDate;
-export {months, HebcalResponse, Parashah};
+export default HebDates;
