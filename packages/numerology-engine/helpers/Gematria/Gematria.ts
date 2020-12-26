@@ -1,4 +1,4 @@
-import {bigGimatria, contraGimatriaValues, letters, smallGimatria} from '../../consts/letters';
+import {bigGematria, contraGematriaValues, letters, smallGematria} from "../../consts/letters";
 
 class Gematria {
     get small(): number {
@@ -43,7 +43,7 @@ class Gematria {
          * isolate letters like יכלמנסעפצ  =>  Number.parseInt(input,10)%10===0
          */
         if (typeof input === 'string' && Number.parseInt(input, 10) % 10 === 0) {
-            value = contraGimatriaValues.get(Number.parseInt(input, 10));
+            value = contraGematriaValues.get(Number.parseInt(input, 10));
             splitted = value && [value];
         }
         splitted = splitted || this.input.split('')
@@ -76,7 +76,7 @@ class Gematria {
             const index = letters.split('').findIndex((letter) => letter === element);
             if (index === -1) {
                 if (Number.isInteger(Number.parseInt(element, 10))) {
-                    return letters[smallGimatria.split('').findIndex((digit) => digit === element)];
+                    return letters[smallGematria.split('').findIndex((digit) => digit === element)];
                 } else {
                     return '';
                 }
@@ -117,7 +117,7 @@ class Gematria {
     public calculateSmall(splitted: string[]): number {
         const nums = splitted.map((l) => {
             const index = letters.split('').findIndex((letter) => letter === l);
-            return index !== -1 && smallGimatria[index];
+            return index !== -1 && smallGematria[index];
         });
         let summary: number = nums.reduce((total, num) => total + Number.parseInt(num + '', 10), 0);
         while (summary > 9) {
@@ -144,7 +144,7 @@ class Gematria {
     public calculateBig(splitted: string[]): number {
         return splitted.map((l) => {
             const index = letters.split('').findIndex((letter) => letter === l);
-            return index !== -1 && bigGimatria.get(letters[index]);
+            return index !== -1 && bigGematria.get(letters[index]);
         }).reduce((total, num) => total + Number.parseInt(num + '', 10), 0);
     }
 }

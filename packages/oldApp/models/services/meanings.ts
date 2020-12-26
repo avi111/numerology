@@ -1,4 +1,4 @@
-import {MeaningNormalized, MeaningsLink, MeaningsProps} from '../../interfaces/meaning';
+import {MeaningNormalized, MeaningsLink, MeaningsProps} from '../../../numerology-engine/interfaces/meaning';
 import Axios0 from 'axios';
 import Login from '@/models/services/login';
 

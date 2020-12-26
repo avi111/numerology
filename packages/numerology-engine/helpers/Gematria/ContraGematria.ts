@@ -1,9 +1,8 @@
-import {contraGimatriaValues} from '@/consts/letters';
+import {contraGematriaValues} from '../../consts/letters'
 
-class ContraGimatria {
-
-    get gimatria(): string {
-        return this._gimatria;
+class ContraGematria {
+    get gematria(): string {
+        return this._gematria;
     }
 
     private readonly num: number;
@@ -11,7 +10,7 @@ class ContraGimatria {
     private readonly hundreds: number;
     private readonly tens: number;
     private readonly ones: number;
-    private readonly _gimatria: string;
+    private readonly _gematria: string;
 
     constructor(num: number) {
         this.num = parseInt(num + '', 10);
@@ -19,11 +18,11 @@ class ContraGimatria {
         this.hundreds = Math.floor((this.num % 1000) / 100);
         this.tens = Math.floor((this.num % 100) / 10);
         this.ones = Math.floor(this.num % 10);
-        this._gimatria = this.calculate();
+        this._gematria = this.calculate();
     }
 
     public static convertNumbersToWord(num: number): string {
-        return (num + '').split('').map((n) => contraGimatriaValues.get(parseInt(n, 10))).join('');
+        return (num + '').split('').map((n) => contraGematriaValues.get(parseInt(n, 10))).join('');
     }
 
     public static getThousands(thousand: number): string {
@@ -31,8 +30,8 @@ class ContraGimatria {
             return '';
         }
 
-        return ContraGimatria.complete(contraGimatriaValues.get(thousand))
-            || new ContraGimatria(thousand || 0).gimatria;
+        return ContraGematria.complete(contraGematriaValues.get(thousand))
+            || new ContraGematria(thousand || 0).gematria;
     }
 
     public static getHundreds(hundred: number): string | undefined {
@@ -44,7 +43,7 @@ class ContraGimatria {
             return '';
         }
 
-        return ContraGimatria.complete(contraGimatriaValues.get(hundred * 100));
+        return ContraGematria.complete(contraGematriaValues.get(hundred * 100));
     }
 
     public static getTens(ten: number): string | undefined {
@@ -56,7 +55,7 @@ class ContraGimatria {
             return '';
         }
 
-        return ContraGimatria.complete(contraGimatriaValues.get(ten * 10));
+        return ContraGematria.complete(contraGematriaValues.get(ten * 10));
     }
 
     public static getOnes(one: number): string | undefined {
@@ -68,7 +67,7 @@ class ContraGimatria {
             return '';
         }
 
-        return ContraGimatria.complete(contraGimatriaValues.get(one));
+        return ContraGematria.complete(contraGematriaValues.get(one));
     }
 
     public static complete(input: string): string {
@@ -84,18 +83,18 @@ class ContraGimatria {
     }
 
     public calculate(): string {
-        const thousands = ContraGimatria.getThousands(this.thousands);
-        const hundreds = ContraGimatria.getHundreds(this.hundreds);
+        const thousands = ContraGematria.getThousands(this.thousands);
+        const hundreds = ContraGematria.getHundreds(this.hundreds);
 
-        const value = contraGimatriaValues.get(parseInt('' + this.tens + this.ones, 10));
+        const value = contraGematriaValues.get(parseInt('' + this.tens + this.ones, 10));
 
-        const tens = ContraGimatria.getTens(this.tens);
-        const ones = ContraGimatria.getOnes(this.ones);
+        const tens = ContraGematria.getTens(this.tens);
+        const ones = ContraGematria.getOnes(this.ones);
 
         const result = `${hundreds}${value || `${tens}${ones}`}`;
-        return ContraGimatria.complete(`${thousands ? (`${thousands}'`) : ''}`)
-            + ContraGimatria.complete(result);
+        return ContraGematria.complete(`${thousands ? (`${thousands}'`) : ''}`)
+            + ContraGematria.complete(result);
     }
 }
 
-export default ContraGimatria;
+export default ContraGematria;

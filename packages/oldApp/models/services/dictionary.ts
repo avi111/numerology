@@ -1,5 +1,5 @@
 import Axios0 from 'axios';
-import {Key} from '../../interfaces/dictionary';
+import {Key} from '../../../numerology-engine/interfaces/dictionary';
 import Login from '@/models/services/login';
 
 // import * as queryString from 'querystring';

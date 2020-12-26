@@ -1,4 +1,4 @@
-import IChakra from '@/interfaces/IChakra';
+import IChakra from "../interfaces/IChakra";
 
 const numbers = Object.keys(Array(9).fill({})).map((n) => parseInt(n, 10) + 1);
 export const fireNumbers = [1, 11, 22, 3, 5, 8, 9];

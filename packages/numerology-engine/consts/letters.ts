@@ -4,74 +4,74 @@ const EHEVI_LETTERS: string[] = 'אהוי'.split('');
 const SUFFIX_LETTERS: string[] = 'םןץפך'.split('');
 const REGULAR_LETTERS: string[] = 'מנצפכ'.split('');
 
-const gimatriaValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30,
+const gematriaValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30,
     40, 50, 60, 70, 80, 90, 100, 200, 300, 400,
     40, 50, 90, 80, 20];
 
-const contraGimatriaValues = new Map();
+const contraGematriaValues = new Map();
 
-contraGimatriaValues.set(0, '');
-contraGimatriaValues.set(1, 'א');
-contraGimatriaValues.set(2, 'ב');
-contraGimatriaValues.set(3, 'ג');
-contraGimatriaValues.set(4, 'ד');
-contraGimatriaValues.set(5, 'ה');
-contraGimatriaValues.set(6, 'ו');
-contraGimatriaValues.set(7, 'ז');
-contraGimatriaValues.set(8, 'ח');
-contraGimatriaValues.set(9, 'ט');
-contraGimatriaValues.set(10, 'י');
-contraGimatriaValues.set(15, 'טו');
-contraGimatriaValues.set(16, 'טז');
-contraGimatriaValues.set(20, 'כ');
-contraGimatriaValues.set(30, 'ל');
-contraGimatriaValues.set(40, 'מ');
-contraGimatriaValues.set(50, 'נ');
-contraGimatriaValues.set(60, 'ס');
-contraGimatriaValues.set(70, 'ע');
-contraGimatriaValues.set(80, 'פ');
-contraGimatriaValues.set(90, 'צ');
-contraGimatriaValues.set(100, 'ק');
-contraGimatriaValues.set(200, 'ר');
-contraGimatriaValues.set(300, 'ש');
-contraGimatriaValues.set(400, 'ת');
-contraGimatriaValues.set(500, 'תק');
-contraGimatriaValues.set(600, 'תר');
-contraGimatriaValues.set(700, 'תש');
-contraGimatriaValues.set(800, 'תת');
-contraGimatriaValues.set(900, 'תתק');
+contraGematriaValues.set(0, '');
+contraGematriaValues.set(1, 'א');
+contraGematriaValues.set(2, 'ב');
+contraGematriaValues.set(3, 'ג');
+contraGematriaValues.set(4, 'ד');
+contraGematriaValues.set(5, 'ה');
+contraGematriaValues.set(6, 'ו');
+contraGematriaValues.set(7, 'ז');
+contraGematriaValues.set(8, 'ח');
+contraGematriaValues.set(9, 'ט');
+contraGematriaValues.set(10, 'י');
+contraGematriaValues.set(15, 'טו');
+contraGematriaValues.set(16, 'טז');
+contraGematriaValues.set(20, 'כ');
+contraGematriaValues.set(30, 'ל');
+contraGematriaValues.set(40, 'מ');
+contraGematriaValues.set(50, 'נ');
+contraGematriaValues.set(60, 'ס');
+contraGematriaValues.set(70, 'ע');
+contraGematriaValues.set(80, 'פ');
+contraGematriaValues.set(90, 'צ');
+contraGematriaValues.set(100, 'ק');
+contraGematriaValues.set(200, 'ר');
+contraGematriaValues.set(300, 'ש');
+contraGematriaValues.set(400, 'ת');
+contraGematriaValues.set(500, 'תק');
+contraGematriaValues.set(600, 'תר');
+contraGematriaValues.set(700, 'תש');
+contraGematriaValues.set(800, 'תת');
+contraGematriaValues.set(900, 'תתק');
 
-const smallGimatria = '123456789123456789123445982';
+const smallGematria = '123456789123456789123445982';
 
-const bigGimatria = new Map();
+const bigGematria = new Map();
 
-bigGimatria.set('א', 1);
-bigGimatria.set('ב', 2);
-bigGimatria.set('ג', 3);
-bigGimatria.set('ד', 4);
-bigGimatria.set('ה', 5);
-bigGimatria.set('ו', 6);
-bigGimatria.set('ז', 7);
-bigGimatria.set('ח', 8);
-bigGimatria.set('ט', 9);
-bigGimatria.set('י', 10);
-bigGimatria.set('כ', 20);
-bigGimatria.set('ל', 30);
-bigGimatria.set('מ', 40);
-bigGimatria.set('נ', 50);
-bigGimatria.set('ס', 60);
-bigGimatria.set('ע', 70);
-bigGimatria.set('פ', 80);
-bigGimatria.set('צ', 90);
-bigGimatria.set('ק', 100);
-bigGimatria.set('ר', 200);
-bigGimatria.set('ש', 300);
-bigGimatria.set('ת', 400);
-bigGimatria.set('ם', 500);
-bigGimatria.set('ן', 600);
-bigGimatria.set('ץ', 700);
-bigGimatria.set('ף', 800);
-bigGimatria.set('ך', 900);
+bigGematria.set('א', 1);
+bigGematria.set('ב', 2);
+bigGematria.set('ג', 3);
+bigGematria.set('ד', 4);
+bigGematria.set('ה', 5);
+bigGematria.set('ו', 6);
+bigGematria.set('ז', 7);
+bigGematria.set('ח', 8);
+bigGematria.set('ט', 9);
+bigGematria.set('י', 10);
+bigGematria.set('כ', 20);
+bigGematria.set('ל', 30);
+bigGematria.set('מ', 40);
+bigGematria.set('נ', 50);
+bigGematria.set('ס', 60);
+bigGematria.set('ע', 70);
+bigGematria.set('פ', 80);
+bigGematria.set('צ', 90);
+bigGematria.set('ק', 100);
+bigGematria.set('ר', 200);
+bigGematria.set('ש', 300);
+bigGematria.set('ת', 400);
+bigGematria.set('ם', 500);
+bigGematria.set('ן', 600);
+bigGematria.set('ץ', 700);
+bigGematria.set('ף', 800);
+bigGematria.set('ך', 900);
 
 const gregorianMonths = new Map();
 gregorianMonths.set(1, 'January');
@@ -183,10 +183,10 @@ export {
     EHEVI_LETTERS,
     SUFFIX_LETTERS,
     REGULAR_LETTERS,
-    gimatriaValues,
-    contraGimatriaValues,
-    smallGimatria,
-    bigGimatria,
+    gematriaValues,
+    contraGematriaValues,
+    smallGematria,
+    bigGematria,
     months,
     enMonths,
     days,

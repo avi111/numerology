@@ -1,4 +1,4 @@
-import {Updates} from '../../interfaces/updates';
+import {Updates} from '../../../numerology-engine/interfaces/updates';
 import Axios0 from 'axios';
 import Login from '@/models/services/login';
 
