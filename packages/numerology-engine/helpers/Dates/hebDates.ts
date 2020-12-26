@@ -1,4 +1,7 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import axios from "axios";
+
 import ContraGematria from "../Gematria/ContraGematria";
 import {enMonths, mapHebMonths, months} from "../../consts/letters";
 import {HebcalResponse, Item, Parashah, ParashahResponse, Portion} from "../../interfaces/parashah";

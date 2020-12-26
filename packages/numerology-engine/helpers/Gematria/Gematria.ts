@@ -1,4 +1,5 @@
 import {bigGematria, contraGematriaValues, letters, smallGematria} from "../../consts/letters";
+import MainTriangle from "../../Calculations/Triangle/mainTriangle";
 
 class Gematria {
     get small(): number {
@@ -98,13 +99,13 @@ class Gematria {
     public specialNumbers() {
         const self = this;
         this._recursiveBig.forEach((num) => {
-            // if (MainTriangle.isKarmatic(num)) {
-            //     self._isKarmatic = num;
-            // }
-            //
-            // if (MainTriangle.isMaster(num)) {
-            //     self._isMaster = num;
-            // }
+            if (MainTriangle.isKarmatic(num)) {
+                self._isKarmatic = num;
+            }
+
+            if (MainTriangle.isMaster(num)) {
+                self._isMaster = num;
+            }
         });
     }
 
