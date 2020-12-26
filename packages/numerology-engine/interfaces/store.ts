@@ -1,4 +1,4 @@
-import Props from '@/interfaces/props';
+import Props from "./props";
 
 interface IProps {
     props: Props;

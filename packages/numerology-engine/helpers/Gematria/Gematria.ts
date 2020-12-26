@@ -1,5 +1,5 @@
 import {bigGematria, contraGematriaValues, letters, smallGematria} from "../../consts/letters";
-import MainTriangle from "../../Calculations/Triangle/mainTriangle";
+import MainTriangle from "../../Calculations/mainTriangle";
 
 class Gematria {
     get small(): number {

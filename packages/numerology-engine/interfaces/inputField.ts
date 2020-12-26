@@ -1,4 +1,4 @@
-import InputTypes from '@/interfaces/inputTypes';
+import InputTypes from "./inputTypes";
 
 enum Variants {
     INFO = 'info',

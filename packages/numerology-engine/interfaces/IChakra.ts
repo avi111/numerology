@@ -1,4 +1,4 @@
-import {Sefirah} from '@/consts/chakra';
+import {Sefirah} from "../consts/chakra";
 
 export interface Chakras {
     value: number[];

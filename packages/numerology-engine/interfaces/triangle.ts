@@ -1,4 +1,4 @@
-import {Triangle} from '@/models/calculations/mainTriangle';
+import {Triangle} from "../Calculations/mainTriangle";
 
 export interface TriangleProps {
     triangle: Triangle;

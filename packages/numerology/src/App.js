@@ -1,8 +1,6 @@
 import logo from './logo.svg'
 import './App.css'
-import numerologyEngine from "@maya259/numerology-engine";
-
-const {Gematria} = numerologyEngine;
+import {Gematria} from "./numerologyEngine";
 
 function App() {
   const avi = new Gematria('אבי');
