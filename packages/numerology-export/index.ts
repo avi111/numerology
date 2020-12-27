@@ -2,4 +2,4 @@ const numerologyExport = {
 
 }
 
-export default numerologyEngine;
+export default numerologyExport;
