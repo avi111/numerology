@@ -1,12 +1,11 @@
-import Handlebars from 'handlebars';
+// import Handlebars from 'handlebars';
 import {ExportDocProps} from "../interfaces/IExportDoc";
 import ExportDoc from "../mainTools/exportDoc";
-import {Chakra} from "../numerologyEngine";
 
 class ExportChakra implements ExportDocProps {
-    private data: Chakra;
+    private data: any;
 
-    constructor(data: Chakra) {
+    constructor(data: any) {
         this.data = data;
     }
 
@@ -15,9 +14,7 @@ class ExportChakra implements ExportDocProps {
     public getFileName = () => `${this.data.firstName} ${this.data.lastName}`;
 
     public prepare() {
-        const html = 'Name: {{lastName}}';
-        const template = Handlebars.compile(html);
-        return template(this.data);
+        return JSON.stringify(this.data);
     }
 }
 

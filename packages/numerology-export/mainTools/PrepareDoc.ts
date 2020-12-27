@@ -1,14 +1,10 @@
 import IExportDoc, {ExportDocProps} from "../interfaces/IExportDoc";
-import ExportChakra from "../export/Chakra";
-import Chakra from "../export/Chakra";
 import ExportProfile from "../export/Profile";
-import Profile from "../export/Profile";
 import ExportNameMapClass from "../export/NameMapClass";
-import NameMapClass from "../export/NameMapClass";
 import ExportBusiness from "../export/Business";
-import Business from "../export/Business";
 import ExportCouple from "../export/Couple";
-import Couple from "../export/Couple";
+import ExportChakra from "../export/Chakra";
+
 
 class PrepareDoc {
     private profile: IExportDoc;
@@ -34,19 +30,19 @@ class PrepareDoc {
 
         switch (type) {
             case 'Chakra':
-                this.exporter = new ExportChakra(profile as Chakra);
+                this.exporter = new ExportChakra(profile);
                 break;
             case 'Profile':
-                this.exporter = new ExportProfile(profile as Profile);
+                this.exporter = new ExportProfile(profile);
                 break;
             case 'NameMapClass':
-                this.exporter = new ExportNameMapClass(profile as NameMapClass);
+                this.exporter = new ExportNameMapClass(profile);
                 break;
             case 'Business':
-                this.exporter = new ExportBusiness(profile as Business);
+                this.exporter = new ExportBusiness(profile);
                 break;
             case 'Couple':
-                this.exporter = new ExportCouple(profile as Couple);
+                this.exporter = new ExportCouple(profile);
                 break;
         }
     }
