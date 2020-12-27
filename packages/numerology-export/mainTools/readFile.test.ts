@@ -1,13 +1,13 @@
 import path from 'path';
 import fs from 'fs';
 import {promisify} from 'util';
-import {CSVParse} from '@/models/mainTools/readFile';
+import {CSVParse} from "./readFile";
 
 const readFileAsync = promisify(fs.readFile);
 
 describe('readFile', () => {
     it('readFile', async (done) => {
-        const file = path.resolve(__dirname + '/csv/addresses.csv');
+        const file = path.resolve(__dirname + '/testData/addresses.csv');
         const response = await readFileAsync(file, 'utf8');
         const parsed = CSVParse(response);
         expect(response).toBeDefined();

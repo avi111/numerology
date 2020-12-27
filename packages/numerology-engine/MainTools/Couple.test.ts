@@ -1,4 +1,4 @@
-import Couple, {CoupleProps} from "./couple";
+import Couple, {CoupleProps} from "./Couple";
 
 describe('couple', () => {
     let couple: Couple;

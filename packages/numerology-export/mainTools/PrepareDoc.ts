@@ -1,14 +1,14 @@
-import Profile from '@/models/mainTools/Profile';
-import Couple from '@/models/mainTools/couple';
-import Business from '@/models/mainTools/business';
-import NameMapClass from '@/models/mainTools/NameMapClass';
-import IExportDoc, {ExportDocProps} from '@/interfaces/IExportDoc';
-import Chakra from '@/models/calculations/Chakra';
-import ExportChakra from '@/models/export/Chakra';
-import ExportProfile from '@/models/export/Profile';
-import ExportNameMapClass from '@/models/export/NameMapClass';
-import ExportBusiness from '@/models/export/Business';
-import ExportCouple from '@/models/export/Couple';
+import IExportDoc, {ExportDocProps} from "../interfaces/IExportDoc";
+import ExportChakra from "../export/Chakra";
+import Chakra from "../export/Chakra";
+import ExportProfile from "../export/Profile";
+import Profile from "../export/Profile";
+import ExportNameMapClass from "../export/NameMapClass";
+import NameMapClass from "../export/NameMapClass";
+import ExportBusiness from "../export/Business";
+import Business from "../export/Business";
+import ExportCouple from "../export/Couple";
+import Couple from "../export/Couple";
 
 class PrepareDoc {
     private profile: IExportDoc;
@@ -28,6 +28,7 @@ class PrepareDoc {
     public route() {
         const {profile} = this;
 
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         const type = profile.constructor.name;
 

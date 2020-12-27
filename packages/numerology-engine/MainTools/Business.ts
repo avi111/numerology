@@ -1,5 +1,5 @@
 import MainTriangle from "../Calculations/mainTriangle";
-import Couple, {CoupleProps} from "./couple";
+import Couple, {CoupleProps} from "./Couple";
 import MatchNameBirth from "../Calculations/matchNameBirth";
 import PersonalYear from "../Calculations/personalYear";
 import Hilltops from "../Calculations/hilltops";

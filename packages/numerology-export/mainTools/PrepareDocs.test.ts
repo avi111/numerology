@@ -1,5 +1,5 @@
-import Chakra from '@/models/calculations/Chakra';
-import PrepareDoc from '@/models/mainTools/PrepareDoc';
+import PrepareDoc from "./PrepareDoc";
+import {Chakra} from "../numerologyEngine";
 
 describe('prepare docs', () => {
     it('prepares hbs well', () => {

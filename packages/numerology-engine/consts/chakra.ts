@@ -57,25 +57,6 @@ enum Meanings {
     LUCK = 'big luck',
 }
 
-
-// getWord('affects in a bad way')
-// getWord('affects in a good way')
-// getWord('will help to deal with bad numbers in Solar Plexus chakra')
-// getWord('hard number')
-// getWord('good number')
-// getWord('bad number')
-// getWord('indicates an unbalanced map')
-// getWord('generally good) important to be on the positive side')
-// getWord('as a karmatic number it\'s disturbing')
-// getWord('will help to the person')
-// getWord('very hard number')
-// getWord('very good number')
-// getWord('very big effect')
-// getWord('number we\'d want to see')
-// getWord('helps to make life successful')
-// getWord('big luck')
-
-
 const setMeaning = (map: Map<number, string[]>, num: number, meaning: string) => {
     map.set(num, [...(map.get(num) || []), meaning]);
 };
@@ -90,6 +71,7 @@ chakras.forEach((chakra) => {
     // karmaticNumbers.forEach((num) => setMeaning(map, num, Meanings.BAD_WAY));
     // goodNumbers.forEach((num) => setMeaning(map, num, Meanings.GOOD_WAY));
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     meanings[chakra] = map;
 });

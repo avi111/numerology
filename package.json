@@ -14,6 +14,7 @@
   "scripts": {
     "start": "lerna run start",
     "test": "lerna run test",
+    "watch": "lerna run watch",
     "build": "lerna run build",
     "deploy": "lerna run deploy",
     "lerna": "lerna"
