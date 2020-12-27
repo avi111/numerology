@@ -1,5 +1,5 @@
-import getChildren, {andUp, children} from '@/models/calculations/children';
-import {getWord} from '@/mixin';
+import getChildren, {andUp, children} from "./children";
+import {getWord} from "../helpers/Dictionary/dictionary";
 
 describe('children', () => {
     describe('return proper result', () => {

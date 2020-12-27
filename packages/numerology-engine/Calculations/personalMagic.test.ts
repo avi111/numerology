@@ -1,5 +1,5 @@
-import PersonalMagic from '@/models/calculations/triangle/personalMagic';
-import MainTriangle from '@/models/calculations/mainTriangle';
+import MainTriangle from "./mainTriangle";
+import PersonalMagic from "./personalMagic";
 
 describe('personal magic', () => {
     describe('calculates well', () => {

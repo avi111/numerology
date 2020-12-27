@@ -1,5 +1,5 @@
-import Name from '@/models/calculations/name';
-import Periods from '@/models/calculations/periods';
+import Name from "./name";
+import Periods from "./periods";
 
 describe('periods', () => {
     it('calculates well', () => {

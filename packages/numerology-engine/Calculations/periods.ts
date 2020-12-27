@@ -1,4 +1,4 @@
-import {getWord} from '@/mixin';
+import {getWord} from "../helpers/Dictionary/dictionary";
 
 class Periods {
 
@@ -6,6 +6,7 @@ class Periods {
         return this._fields;
     }
 
+    // eslint-disable-next-line @typescript-eslint/ban-types
     get items(): Array<object | undefined> {
         return this._items;
     }
@@ -14,6 +15,7 @@ class Periods {
 
     private _fields: Array<{ label: string; key: string }>;
 
+    // eslint-disable-next-line @typescript-eslint/ban-types
     private _items: Array<object | undefined>;
 
     constructor(firstName: string, periods: Array<string[] | undefined>) {
@@ -48,6 +50,7 @@ class Periods {
         }
 
         for (i = 0; i < keys.length; i++) {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
             newArray[keys[i]] = values[i];
         }
@@ -55,6 +58,7 @@ class Periods {
         return newArray;
     }
 
+    // eslint-disable-next-line @typescript-eslint/ban-types
     public calculate(): Array<object | undefined> {
         const cycles = this.periods;
 

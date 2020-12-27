@@ -1,4 +1,4 @@
-import {getWord} from '@/mixin';
+import {getWord} from "../helpers/Dictionary/dictionary";
 
 const children: string[][] = [
     [],
