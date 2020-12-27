@@ -1,6 +1,7 @@
-import {Gender} from '@/interfaces/props';
-import MainTriangle from '@/models/calculations/mainTriangle';
-import Hilltops from '@/models/calculations/hilltops';
+import MainTriangle from "./mainTriangle";
+import Hilltops from "./hilltops";
+import {Gender} from "../interfaces/props";
+
 
 const maleNumbers = [1, 4, 5, 8];
 
@@ -64,6 +65,7 @@ class GenderNumbers {
     }
 
     public calcTable(arr: GenderNumbersProps, i: number, table: Map<number, number[]>) {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         const current = arr[Object.keys(arr)[i]];
         if (Array.isArray(current)) {

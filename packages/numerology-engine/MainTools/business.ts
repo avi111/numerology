@@ -1,9 +1,9 @@
-import Couple, {CoupleProps} from '@/models/mainTools/couple';
-import MainTriangle from '@/models/calculations/mainTriangle';
-import MatchNameBirth from '@/models/calculations/matchNameBirth';
-import PersonalYear from '@/models/calculations/personalYear';
-import Hilltops from '@/models/calculations/hilltops';
-import LifeRoute from '@/models/calculations/lifeRoute';
+import MainTriangle from "../Calculations/mainTriangle";
+import Couple, {CoupleProps} from "./couple";
+import MatchNameBirth from "../Calculations/matchNameBirth";
+import PersonalYear from "../Calculations/personalYear";
+import Hilltops from "../Calculations/hilltops";
+import LifeRoute from "../Calculations/lifeRoute";
 
 class Business {
     public triangle: MainTriangle;

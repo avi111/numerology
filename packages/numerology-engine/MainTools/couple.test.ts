@@ -1,4 +1,4 @@
-import Couple, {CoupleProps} from '@/models/mainTools/couple';
+import Couple, {CoupleProps} from "./couple";
 
 describe('couple', () => {
     let couple: Couple;

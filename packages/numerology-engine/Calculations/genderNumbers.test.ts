@@ -1,6 +1,7 @@
-import GenderNumbers from '@/models/calculations/genderNumbers';
-import {Gender} from '@/interfaces/props';
-import Couple, {CoupleProps} from '@/models/mainTools/couple';
+import GenderNumbers from "./genderNumbers";
+import {Gender} from "../interfaces/props";
+import Couple, {CoupleProps} from "../MainTools/couple";
+
 
 describe('genderNumbers', () => {
     it('calculates gender number well', () => {

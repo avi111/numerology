@@ -1,8 +1,8 @@
-import MainTriangle, {Triangle} from '@/models/calculations/mainTriangle';
-import Gimatria from '@/models/helpers/gimatria';
-import ContraGimatria from '@/models/helpers/contraGimatria';
-import Props from '@/interfaces/props';
-import GenderNumbers from '@/models/calculations/genderNumbers';
+import Props from "../interfaces/props";
+import MainTriangle, {Triangle} from "../Calculations/mainTriangle";
+import Gematria from "../helpers/Gematria/Gematria";
+import ContraGematria from "../helpers/Gematria/ContraGematria";
+import GenderNumbers from "../Calculations/genderNumbers";
 
 export interface CoupleProps extends Partial<Props> {
     firstName: string;
@@ -75,7 +75,7 @@ class Couple {
     }
 
     public static combine(numbers: number[]): number {
-        return new Gimatria(ContraGimatria.convertNumbersToWord(parseInt([...numbers].join(''), 10))).small;
+        return new Gematria(ContraGematria.convertNumbersToWord(parseInt([...numbers].join(''), 10))).small;
     }
 
     public getMatrix(): Matrix {
@@ -93,43 +93,43 @@ class Couple {
 
     private getPairNames(): number[] {
         return [
-            new Gimatria(this.Partner1Props.firstName + this.Partner1Props.familyName).small,
-            new Gimatria(this.Partner2Props.firstName + this.Partner2Props.familyName).small,
+            new Gematria(this.Partner1Props.firstName + this.Partner1Props.familyName).small,
+            new Gematria(this.Partner2Props.firstName + this.Partner2Props.familyName).small,
         ];
     }
 
     private getPairBirthDates(): number[] {
         return [
-            new Gimatria(Gimatria.getDateAsInput(this.Partner1Props.birthDate)).small,
-            new Gimatria(Gimatria.getDateAsInput(this.Partner2Props.birthDate)).small,
+            new Gematria(Gematria.getDateAsInput(this.Partner1Props.birthDate)).small,
+            new Gematria(Gematria.getDateAsInput(this.Partner2Props.birthDate)).small,
         ];
     }
 
     private getComparison(numbers: number[]): string {
         return numbers
-            .map((num) => MainTriangle.isMaster(num) ? num : new Gimatria(num + '').small)
-            .map((num, index) => index ? num : new Gimatria(num + '').small)
+            .map((num) => MainTriangle.isMaster(num) ? num : new Gematria(num + '').small)
+            .map((num, index) => index ? num : new Gematria(num + '').small)
             .sort((a, b) => a - b)
             .join('-');
     }
 
     private setWeakPointNames(): number {
         return Math.abs(
-            new Gimatria(this.Partner1Props.firstName + this.Partner1Props.familyName).small -
-            new Gimatria(this.Partner2Props.firstName + this.Partner2Props.familyName).small,
+            new Gematria(this.Partner1Props.firstName + this.Partner1Props.familyName).small -
+            new Gematria(this.Partner2Props.firstName + this.Partner2Props.familyName).small,
         );
     }
 
     private setWeakPointBirthDate(): number {
         return Math.abs(
-            new Gimatria(Gimatria.getDateAsInput(this.Partner1Props.birthDate)).small -
-            new Gimatria(Gimatria.getDateAsInput(this.Partner2Props.birthDate)).small,
+            new Gematria(Gematria.getDateAsInput(this.Partner1Props.birthDate)).small -
+            new Gematria(Gematria.getDateAsInput(this.Partner2Props.birthDate)).small,
         );
     }
 
     private setWeakPointBirthDay(): number {
-        const x = new Gimatria('' + this.Partner1Props.birthDate.getDate()).big;
-        const y = new Gimatria('' + this.Partner2Props.birthDate.getDate()).big;
+        const x = new Gematria('' + this.Partner1Props.birthDate.getDate()).big;
+        const y = new Gematria('' + this.Partner2Props.birthDate.getDate()).big;
         return Math.abs(
             x - y,
         );

@@ -13,6 +13,7 @@
   },
   "scripts": {
     "start": "lerna run start",
+    "test": "lerna run test",
     "build": "lerna run build",
     "deploy": "lerna run deploy",
     "lerna": "lerna"
