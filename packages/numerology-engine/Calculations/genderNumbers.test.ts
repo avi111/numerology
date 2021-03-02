@@ -1,6 +1,6 @@
 import GenderNumbers from "./genderNumbers";
 import {Gender} from "../interfaces/props";
-import {CoupleProps} from "../MainTools/Couple";
+import Couple, {CoupleProps} from "../MainTools/Couple";
 
 
 describe('genderNumbers', () => {
