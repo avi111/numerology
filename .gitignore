@@ -3,3 +3,4 @@ node_modules/
 /packages/numerology-functions/.data/
 /.idea/
 /packages/numerology-engine/dist/
+/yarn.lock
