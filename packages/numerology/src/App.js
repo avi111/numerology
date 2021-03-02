@@ -1,4 +1,3 @@
-import logo from './logo.svg'
 import './App.css'
 import {Profile} from "./numerologyEngine";
 import { Button } from '@material-ui/core';
