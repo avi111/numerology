@@ -10,12 +10,11 @@ import SimpleBottomNavigation from "./components/SimpleBottomNavigation";
 import {
     BrowserRouter as Router,
     Switch,
-    Route,
-    Link
+    Route
 } from "react-router-dom";
 import Hamburger from "./components/Hamburger";
 import theme from './theme';
-import { ThemeProvider } from '@material-ui/core/styles';
+import {ThemeProvider} from '@material-ui/core/styles';
 
 function App() {
     const props = {
@@ -35,7 +34,7 @@ function App() {
 
     return (
         <ThemeProvider theme={theme}>
-            <CssBaseline />
+            <CssBaseline/>
             <Container maxWidth="sm">
                 <Router>
                     <Box display="flex">

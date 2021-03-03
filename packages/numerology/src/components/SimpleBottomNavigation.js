@@ -30,8 +30,10 @@ const SimpleBottomNavigation = () => {
                 className={classes.root}
             >
                 <BottomNavigationAction label={<Link to="/">Home</Link>} icon={<Link to="/"><RestoreIcon/></Link>}/>
-                <BottomNavigationAction label={<Link to="/profile">Profile</Link>} icon={<Link to="/profile"><FavoriteIcon/></Link>}/>
-                <BottomNavigationAction label={<Link to="/couple">Couple</Link>} icon={<Link to="/couple"><FavoriteIcon/></Link>}/>
+                <BottomNavigationAction label={<Link to="/profile">Profile</Link>}
+                                        icon={<Link to="/profile"><FavoriteIcon/></Link>}/>
+                <BottomNavigationAction label={<Link to="/couple">Couple</Link>}
+                                        icon={<Link to="/couple"><FavoriteIcon/></Link>}/>
             </BottomNavigation>
         </Box>
     );
