@@ -9,6 +9,14 @@ import firebase, {firebaseConfig} from './firebase'
 firebase.initializeApp(firebaseConfig)
 // firebase.analytics()
 
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker
+        .register('/sw.js')
+        .then(function() {
+            console.log('Service worker registered!');
+        });
+}
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

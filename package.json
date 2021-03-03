@@ -15,6 +15,7 @@
     "start": "lerna run start",
     "test": "lerna run test",
     "watch": "lerna run watch",
+    "storybook": "lerna run storybook",
     "build": "lerna run build",
     "deploy": "lerna run deploy",
     "lerna": "lerna"
