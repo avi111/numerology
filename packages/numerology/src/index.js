@@ -12,16 +12,14 @@ firebase.initializeApp(firebaseConfig)
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker
         .register('/sw.js')
-        .then(function() {
+        .then(function () {
             console.log('Service worker registered!');
         });
 }
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+    <App/>,
+    document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

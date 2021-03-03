@@ -1,104 +1,64 @@
 import './App.css'
 import React from "react";
+import CssBaseline from '@material-ui/core/CssBaseline';
 import {Profile} from "./numerologyEngine";
 import {
-  Button,
-  Container,
-  Divider,
-  Drawer,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  makeStyles
+    Box,
+    Container,
 } from '@material-ui/core';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
-import clsx from 'clsx';
+import SimpleBottomNavigation from "./components/SimpleBottomNavigation";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
+import Hamburger from "./components/Hamburger";
+import theme from './theme';
+import { ThemeProvider } from '@material-ui/core/styles';
 
 function App() {
-  const useStyles = makeStyles({
-    list: {
-      width: 250,
-    },
-    fullList: {
-      width: 'auto',
-    },
-  });
+    const props = {
+        birthDate: new Date('1980-9-16'),
+        familyName: 'לבקוביץ',
+        fatherName: 'יעקב',
+        fatherNameAtBirthOfPatient: '',
+        firstName: 'אבי',
+        firstNameAtBirth: '',
+        gender: 'male',
+        motherName: 'טובה',
+        motherNameAtBirthOfPatient: '',
+        birthHour: false,
+    };
 
-  const classes = useStyles();
-  const [state, setState] = React.useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false,
-  });
+    const profile = new Profile(props);
 
-  const toggleDrawer = (anchor, open) => (event) => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-      return;
-    }
-
-    setState({ ...state, [anchor]: open });
-  };
-
-  const list = (anchor) => (
-      <div
-          className={clsx(classes.list, {
-            [classes.fullList]: anchor === 'top' || anchor === 'bottom',
-          })}
-          role="presentation"
-          onClick={toggleDrawer(anchor, false)}
-          onKeyDown={toggleDrawer(anchor, false)}
-      >
-        <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-          ))}
-        </List>
-      </div>
-  );
-
-  const props = {
-    birthDate: new Date('1980-9-16'),
-    familyName: 'לבקוביץ',
-    fatherName: 'יעקב',
-    fatherNameAtBirthOfPatient: '',
-    firstName: 'אבי',
-    firstNameAtBirth: '',
-    gender: 'male',
-    motherName: 'טובה',
-    motherNameAtBirthOfPatient: '',
-    birthHour: false,
-  };
-
-  const profile = new Profile(props);
-
-  return (
-      <Container maxWidth="sm">
-        <p>{JSON.stringify(profile.props.firstName)}</p>
-        {['left'].map((anchor) => (
-            <React.Fragment key={anchor}>
-              <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
-              <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
-                {list(anchor)}
-              </Drawer>
-            </React.Fragment>
-        ))}
-      </Container>
-  );
+    return (
+        <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <Container maxWidth="sm">
+                <Router>
+                    <Box display="flex">
+                        <Hamburger/>
+                        <SimpleBottomNavigation/>
+                    </Box>
+                    <div>
+                        <Switch>
+                            <Route path="/profile">
+                                3
+                            </Route>
+                            <Route path="/couple">
+                                2
+                            </Route>
+                            <Route path="/">
+                                <p>{JSON.stringify(profile.props.firstName)}</p>
+                            </Route>
+                        </Switch>
+                    </div>
+                </Router>
+            </Container>
+        </ThemeProvider>
+    );
 }
 
 export default App;
