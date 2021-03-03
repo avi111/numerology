@@ -2,17 +2,19 @@ import './App.css'
 import React from "react";
 import CssBaseline from '@material-ui/core/CssBaseline';
 import {Profile} from "./numerologyEngine";
+import composeForm from "@maya259/compose-form";
+
 import {
     Box,
     Container,
 } from '@material-ui/core';
-import SimpleBottomNavigation from "./components/SimpleBottomNavigation";
+import SimpleBottomNavigation from "./components/Header/SimpleBottomNavigation";
 import {
     BrowserRouter as Router,
     Switch,
     Route
 } from "react-router-dom";
-import Hamburger from "./components/Hamburger";
+import Hamburger from "./components/Header/Hamburger";
 import theme from './theme';
 import {ThemeProvider} from '@material-ui/core/styles';
 
@@ -44,7 +46,7 @@ function App() {
                     <div>
                         <Switch>
                             <Route path="/profile">
-                                3
+                                {composeForm()}
                             </Route>
                             <Route path="/couple">
                                 2

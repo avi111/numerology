@@ -119,7 +119,7 @@
    - You may be able to run "npm run build" in your functions directory to resolve this. {"metadata":{"emulator":{"name":"functions"}}}
 [debug] [2020-12-25T20:08:46.847Z] DEBUG: [worker-~diagnostic~-69fd7c7d-a602-46ef-86ee-93480c0822f3]: exited
 [debug] [2020-12-25T20:08:46.847Z] DEBUG: [worker-~diagnostic~-69fd7c7d-a602-46ef-86ee-93480c0822f3]: FINISHED
-[debug] [2020-12-25T20:10:54.373Z] DEBUG: File /Users/avi111/numerology/packages/numerology-functions/functions/src/index.ts changed, reloading triggers
+[debug] [2020-12-25T20:10:54.373Z] DEBUG: File /Users/avi111/numerology/packages/numerology-functions/functions/src/index.tsx changed, reloading triggers
 [debug] [2020-12-25T20:10:55.375Z] DEBUG: [worker-pool] Cleaned up workers for ~diagnostic~: 1 --> 0
 [debug] [2020-12-25T20:10:55.384Z] DEBUG: [worker-pool] addWorker(~diagnostic~)
 [debug] [2020-12-25T20:10:55.384Z] DEBUG: [worker-pool] Adding worker with key ~diagnostic~, total=1
@@ -140,7 +140,7 @@
 [debug] [2020-12-25T20:10:55.732Z] DEBUG: [runtime-status] [15564] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.13.0","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-functions/lib/index.js"}
 [debug] [2020-12-25T20:10:55.733Z] DEBUG: [runtime-status] [15564] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"9.4.2","resolution":"/Users/avi111/numerology/packages/numerology-functions/functions/node_modules/firebase-admin/lib/index.js"}}
 [debug] [2020-12-25T20:10:55.736Z] DEBUG: [worker-~diagnostic~-0f4d5593-35b8-48ba-91c9-1773f404a742]: IDLE
-[debug] [2020-12-25T20:11:08.723Z] DEBUG: File /Users/avi111/numerology/packages/numerology-functions/functions/src/index.ts changed, reloading triggers
+[debug] [2020-12-25T20:11:08.723Z] DEBUG: File /Users/avi111/numerology/packages/numerology-functions/functions/src/index.tsx changed, reloading triggers
 [debug] [2020-12-25T20:11:09.726Z] DEBUG: [worker-pool] Shutting down IDLE worker (~diagnostic~)
 [debug] [2020-12-25T20:11:09.726Z] DEBUG: [worker-~diagnostic~-0f4d5593-35b8-48ba-91c9-1773f404a742]: FINISHING
 [debug] [2020-12-25T20:11:09.736Z] DEBUG: [worker-pool] addWorker(~diagnostic~)

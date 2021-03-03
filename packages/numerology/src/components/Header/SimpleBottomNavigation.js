@@ -20,7 +20,6 @@ const SimpleBottomNavigation = () => {
 
     return (
         <Box display="flex">
-
             <BottomNavigation
                 value={value}
                 onChange={(event, newValue) => {
