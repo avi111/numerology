@@ -20,7 +20,7 @@ const Hamburger = () => {
         left: false
     });
 
-    const toggleDrawer = (anchor, open) => (event) => {
+    const toggleDrawer = (anchor: string, open: boolean) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return;
         }

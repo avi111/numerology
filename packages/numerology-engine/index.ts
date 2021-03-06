@@ -20,5 +20,4 @@ const numerologyEngine = {
 export {Props as props};
 export {Gender as gender};
 
-
 export default numerologyEngine;

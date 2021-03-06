@@ -17,6 +17,7 @@ import {
 import Hamburger from "./components/Header/Hamburger";
 import theme from './theme';
 import {ThemeProvider} from '@material-ui/core/styles';
+import {gender} from "@maya259/numerology-engine";
 
 function App() {
     const props = {
@@ -26,7 +27,7 @@ function App() {
         fatherNameAtBirthOfPatient: '',
         firstName: 'אבי',
         firstNameAtBirth: '',
-        gender: 'male',
+        gender: gender.MALE,
         motherName: 'טובה',
         motherNameAtBirthOfPatient: '',
         birthHour: false,
