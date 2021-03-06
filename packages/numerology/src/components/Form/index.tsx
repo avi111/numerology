@@ -1,4 +1,4 @@
-import React, {FormEvent} from "react";
+import {FormEvent} from "react";
 import ComposeForm, {Schema} from "@maya259/compose-form";
 import {forms} from "./forms";
 import profile from "./profile";
