@@ -1,4 +1,4 @@
-import React from "react";
+import React, {SyntheticEvent} from "react";
 import {Button, Divider, Drawer, List, ListItem, ListItemIcon, ListItemText, makeStyles} from "@material-ui/core";
 import clsx from "clsx";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
@@ -20,7 +20,7 @@ const Hamburger = () => {
         left: false
     });
 
-    const toggleDrawer = (anchor: string, open: boolean) => (event) => {
+    const toggleDrawer = (anchor: string, open: boolean) => (event: any) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return;
         }
@@ -28,7 +28,7 @@ const Hamburger = () => {
         setState({...state, [anchor]: open});
     };
 
-    const list = (anchor) => (
+    const list = (anchor: string) => (
         <div
             className={clsx(classes.list, {
                 [classes.fullList]: anchor === 'top' || anchor === 'bottom',
@@ -61,14 +61,15 @@ const Hamburger = () => {
         left: <DehazeIcon/>
     }
 
-    return ['left'].map((anchor) => (
+    const anchor = 'left';
+    return (
         <React.Fragment key={anchor}>
             <Button onClick={toggleDrawer(anchor, true)}>{icons[anchor]}</Button>
             <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
                 {list(anchor)}
             </Drawer>
         </React.Fragment>
-    ))
+    );
 }
 
 export default Hamburger
