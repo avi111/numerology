@@ -2,7 +2,6 @@ import './App.css'
 import React from "react";
 import CssBaseline from '@material-ui/core/CssBaseline';
 import {Profile} from "./numerologyEngine";
-import composeForm from "@maya259/compose-form";
 
 import {
     Box,
@@ -18,6 +17,7 @@ import Hamburger from "./components/Header/Hamburger";
 import theme from './theme';
 import {ThemeProvider} from '@material-ui/core/styles';
 import {gender} from "@maya259/numerology-engine";
+import Form, {forms} from "./components/Form";
 
 function App() {
     const props = {
@@ -47,7 +47,7 @@ function App() {
                     <div>
                         <Switch>
                             <Route path="/profile">
-                                {composeForm()}
+                                <Form form={forms.PROFILE} />
                             </Route>
                             <Route path="/couple">
                                 2
