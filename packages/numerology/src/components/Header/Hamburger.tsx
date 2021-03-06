@@ -1,4 +1,4 @@
-import React, {SyntheticEvent} from "react";
+import React from "react";
 import {Button, Divider, Drawer, List, ListItem, ListItemIcon, ListItemText, makeStyles} from "@material-ui/core";
 import clsx from "clsx";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
