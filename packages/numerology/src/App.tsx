@@ -17,7 +17,8 @@ import Hamburger from "./components/Header/Hamburger";
 import theme from './theme';
 import {ThemeProvider} from '@material-ui/core/styles';
 import {gender} from "@maya259/numerology-engine";
-import Form, {forms} from "./components/Form";
+import Form2, {forms} from "./components/Form";
+import Form from "./components/FormComponents/Form";
 
 function App() {
     const props = {
@@ -47,10 +48,10 @@ function App() {
                     <div>
                         <Switch>
                             <Route path="/profile">
-                                <Form form={forms.PROFILE} />
+                                <Form2 form={forms.PROFILE} />
                             </Route>
                             <Route path="/couple">
-                                2
+                                <Form />
                             </Route>
                             <Route path="/">
                                 <p>{JSON.stringify(profile.props.firstName)}</p>
