@@ -1,6 +1,6 @@
-import {Field} from "../field";
+import {IField} from "../field";
 
-export interface Number extends Field {
+export interface Number extends IField {
     value: number;
     min: number;
     max: number;
