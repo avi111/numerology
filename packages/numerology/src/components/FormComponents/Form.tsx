@@ -1,4 +1,4 @@
-import React, {ChangeEvent, ChangeEventHandler, FormEvent, useState} from "react";
+import React, {ChangeEvent, FormEvent, useState} from "react";
 import classNames from "vest/classNames";
 import Input from "./input";
 import Checkbox from "./checkbox";
