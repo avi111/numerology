@@ -1,6 +1,6 @@
 import {InputType} from "./inputType";
 
-export interface Field {
+export interface IField {
     type: InputType;
     id: string;
     label?: string;

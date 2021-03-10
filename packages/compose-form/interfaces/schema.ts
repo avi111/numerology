@@ -1,5 +1,5 @@
-import {Section} from "./section";
+import {ISection} from "./section";
 
 export interface Schema {
-    sections: Section[];
+    sections: ISection[];
 }

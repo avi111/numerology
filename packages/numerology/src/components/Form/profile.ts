@@ -12,6 +12,16 @@ const profile: Form.Schema = {
                             "type": Form.InputType.TEXT,
                             "id": "firstName",
                             "label": "First Name"
+                        },
+                        {
+                            "type": Form.InputType.TEXT,
+                            "id": "lastname",
+                            "label": "Last Name"
+                        },
+                        {
+                            "type": Form.InputType.DATE,
+                            "id": "birthdate",
+                            "label": "Birth Date"
                         }
                     ]
                 }

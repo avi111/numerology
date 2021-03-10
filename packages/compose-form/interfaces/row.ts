@@ -1,5 +1,5 @@
-import {Field} from "./field";
+import {IField} from "./field";
 
-export interface Row {
-    fields: Field[];
+export interface IRow {
+    fields: IField[];
 }

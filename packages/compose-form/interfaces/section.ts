@@ -1,5 +1,5 @@
-import {Row} from "./row";
+import {IRow} from "./row";
 
-export interface Section {
-    rows: Row[];
+export interface ISection {
+    rows: IRow[];
 }

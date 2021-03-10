@@ -13,7 +13,8 @@ export interface FormProps {
 
 const Form = ({form}: FormProps) => {
     return ComposeForm({
-        schema: Adapter[form] as Schema, onSubmit: (e: FormEvent) => {
+        schema: Adapter[form] as Schema,
+        onSubmit: (e: FormEvent) => {
             console.log(e);
         }
     });
