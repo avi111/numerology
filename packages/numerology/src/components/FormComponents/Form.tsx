@@ -58,28 +58,33 @@ export default function Form() {
             className="col-xs-10 col-lg-6"
         >
             <h2>Authentication</h2>
+
             <Input
-                name="username"
+                name="firstName"
                 type="text"
-                label="Username"
+                label="First Name"
                 pending={usernamePending}
                 value={formState.username}
                 onChange={handleChange}
-                className={cn("username")}
+                className={cn("firstName")}
                 placeholder="try: ealush"
-                errors={result.getErrors("username")}
+                errors={result.getErrors("firstName")}
             />
             <Input
-                name="password"
-                type="password"
-                label="Password"
-                value={formState.password}
-                onChange={handleChange}
-                className={cn("password")}
-                errors={[
-                    ...result.getErrors("password"),
-                    ...result.getWarnings("password")
-                ]}
+                {
+                    ...{
+                        name: "password",
+                        type: "password",
+                        label: "Password",
+                        value: formState.password,
+                        onChange: handleChange,
+                        className: cn("password"),
+                        errors: [
+                            ...result.getErrors("password"),
+                            ...result.getWarnings("password")
+                        ]
+                    }
+                }
             />
             <Input
                 name="confirm_password"
