@@ -1,0 +1,10 @@
+.warning {
+  .MuiFormLabel-root, .MuiFormHelperText-root {
+    &.Mui-error {
+      color: #ffc107;
+    }
+  }
+  .MuiInput-underline.Mui-error:after {
+    border-bottom-color: #ffc107;
+  }
+}

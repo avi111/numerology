@@ -2,6 +2,7 @@ import vest, {enforce, test} from "vest";
 import {doesUserExist} from "./api";
 import validator from "validator";
 import {DraftResult, IVestResult} from "vest/vestResult";
+import {props} from "@maya259/numerology-engine";
 
 interface ICreateResult {
     get: (form?: string) => DraftResult;
@@ -16,7 +17,7 @@ enforce.extend({isEmail});
 // We import enforceExtended instead of enforce
 // bacuse this extended bundle has email validation
 
-const suite: ICreateResult = vest.create("user_form", (data = {}, currentField) => {
+const suite: ICreateResult = vest.create("user_form", (data: Partial<props> = {}, currentField) => {
     vest.only(currentField);
 
     test("firstName", "Username is required", () => {
@@ -35,23 +36,15 @@ const suite: ICreateResult = vest.create("user_form", (data = {}, currentField) 
         });
     }
 
-    test("email", "Email Address is not valid", () => {
-        enforce(data.email).isEmail();
-    });
-
-    test("password", "Password is weak, Maybe add a number?", () => {
-        vest.warn();
-        enforce(data.password).matches(/[0-9]/);
-    });
-
-    if (data.password) {
-        test("confirm_password", "Passwords do not match", () => {
-            enforce(data.confirm_password).equals(data.password);
-        });
-    }
-
-    test("tos", () => {
-        enforce(data.tos).isTruthy();
+    test("birthDate", "Date must be in the past", () => {
+        enforce(data.birthDate).isNotEmpty();
+        data.birthDate && enforce(new Date(data.birthDate).getTime()).lessThan(Date.now());
+        data.birthDate && enforce(new Date(data.birthDate).getHours()).lessThan(24);
+        data.birthDate && enforce(new Date(data.birthDate).getHours()).greaterThanOrEquals(0);
+        data.birthDate && enforce(new Date(data.birthDate).getMinutes()).lessThan(60);
+        data.birthDate && enforce(new Date(data.birthDate).getMinutes()).greaterThanOrEquals(0);
+        data.birthDate && enforce(new Date(data.birthDate).getSeconds()).lessThan(60);
+        data.birthDate && enforce(new Date(data.birthDate).getSeconds()).greaterThanOrEquals(0);
     });
 });
 

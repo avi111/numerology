@@ -3,14 +3,15 @@ import {IVestResult} from "vest/vestResult";
 import {TextField} from "@material-ui/core";
 import classnames from 'classnames';
 
-interface InputProps {
+export interface InputProps {
     name: string,
     label?: string,
-    type: string,
+    type?: string,
     value?: any,
     className?: string,
     onChange: (event: ChangeEvent) => void,
     result?: Partial<IVestResult>,
+    placeholder?:string,
     errors?: string[];
     pending?: boolean;
     required?: boolean;
@@ -20,7 +21,7 @@ const Input = (inputProps: InputProps & InputHTMLAttributes<HTMLInputElement>) =
     const {
         name,
         label = name,
-        type,
+        type = "text",
         value = "",
         className = "",
         onChange = () => {
@@ -32,8 +33,6 @@ const Input = (inputProps: InputProps & InputHTMLAttributes<HTMLInputElement>) =
         ...props
     } = inputProps;
 
-    const classes = [pending && "pending", className].filter(Boolean).join(" ");
-
     return (
             <TextField
                 {...{
@@ -42,7 +41,7 @@ const Input = (inputProps: InputProps & InputHTMLAttributes<HTMLInputElement>) =
                     label,
                     value,
                     onChange,
-                    className: classnames(className, classes),
+                    className,
                     placeholder,
                     required,
                     error: errors.length>0,

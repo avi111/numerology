@@ -8,6 +8,15 @@ import {Box} from "@material-ui/core";
 import DateField from './dateField';
 import {MaterialUiPickersDate} from "@material-ui/pickers/typings/date";
 
+export enum FieldState {
+    WARNING = "warning",
+    VALID = "valid",
+    INVALID = "invalid"
+}
+
+const fieldStates = Object.keys(FieldState).filter(x => isNaN(parseInt(x)));
+
+
 export default function Form() {
     const [formState, setFormState] = useState({} as props);
     const [usernamePending, setUsernamePending] = useState(false);
@@ -41,9 +50,9 @@ export default function Form() {
     const result = validate.get();
 
     const cn = classNames(result, {
-        warning: "warning",
-        invalid: "invalid",
-        valid: "valid"
+        warning: FieldState.WARNING,
+        invalid: FieldState.INVALID,
+        valid: FieldState.VALID
     });
 
     return (
@@ -89,24 +98,38 @@ export default function Form() {
             </Box>
             <Box>
                 <Input
-                    name="fatherName"
-                    type="text"
-                    label="Father Name"
-                    value={formState.fatherName}
-                    onChange={handleChange}
-                    errors={result.getErrors("fatherName")}
-                    className={cn("fatherName")}
+                    {
+                        ...{
+                            name: "fatherName",
+                            type: "text",
+                            label: "Father Name",
+                            value: formState.fatherName,
+                            onChange: handleChange,
+                            className: cn("fatherName"),
+                            errors: [
+                                ...result.getErrors("fatherName"),
+                                ...result.getWarnings("fatherName")
+                            ]
+                        }
+                    }
                 />
             </Box>
             <Box>
                 <Input
-                    name="motherName"
-                    type="text"
-                    label="Mother Name"
-                    value={formState.motherName}
-                    onChange={handleChange}
-                    errors={result.getErrors("motherName")}
-                    className={cn("motherName")}
+                    {
+                        ...{
+                            name: "motherName",
+                            type: "text",
+                            label: "Mother Name",
+                            value: formState.motherName,
+                            onChange: handleChange,
+                            className: cn("motherName"),
+                            errors: [
+                                ...result.getErrors("motherName"),
+                                ...result.getWarnings("motherName")
+                            ]
+                        }
+                    }
                 />
             </Box>
             <Box>
@@ -114,7 +137,12 @@ export default function Form() {
                     name: "birthDate",
                     label: "Birth Date",
                     value: formState.birthDate,
-                    onChange: handleChange
+                    onChange: handleChange,
+                    className: cn("birthDate"),
+                    errors: [
+                        ...result.getErrors("birthDate"),
+                        ...result.getWarnings("birthDate")
+                    ]
                 }}/>
             </Box>
             <footer>
