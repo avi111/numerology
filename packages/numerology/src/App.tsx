@@ -16,12 +16,12 @@ import {
 import Hamburger from "./components/Header/Hamburger";
 import theme from './theme';
 import {ThemeProvider} from '@material-ui/core/styles';
-import {gender} from "@maya259/numerology-engine";
+import {gender, props} from "@maya259/numerology-engine";
 import Form2, {forms} from "./components/Form";
 import Form from "./components/FormComponents/Form";
 
 function App() {
-    const props = {
+    const inputProps: props = {
         birthDate: new Date('1980-9-16'),
         familyName: 'לבקוביץ',
         fatherName: 'יעקב',
@@ -34,7 +34,7 @@ function App() {
         birthHour: false,
     };
 
-    const profile = new Profile(props);
+    const profile = new Profile(inputProps);
 
     return (
         <ThemeProvider theme={theme}>

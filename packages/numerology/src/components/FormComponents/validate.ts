@@ -19,18 +19,18 @@ enforce.extend({isEmail});
 const suite: ICreateResult = vest.create("user_form", (data = {}, currentField) => {
     vest.only(currentField);
 
-    test("username", "Username is required", () => {
-        enforce(data.username).isNotEmpty();
+    test("firstName", "Username is required", () => {
+        enforce(data.firstName).isNotEmpty();
     });
 
-    test("username", "Username must be at least 3 characterss long", () => {
-        enforce(data.username).longerThanOrEquals(3);
+    test("firstName", "Username must be at least 3 characterss long", () => {
+        enforce(data.firstName).longerThanOrEquals(3);
     });
 
-    if (!suite.get().hasErrors("username")) {
-        test("username", "Username already exists", () => {
-            if (data.username) {
-                return doesUserExist(data.username);
+    if (!suite.get().hasErrors("firstName")) {
+        test("firstName", "Username already exists", () => {
+            if (data.firstName) {
+                return doesUserExist(data.firstName);
             }
         });
     }

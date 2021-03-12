@@ -6,6 +6,7 @@ import Couple from "./MainTools/Couple";
 import Business from "./MainTools/Business";
 import Chakra from "./Calculations/Chakra";
 import NameMapClass from "./MainTools/NameMapClass";
+import ProfileProps from './MainTools/Profile';
 
 const numerologyEngine = {
     Gematria,
@@ -19,5 +20,5 @@ const numerologyEngine = {
 
 export {Props as props};
 export {Gender as gender};
-
+export {ProfileProps as profileProps}
 export default numerologyEngine;

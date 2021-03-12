@@ -1,13 +1,13 @@
 import React, {ChangeEvent, InputHTMLAttributes} from "react";
 import {IVestResult} from "vest/vestResult";
 import {TextField} from "@material-ui/core";
-import {TextFieldProps} from "@material-ui/core/TextField/TextField";
+import classnames from 'classnames';
 
 interface InputProps {
     name: string,
     label?: string,
     type: string,
-    value?: string,
+    value?: any,
     className?: string,
     onChange: (event: ChangeEvent) => void,
     result?: Partial<IVestResult>,
@@ -35,27 +35,21 @@ const Input = (inputProps: InputProps & InputHTMLAttributes<HTMLInputElement>) =
     const classes = [pending && "pending", className].filter(Boolean).join(" ");
 
     return (
-        <label className={classes}>
-            <div className="row">
-                {!!errors.length && (
-                    <span className="col-xs-8 error-container">{errors[0]}</span>
-                )}
-            </div>
             <TextField
                 {...{
                     type,
                     name,
                     label,
-                    defaultValue: value,
+                    value,
                     onChange,
-                    className,
+                    className: classnames(className, classes),
                     placeholder,
                     required,
                     error: errors.length>0,
-                    inputProps: props
+                    inputProps: props,
+                    helperText: errors[0]
                 }}
             />
-        </label>
     );
 };
 
