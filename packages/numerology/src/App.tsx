@@ -48,10 +48,10 @@ function App() {
                     <div>
                         <Switch>
                             <Route path="/profile">
-                                <Form2 form={forms.PROFILE} />
+                                <Form />
                             </Route>
                             <Route path="/couple">
-                                <Form />
+                                <Form2 form={forms.PROFILE} />
                             </Route>
                             <Route path="/">
                                 <p>{JSON.stringify(profile.props.firstName)}</p>

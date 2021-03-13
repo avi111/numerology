@@ -1,26 +1,27 @@
-import React, {ButtonHTMLAttributes} from "react";
+import React from "react";
 import suite from "./validate";
+import {Button} from "@material-ui/core";
+import classnames from "classnames";
 
 interface ButtonProps {
     children: string | JSX.Element,
     className: string
 }
 
-
-const Button = (buttonProps: ButtonProps) => {
+const ButtonComponent = (buttonProps: ButtonProps) => {
     const {children, className = ""} = buttonProps;
     const result = suite.get("user_form");
 
-    const props: ButtonHTMLAttributes<never> = {
-        className
-    };
+    // @ts-ignore
+    const full = document.forms["profile-form"] ? !Array.from(document.forms["profile-form"].querySelectorAll(":required")).some(i=>i.validity.valueMissing) : false;
+    console.log(full);
+    const error = result.hasErrors() || !full;
 
-    if (result.hasErrors()) {
-        props.disabled = true;
-        props.className = `${props.className} error`;
-    }
-
-    return <button {...props}>{children}</button>;
+    return <Button {...{
+        disabled: error,
+        className: classnames(className, {error}),
+        type: "submit"
+    }}>{children}</Button>;
 };
 
-export default Button;
+export default ButtonComponent;

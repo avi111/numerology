@@ -2,7 +2,7 @@ import vest, {enforce, test} from "vest";
 import {doesUserExist} from "./api";
 import validator from "validator";
 import {DraftResult, IVestResult} from "vest/vestResult";
-import {props} from "@maya259/numerology-engine";
+import {props, gender} from "@maya259/numerology-engine";
 
 interface ICreateResult {
     get: (form?: string) => DraftResult;
@@ -46,6 +46,10 @@ const suite: ICreateResult = vest.create("user_form", (data: Partial<props> = {}
         data.birthDate && enforce(new Date(data.birthDate).getSeconds()).lessThan(60);
         data.birthDate && enforce(new Date(data.birthDate).getSeconds()).greaterThanOrEquals(0);
     });
+
+    test("gender", "gender must be valid", () => {
+        data.gender && enforce([gender.FEMALE, gender.MALE].includes(data.gender)).isTruthy();
+    })
 });
 
 export default suite;
