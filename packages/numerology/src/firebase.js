@@ -1,4 +1,9 @@
 import firebase from 'firebase/app'
+import "firebase/analytics";
+import "firebase/auth";
+import "firebase/firestore";
+import "firebase/storage";
+import "firebase/functions";
 
 export const firebaseConfig = {
     apiKey: process.env.API_KEY,
@@ -10,5 +15,9 @@ export const firebaseConfig = {
     appId: process.env.APP_ID,
     measurementId: process.env.MESSAGING_SENDER_ID
 };
+
+export const init = () => {
+    firebase.initializeApp(firebaseConfig);
+}
 
 export default firebase

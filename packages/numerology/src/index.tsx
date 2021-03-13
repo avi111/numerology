@@ -4,9 +4,20 @@ import './index.css';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
+import {init} from "./firebase";
+import {createStore} from "./stores/helpers/create-store";
+import {StoreProvider} from './stores/helpers/store-context';
+import "@fortawesome/fontawesome-free/css/fontawesome.css";
+import "@fortawesome/fontawesome-free/css/brands.css";
+import "@fortawesome/fontawesome-free/css/solid.css";
+
+init();
+const rootStore = createStore();
 
 ReactDOM.render(
-    <App/>,
+    <StoreProvider value={rootStore}>
+        <App/>
+    </StoreProvider>,
     document.getElementById('root')
 );
 

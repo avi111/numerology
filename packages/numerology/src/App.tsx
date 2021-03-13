@@ -3,38 +3,30 @@ import React from "react";
 import CssBaseline from '@material-ui/core/CssBaseline';
 import {Profile} from "./numerologyEngine";
 
-import {
-    Box,
-    Container,
-} from '@material-ui/core';
+import {Box, Container,} from '@material-ui/core';
 import SimpleBottomNavigation from "./components/Header/SimpleBottomNavigation";
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route
-} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Hamburger from "./components/Header/Hamburger";
 import theme from './theme';
 import {ThemeProvider} from '@material-ui/core/styles';
-import {gender, props} from "@maya259/numerology-engine";
 import Form2, {forms} from "./components/Form";
 import Form from "./components/FormComponents/Form";
+import {useStores} from "./stores/helpers/use-stores";
+import {Views} from "./stores/ui/global-view";
+import {observer} from "mobx-react-lite";
 
 function App() {
-    const inputProps: props = {
-        birthDate: new Date('1980-9-16'),
-        familyName: 'לבקוביץ',
-        fatherName: 'יעקב',
-        fatherNameAtBirthOfPatient: '',
-        firstName: 'אבי',
-        firstNameAtBirth: '',
-        gender: gender.MALE,
-        motherName: 'טובה',
-        motherNameAtBirthOfPatient: '',
-        birthHour: false,
-    };
+    const {uiStores: {globalView}} = useStores();
 
-    const profile = new Profile(inputProps);
+    const getCurrentView = () => {
+        if (globalView.currentView === Views.LoggedOut) {
+            return 'logged out';
+        } else {
+            return 'logged in';
+        }
+
+        return null;
+    }
 
     return (
         <ThemeProvider theme={theme}>
@@ -48,13 +40,13 @@ function App() {
                     <div>
                         <Switch>
                             <Route path="/profile">
-                                <Form />
+                                <Form/>
                             </Route>
                             <Route path="/couple">
-                                <Form2 form={forms.PROFILE} />
+                                <Form2 form={forms.PROFILE}/>
                             </Route>
                             <Route path="/">
-                                <p>{JSON.stringify(profile.props.firstName)}</p>
+                                {getCurrentView()}
                             </Route>
                         </Switch>
                     </div>
@@ -64,4 +56,4 @@ function App() {
     );
 }
 
-export default App;
+export default observer(App);

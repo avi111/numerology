@@ -4,6 +4,9 @@ import clsx from "clsx";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
 import DehazeIcon from '@material-ui/icons/Dehaze';
+import {useStores} from "../../stores/helpers/use-stores";
+import {Views} from "../../stores/ui/global-view";
+
 
 const Hamburger = () => {
     const useStyles = makeStyles({
@@ -14,6 +17,8 @@ const Hamburger = () => {
             width: 'auto',
         },
     });
+
+    const {uiStores: {globalView}} = useStores();
 
     const classes = useStyles();
     const [state, setState] = React.useState({
@@ -38,12 +43,24 @@ const Hamburger = () => {
             onKeyDown={toggleDrawer(anchor, false)}
         >
             <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon/> : <MailIcon/>}</ListItemIcon>
-                        <ListItemText primary={text}/>
-                    </ListItem>
-                ))}
+                <ListItem button>
+                    {globalView.currentView === Views.LoggedOut && (
+                        <React.Fragment>
+                            <ListItemIcon>
+                                <i className="fas fa-sign-in-alt"/>
+                            </ListItemIcon>
+                            <ListItemText primary="Sign in"/>
+                        </React.Fragment>
+                    )}
+                    {globalView.currentView === Views.LoggedIn && (
+                        <React.Fragment>
+                            <ListItemIcon>
+                                <i className="fas fa-sign-out-alt"/>
+                            </ListItemIcon>
+                            <ListItemText primary="Sign Out"/>
+                        </React.Fragment>
+                    )}
+                </ListItem>
             </List>
             <Divider/>
             <List>

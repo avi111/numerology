@@ -6,6 +6,8 @@ import RestoreIcon from '@material-ui/icons/Restore';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import {Link} from "react-router-dom";
 import {Box} from "@material-ui/core";
+import {useStores} from "../../stores/helpers/use-stores";
+import {Views} from "../../stores/ui/global-view";
 
 const useStyles = makeStyles({
     root: {
@@ -18,6 +20,8 @@ const SimpleBottomNavigation = () => {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
 
+    const {uiStores: {globalView}} = useStores();
+
     return (
         <Box display="flex">
             <BottomNavigation
@@ -29,10 +33,13 @@ const SimpleBottomNavigation = () => {
                 className={classes.root}
             >
                 <BottomNavigationAction label={<Link to="/">Home</Link>} icon={<Link to="/"><RestoreIcon/></Link>}/>
-                <BottomNavigationAction label={<Link to="/profile">Profile</Link>}
-                                        icon={<Link to="/profile"><FavoriteIcon/></Link>}/>
-                <BottomNavigationAction label={<Link to="/couple">Couple</Link>}
-                                        icon={<Link to="/couple"><FavoriteIcon/></Link>}/>
+                {globalView.currentView === Views.LoggedIn &&
+                <React.Fragment>
+                    <BottomNavigationAction label={<Link to="/profile">Profile</Link>}
+                                            icon={<Link to="/profile"><FavoriteIcon/></Link>}/>
+                    <BottomNavigationAction label={<Link to="/couple">Couple</Link>}
+                                            icon={<Link to="/couple"><FavoriteIcon/></Link>}/>
+                </React.Fragment>}
             </BottomNavigation>
         </Box>
     );
