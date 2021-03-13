@@ -8,6 +8,7 @@ import {Link} from "react-router-dom";
 import {Box} from "@material-ui/core";
 import {useStores} from "../../stores/helpers/use-stores";
 import {Views} from "../../stores/ui/global-view";
+import {observer} from "mobx-react-lite";
 
 const useStyles = makeStyles({
     root: {
@@ -16,7 +17,7 @@ const useStyles = makeStyles({
     },
 });
 
-const SimpleBottomNavigation = () => {
+const SimpleBottomNavigation = observer(() => {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
 
@@ -43,6 +44,6 @@ const SimpleBottomNavigation = () => {
             </BottomNavigation>
         </Box>
     );
-}
+});
 
 export default SimpleBottomNavigation;

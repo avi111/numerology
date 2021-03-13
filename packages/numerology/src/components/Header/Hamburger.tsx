@@ -4,8 +4,9 @@ import clsx from "clsx";
 import {useStores} from "../../stores/helpers/use-stores";
 import {Views} from "../../stores/ui/global-view";
 import DehazeIcon from '@material-ui/icons/Dehaze';
+import {observer} from "mobx-react-lite";
 
-const Hamburger = () => {
+const Hamburger = observer(() => {
     const useStyles = makeStyles({
         list: {
             width: 250,
@@ -51,7 +52,7 @@ const Hamburger = () => {
                     </ListItem>
                 )}
                 {globalView.currentView === Views.LoggedIn && (
-                    <ListItem button>
+                    <ListItem button onClick={usersStore.logout}>
                         <React.Fragment>
                             <ListItemIcon>
                                 <i className="fas fa-sign-out-alt"/>
@@ -77,6 +78,6 @@ const Hamburger = () => {
             </Drawer>
         </React.Fragment>
     );
-}
+});
 
 export default Hamburger

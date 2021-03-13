@@ -6,7 +6,7 @@ export interface RootEnv {
 }
 
 export const createStore = () => {
-  const env = {
+  const env: RootEnv = {
     isDev: process.env.NODE_ENV === 'development'
   };
 

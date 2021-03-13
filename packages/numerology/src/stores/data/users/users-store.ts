@@ -19,14 +19,10 @@ export default class UsersStore {
         provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
         firebase.auth().useDeviceLanguage();
         await firebase.auth().signInWithRedirect(provider);
+    }
 
-        // try {
-        //     const result = await firebase.auth().getRedirectResult();
-        //     if (result.credential) {
-        //         this.credential = result.credential;
-        //     }
-        // } catch (error) {
-        //     console.log(error);
-        // }
+    @action
+    async logout() {
+        await firebase.auth().signOut();
     }
 }

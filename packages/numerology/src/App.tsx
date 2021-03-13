@@ -1,5 +1,5 @@
 import './App.css'
-import React, {useEffect} from "react";
+import React from "react";
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 import {Box, Container,} from '@material-ui/core';
@@ -14,32 +14,22 @@ import {useStores} from "./stores/helpers/use-stores";
 import {Views} from "./stores/ui/global-view";
 import {observer} from "mobx-react-lite";
 import {init, services} from "./firebase";
+import Home from "./components/Home";
 
 init();
 
 
-function App() {
+const App = observer(() => {
     const {uiStores: {globalView}, dataStores: {usersStore}} = useStores();
 
-    const getCurrentView = () => {
-        if (globalView.currentView === Views.LoggedOut) {
-            return 'logged out';
+    services.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            usersStore.user = user;
+            globalView.updateView(Views.LoggedIn);
         } else {
-            return 'logged in';
+            usersStore.user = null;
         }
-
-        return null;
-    }
-
-    useEffect(() => {
-        services.auth().onAuthStateChanged(function (user) {
-            if (user) {
-                usersStore.user = user;
-            } else {
-                usersStore.user = null;
-            }
-        });
-    })
+    });
 
     return (
         <ThemeProvider theme={theme}>
@@ -59,7 +49,7 @@ function App() {
                                 <Form2 form={forms.PROFILE}/>
                             </Route>
                             <Route path="/">
-                                {getCurrentView()}
+                                <Home/>
                             </Route>
                         </Switch>
                     </div>
@@ -67,6 +57,6 @@ function App() {
             </Container>
         </ThemeProvider>
     );
-}
+});
 
-export default observer(App);
+export default App;

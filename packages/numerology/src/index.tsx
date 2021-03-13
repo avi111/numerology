@@ -11,6 +11,7 @@ import "@fortawesome/fontawesome-free/css/brands.css";
 import "@fortawesome/fontawesome-free/css/solid.css";
 
 const rootStore = createStore();
+rootStore.init();
 
 ReactDOM.render(
     <StoreProvider value={rootStore}>
