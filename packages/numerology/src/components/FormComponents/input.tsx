@@ -1,7 +1,6 @@
 import React, {ChangeEvent, InputHTMLAttributes} from "react";
 import {IVestResult} from "vest/vestResult";
 import {TextField} from "@material-ui/core";
-import classnames from 'classnames';
 
 export interface InputProps {
     name: string,

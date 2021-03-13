@@ -28,14 +28,11 @@ const SelectField = (inputProps: InputProps & NativeSelectProps & SelectHTMLAttr
         name,
         options,
         label = name,
-        type = "text",
         value = "",
         className = "",
         onChange = () => {
         },
-        pending,
         errors = [],
-        required = false,
         ...props
     } = inputProps;
 
