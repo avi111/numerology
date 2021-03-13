@@ -1,7 +1,5 @@
 import * as Form from "@maya259/compose-form";
 
-console.log(Form);
-
 const profile: Form.Schema = {
     "sections": [
         {

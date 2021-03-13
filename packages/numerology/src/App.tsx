@@ -1,7 +1,6 @@
 import './App.css'
-import React from "react";
+import React, {useEffect} from "react";
 import CssBaseline from '@material-ui/core/CssBaseline';
-import {Profile} from "./numerologyEngine";
 
 import {Box, Container,} from '@material-ui/core';
 import SimpleBottomNavigation from "./components/Header/SimpleBottomNavigation";
@@ -14,9 +13,13 @@ import Form from "./components/FormComponents/Form";
 import {useStores} from "./stores/helpers/use-stores";
 import {Views} from "./stores/ui/global-view";
 import {observer} from "mobx-react-lite";
+import {init, services} from "./firebase";
+
+init();
+
 
 function App() {
-    const {uiStores: {globalView}} = useStores();
+    const {uiStores: {globalView}, dataStores: {usersStore}} = useStores();
 
     const getCurrentView = () => {
         if (globalView.currentView === Views.LoggedOut) {
@@ -27,6 +30,16 @@ function App() {
 
         return null;
     }
+
+    useEffect(() => {
+        services.auth().onAuthStateChanged(function (user) {
+            if (user) {
+                usersStore.user = user;
+            } else {
+                usersStore.user = null;
+            }
+        });
+    })
 
     return (
         <ThemeProvider theme={theme}>

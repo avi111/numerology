@@ -1,12 +1,9 @@
 import React from "react";
-import {Button, Divider, Drawer, List, ListItem, ListItemIcon, ListItemText, makeStyles} from "@material-ui/core";
+import {Button, Drawer, List, ListItem, ListItemIcon, ListItemText, makeStyles} from "@material-ui/core";
 import clsx from "clsx";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import MailIcon from "@material-ui/icons/Mail";
-import DehazeIcon from '@material-ui/icons/Dehaze';
 import {useStores} from "../../stores/helpers/use-stores";
 import {Views} from "../../stores/ui/global-view";
-
+import DehazeIcon from '@material-ui/icons/Dehaze';
 
 const Hamburger = () => {
     const useStyles = makeStyles({
@@ -18,7 +15,7 @@ const Hamburger = () => {
         },
     });
 
-    const {uiStores: {globalView}} = useStores();
+    const {uiStores: {globalView}, dataStores: {usersStore}} = useStores();
 
     const classes = useStyles();
     const [state, setState] = React.useState({
@@ -43,33 +40,26 @@ const Hamburger = () => {
             onKeyDown={toggleDrawer(anchor, false)}
         >
             <List>
-                <ListItem button>
-                    {globalView.currentView === Views.LoggedOut && (
+                {globalView.currentView === Views.LoggedOut && (
+                    <ListItem button onClick={usersStore.login}>
                         <React.Fragment>
                             <ListItemIcon>
                                 <i className="fas fa-sign-in-alt"/>
                             </ListItemIcon>
                             <ListItemText primary="Sign in"/>
                         </React.Fragment>
-                    )}
-                    {globalView.currentView === Views.LoggedIn && (
+                    </ListItem>
+                )}
+                {globalView.currentView === Views.LoggedIn && (
+                    <ListItem button>
                         <React.Fragment>
                             <ListItemIcon>
                                 <i className="fas fa-sign-out-alt"/>
                             </ListItemIcon>
                             <ListItemText primary="Sign Out"/>
                         </React.Fragment>
-                    )}
-                </ListItem>
-            </List>
-            <Divider/>
-            <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon/> : <MailIcon/>}</ListItemIcon>
-                        <ListItemText primary={text}/>
                     </ListItem>
-                ))}
+                )}
             </List>
         </div>
     );
