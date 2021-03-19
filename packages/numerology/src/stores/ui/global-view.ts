@@ -6,11 +6,9 @@ export enum Views {
 }
 
 export default class GlobalView {
-    @observable
-    currentView: Views = Views.LoggedOut;
+    @observable currentView: Views = Views.LoggedOut;
 
-    @action
-    updateView(view: Views) {
+    @action updateView(view: Views) {
         this.currentView = view;
     }
 }

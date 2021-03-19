@@ -1,22 +1,29 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
-import {createStore} from "./stores/helpers/create-store";
-import {StoreProvider} from './stores/helpers/store-context';
 import "@fortawesome/fontawesome-free/css/fontawesome.css";
 import "@fortawesome/fontawesome-free/css/brands.css";
 import "@fortawesome/fontawesome-free/css/solid.css";
+import {init} from "./firebase";
+import {IUser, IUserContext, UserContext} from './contexts/UserContext';
 
-const rootStore = createStore();
-rootStore.init();
+init();
+
+export const StoreProviderWrapper = ({children}: {
+    children: any;
+}) => {
+    const [user, setUser] = useState<IUser>();
+    return <UserContext.Provider value={{user, setUser} as IUserContext}>{children}</UserContext.Provider>;
+}
+
 
 ReactDOM.render(
-    <StoreProvider value={rootStore}>
+    <StoreProviderWrapper>
         <App/>
-    </StoreProvider>,
+    </StoreProviderWrapper>,
     document.getElementById('root')
 );
 

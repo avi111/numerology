@@ -9,6 +9,7 @@ import {Box} from "@material-ui/core";
 import {useStores} from "../../stores/helpers/use-stores";
 import {Views} from "../../stores/ui/global-view";
 import {observer} from "mobx-react-lite";
+import {IsLoggedIn} from "../../services/auth";
 
 const useStyles = makeStyles({
     root: {
@@ -21,8 +22,6 @@ const SimpleBottomNavigation = observer(() => {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
 
-    const {uiStores: {globalView}} = useStores();
-
     return (
         <Box display="flex">
             <BottomNavigation
@@ -34,13 +33,12 @@ const SimpleBottomNavigation = observer(() => {
                 className={classes.root}
             >
                 <BottomNavigationAction label={<Link to="/">Home</Link>} icon={<Link to="/"><RestoreIcon/></Link>}/>
-                {globalView.currentView === Views.LoggedIn &&
-                <React.Fragment>
+                <IsLoggedIn>
                     <BottomNavigationAction label={<Link to="/profile">Profile</Link>}
                                             icon={<Link to="/profile"><FavoriteIcon/></Link>}/>
                     <BottomNavigationAction label={<Link to="/couple">Couple</Link>}
                                             icon={<Link to="/couple"><FavoriteIcon/></Link>}/>
-                </React.Fragment>}
+                </IsLoggedIn>
             </BottomNavigation>
         </Box>
     );

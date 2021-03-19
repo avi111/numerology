@@ -1,10 +1,10 @@
-import React from "react";
+import React, {useContext} from "react";
 import {Button, Drawer, List, ListItem, ListItemIcon, ListItemText, makeStyles} from "@material-ui/core";
 import clsx from "clsx";
-import {useStores} from "../../stores/helpers/use-stores";
-import {Views} from "../../stores/ui/global-view";
 import DehazeIcon from '@material-ui/icons/Dehaze';
 import {observer} from "mobx-react-lite";
+import {IsLoggedIn, IsLoggedOut} from "../../services/auth";
+import {UserContext} from "../../contexts/UserContext";
 
 const Hamburger = observer(() => {
     const useStyles = makeStyles({
@@ -16,8 +16,7 @@ const Hamburger = observer(() => {
         },
     });
 
-    const {uiStores: {globalView}, dataStores: {usersStore}} = useStores();
-
+    const userContext = useContext(UserContext);
     const classes = useStyles();
     const [state, setState] = React.useState({
         left: false
@@ -41,8 +40,8 @@ const Hamburger = observer(() => {
             onKeyDown={toggleDrawer(anchor, false)}
         >
             <List>
-                {globalView.currentView === Views.LoggedOut && (
-                    <ListItem button onClick={usersStore.login}>
+                <IsLoggedIn>
+                    <ListItem button onClick={userContext.login}>
                         <React.Fragment>
                             <ListItemIcon>
                                 <i className="fas fa-sign-in-alt"/>
@@ -50,9 +49,9 @@ const Hamburger = observer(() => {
                             <ListItemText primary="Sign in"/>
                         </React.Fragment>
                     </ListItem>
-                )}
-                {globalView.currentView === Views.LoggedIn && (
-                    <ListItem button onClick={usersStore.logout}>
+                </IsLoggedIn>
+                <IsLoggedOut>
+                    <ListItem button onClick={userContext.logout}>
                         <React.Fragment>
                             <ListItemIcon>
                                 <i className="fas fa-sign-out-alt"/>
@@ -60,7 +59,7 @@ const Hamburger = observer(() => {
                             <ListItemText primary="Sign Out"/>
                         </React.Fragment>
                     </ListItem>
-                )}
+                </IsLoggedOut>
             </List>
         </div>
     );

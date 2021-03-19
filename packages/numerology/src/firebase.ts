@@ -16,12 +16,27 @@ export const firebaseConfig = {
     measurementId: process.env.REACT_APP_MESSAGING_SENDER_ID
 };
 
+class Firebase {
+    private static instance: typeof firebase;
+    static getInstance() {
+        if(!Firebase.instance) {
+            Firebase.instance = firebase;
+            firebase.initializeApp(firebaseConfig);
+        } else {
+            return Firebase.instance;
+        }
+    }
+}
 export const init = () => {
-    firebase.initializeApp(firebaseConfig);
+    return Firebase.getInstance();
+}
+
+const instance = () => {
+    return Firebase.getInstance();
 }
 
 const {auth, storage, firestore, functions} = firebase;
 
 export const services = {auth, storage, firestore, functions}
 
-export default firebase
+export default instance();
