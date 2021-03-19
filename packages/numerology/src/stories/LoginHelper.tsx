@@ -10,7 +10,7 @@ const LoginHelper = ({args, children}: { args: { loggedIn: boolean }, children: 
         if (args.loggedIn) {
             setUser({} as IUser);
         }
-    })
+    }, [args.loggedIn])
 
     return (
         <UserContext.Provider value={{user, setUser} as IUserContext}>

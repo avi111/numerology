@@ -2,7 +2,6 @@ import React from 'react';
 import {Meta} from '@storybook/react';
 import SimpleBottomNavigation from './SimpleBottomNavigation';
 import RouterHelper from "../../stories/RouterHelper";
-import {IsLoggedIn, IsLoggedOut} from "../../services/auth";
 import LoginHelper from "../../stories/LoginHelper";
 
 export default {

@@ -40,7 +40,7 @@ const Hamburger = observer(() => {
             onKeyDown={toggleDrawer(anchor, false)}
         >
             <List>
-                <IsLoggedIn>
+                <IsLoggedOut>
                     <ListItem button onClick={userContext.login}>
                         <React.Fragment>
                             <ListItemIcon>
@@ -49,8 +49,8 @@ const Hamburger = observer(() => {
                             <ListItemText primary="Sign in"/>
                         </React.Fragment>
                     </ListItem>
-                </IsLoggedIn>
-                <IsLoggedOut>
+                </IsLoggedOut>
+                <IsLoggedIn>
                     <ListItem button onClick={userContext.logout}>
                         <React.Fragment>
                             <ListItemIcon>
@@ -59,7 +59,7 @@ const Hamburger = observer(() => {
                             <ListItemText primary="Sign Out"/>
                         </React.Fragment>
                     </ListItem>
-                </IsLoggedOut>
+                </IsLoggedIn>
             </List>
         </div>
     );

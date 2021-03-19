@@ -5,7 +5,7 @@ import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import RestoreIcon from '@material-ui/icons/Restore';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import {Link} from "react-router-dom";
-import {Box} from "@material-ui/core";
+import {Box, Typography} from "@material-ui/core";
 import {observer} from "mobx-react-lite";
 import {IsLoggedIn} from "../../services/auth";
 
@@ -30,12 +30,10 @@ const SimpleBottomNavigation = observer(() => {
                 showLabels
                 className={classes.root}
             >
-                <BottomNavigationAction label={<Link to="/">Home</Link>} icon={<Link to="/"><RestoreIcon/></Link>}/>
+                <Link to="/"><BottomNavigationAction showLabel label={<Typography>Home</Typography>} icon={<RestoreIcon/>}/></Link>
                 <IsLoggedIn>
-                    <BottomNavigationAction label={<Link to="/profile">Profile</Link>}
-                                            icon={<Link to="/profile"><FavoriteIcon/></Link>}/>
-                    <BottomNavigationAction label={<Link to="/couple">Couple</Link>}
-                                            icon={<Link to="/couple"><FavoriteIcon/></Link>}/>
+                    <Link to="/profile"><BottomNavigationAction showLabel label={<Typography>Profile</Typography>} icon={<FavoriteIcon/>}/></Link>
+                    <Link to="/couple"><BottomNavigationAction showLabel label={<Typography>Couple</Typography>} icon={<FavoriteIcon/>}/></Link>
                 </IsLoggedIn>
             </BottomNavigation>
         </Box>
