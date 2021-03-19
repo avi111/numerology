@@ -1,9 +1,7 @@
 import React from 'react';
 import {Meta} from '@storybook/react';
 import Home from "./Home";
-import {Views} from "../stores/ui/global-view";
-import MobxHelper from "../stories/mobxHelper";
-import rootStore from "../stories/initStore";
+import LoginHelper from "../stories/LoginHelper";
 
 export default {
     title: 'Pages/Home',
@@ -12,12 +10,10 @@ export default {
 
 
 const Template = (args: { loggedIn: any; }) => {
-    rootStore.uiStores.globalView.currentView = args.loggedIn ? Views.LoggedIn : Views.LoggedOut;
-
     return (
-        <MobxHelper {...{rootStore}}>
+        <LoginHelper {...{args}}>
             <Home/>
-        </MobxHelper>
+        </LoginHelper>
     );
 }
 

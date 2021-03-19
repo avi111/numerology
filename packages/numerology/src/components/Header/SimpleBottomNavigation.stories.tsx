@@ -1,10 +1,9 @@
 import React from 'react';
 import {Meta} from '@storybook/react';
 import SimpleBottomNavigation from './SimpleBottomNavigation';
-import {Views} from "../../stores/ui/global-view";
-import MobxHelper from "../../stories/mobxHelper";
 import RouterHelper from "../../stories/RouterHelper";
-import rootStore from "../../stories/initStore";
+import {IsLoggedIn, IsLoggedOut} from "../../services/auth";
+import LoginHelper from "../../stories/LoginHelper";
 
 export default {
     title: 'Header/SimpleBottomNavigation',
@@ -12,13 +11,12 @@ export default {
 } as Meta;
 
 const Template = (args: { loggedIn: any; }) => {
-    rootStore.uiStores.globalView.currentView = args.loggedIn ? Views.LoggedIn : Views.LoggedOut;
     return (
-        <MobxHelper {...{rootStore}}>
-            <RouterHelper>
+        <RouterHelper>
+            <LoginHelper {...{args}}>
                 <SimpleBottomNavigation/>
-            </RouterHelper>
-        </MobxHelper>
+            </LoginHelper>
+        </RouterHelper>
     )
 };
 

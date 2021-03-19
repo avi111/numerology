@@ -6,8 +6,6 @@ import RestoreIcon from '@material-ui/icons/Restore';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import {Link} from "react-router-dom";
 import {Box} from "@material-ui/core";
-import {useStores} from "../../stores/helpers/use-stores";
-import {Views} from "../../stores/ui/global-view";
 import {observer} from "mobx-react-lite";
 import {IsLoggedIn} from "../../services/auth";
 

@@ -1,9 +1,7 @@
 import React from 'react';
 
 import Hamburger from './Hamburger';
-import {Views} from "../../stores/ui/global-view";
-import MobxHelper from "../../stories/mobxHelper";
-import rootStore from "../../stories/initStore";
+import LoginHelper from "../../stories/LoginHelper";
 
 export default {
     title: 'Header/Hamburger',
@@ -12,10 +10,11 @@ export default {
 
 
 const Template = (args: { loggedIn: any; }) => {
-    rootStore.uiStores.globalView.currentView = args.loggedIn ? Views.LoggedIn : Views.LoggedOut;
-    return (<MobxHelper {...{rootStore}}>
-        <Hamburger/>
-    </MobxHelper>)
+    return (
+        <LoginHelper {...{args}}>
+            <Hamburger/>
+        </LoginHelper>
+    )
 }
 
 export const LoggedIn = Template.bind({});
