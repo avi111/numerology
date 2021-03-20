@@ -12,8 +12,6 @@ import {services} from "./firebase";
 import Home from "./components/Home";
 import {UserContext} from "./contexts/UserContext";
 import ProfileForm from "./components/FormComponents/Profile/ProfileForm";
-import BusinessForm from "./components/FormComponents/Business/BusinessForm";
-import CoupleForm from "./components/FormComponents/Couple/CoupleForm";
 
 const App = () => {
     const [mounted, setMounted] = useState(false);
@@ -43,10 +41,10 @@ const App = () => {
                                     <ProfileForm/>
                                 </Route>
                                 <Route path="/business">
-                                    <BusinessForm/>
+                                    BusinessForm
                                 </Route>
                                 <Route path="/couple">
-                                    <CoupleForm/>
+                                    CoupleForm
                                 </Route>
                                 <Route path="/">
                                     <Home/>

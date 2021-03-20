@@ -1,6 +1,9 @@
 import React from "react";
 import {gender, props} from "@maya259/numerology-engine";
-import ComposeForm, {FormProps, fieldTypes} from "@maya259/compose-form";
+import { FormProvider } from "../Components/FormProvider";
+import Form from "../Components/Form";
+import { FormProps } from "../interfaces/FormProps";
+import { fieldTypes } from "../enums/fieldTypes";
 
 const formProps: FormProps = {
     form:
@@ -63,6 +66,8 @@ export default function ProfileForm() {
     }
 
     return (
-        <ComposeForm {...{formProps, prepareProps}} />
+        <FormProvider {...{prepareProps}}>
+            <Form formProps={formProps}/>
+        </FormProvider>
     );
 }

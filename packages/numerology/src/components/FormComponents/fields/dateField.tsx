@@ -30,7 +30,6 @@ const DateField = (inputProps: InputProps) => {
                 placeholder,
                 required,
                 error: errors.length>0,
-                inputProps: props,
                 helperText: errors[0],
                 onChange,
                 InputLabelProps: {

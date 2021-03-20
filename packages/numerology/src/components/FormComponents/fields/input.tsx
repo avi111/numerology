@@ -44,8 +44,8 @@ const Input = (inputProps: InputProps & InputHTMLAttributes<HTMLInputElement>) =
                     placeholder,
                     required,
                     error: errors.length>0,
-                    inputProps: props,
-                    helperText: errors[0]
+                    helperText: errors[0],
+                    variant: "standard"
                 }}
             />
     );
