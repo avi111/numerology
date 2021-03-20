@@ -1,22 +1,9 @@
 import vest, {enforce, test} from "vest";
-import validator from "validator";
-import {DraftResult, IVestResult} from "vest/vestResult";
 import {props, gender} from "@maya259/numerology-engine";
+import {ICreateResult} from "../interfaces/ICreateResult";
+import profileProps from "../props/profile";
 
-interface ICreateResult {
-    get: (form?: string) => DraftResult;
-    reset: () => void;
-
-    (...args: any[]): IVestResult;
-}
-
-const {isEmail} = validator;
-enforce.extend({isEmail});
-
-// We import enforceExtended instead of enforce
-// bacuse this extended bundle has email validation
-
-const suite: ICreateResult = vest.create("user_form", (data: Partial<props> = {}, currentField) => {
+const suite: ICreateResult = vest.create(profileProps.form.id, (data: Partial<props> = {}, currentField) => {
     vest.only(currentField);
 
     test("firstName", "Username is required", () => {

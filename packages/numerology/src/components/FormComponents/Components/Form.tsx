@@ -24,7 +24,7 @@ const Form = ({formProps}: {formProps: FormProps}) => {
                     </Box>
                 ))}
                 <footer>
-                    <Button className="btn-submit">Submit</Button>
+                    <Button {...{className: "btn-submit", formProps}}>Submit</Button>
                 </footer>
             </form>}
         </Box>
