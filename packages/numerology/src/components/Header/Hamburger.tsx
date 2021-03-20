@@ -2,11 +2,10 @@ import React, {useContext} from "react";
 import {Button, Drawer, List, ListItem, ListItemIcon, ListItemText, makeStyles} from "@material-ui/core";
 import clsx from "clsx";
 import DehazeIcon from '@material-ui/icons/Dehaze';
-import {observer} from "mobx-react-lite";
 import {IsLoggedIn, IsLoggedOut} from "../../services/auth";
 import {UserContext} from "../../contexts/UserContext";
 
-const Hamburger = observer(() => {
+const Hamburger = () => {
     const useStyles = makeStyles({
         list: {
             width: 250,
@@ -77,6 +76,6 @@ const Hamburger = observer(() => {
             </Drawer>
         </React.Fragment>
     );
-});
+}
 
 export default Hamburger

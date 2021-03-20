@@ -6,7 +6,6 @@ import RestoreIcon from '@material-ui/icons/Restore';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import {Link} from "react-router-dom";
 import {Box, Typography} from "@material-ui/core";
-import {observer} from "mobx-react-lite";
 import {IsLoggedIn} from "../../services/auth";
 
 const useStyles = makeStyles({
@@ -16,7 +15,7 @@ const useStyles = makeStyles({
     },
 });
 
-const SimpleBottomNavigation = observer(() => {
+const SimpleBottomNavigation = () => {
     const classes = useStyles();
     const [value, setValue] = React.useState(0);
 
@@ -38,6 +37,6 @@ const SimpleBottomNavigation = observer(() => {
             </BottomNavigation>
         </Box>
     );
-});
+}
 
 export default SimpleBottomNavigation;

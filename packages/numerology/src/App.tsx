@@ -10,7 +10,6 @@ import theme from './theme';
 import {ThemeProvider} from '@material-ui/core/styles';
 import Form2, {forms} from "./components/Form";
 import Form from "./components/FormComponents/Form";
-import {observer} from "mobx-react-lite";
 import {services} from "./firebase";
 import Home from "./components/Home";
 import {UserContext} from "./contexts/UserContext";
@@ -58,4 +57,4 @@ const App = () => {
     );
 }
 
-export default observer(App);
+export default App;
