@@ -1,28 +1,23 @@
-import React, {FormEvent} from "react";
-import {Schema} from "./interfaces/schema";
-import {InputType} from "./interfaces/inputType"
+import React from "react";
+import {props} from "@maya259/numerology-engine";
+import {FormProvider} from "./Components/FormProvider";
+import Form from "./Components/Form";
+import {FormProps} from "./interfaces/FormProps";
+import { fieldTypes } from "./enums/fieldTypes";
 
-export interface ComposeFormProps {
-    schema?: Schema,
-    onSubmit?: (e: FormEvent) => void
+export interface IComposeForm {
+    prepareProps: (formProps: props) => props;
+    formProps: FormProps;
 }
-
-const ComposeForm = ({schema, onSubmit}: ComposeFormProps): JSX.Element => {
+export default function ComposeForm({formProps, prepareProps}: IComposeForm) {
     return (
-        <form onSubmit={(event => {
-            event.preventDefault();
-            onSubmit && onSubmit(event);
-        })}>
-            <div>{JSON.stringify(schema)}</div>
-            <input type="submit" value="submit"/>
-        </form>
+        <FormProvider {...{prepareProps}}>
+            <Form formProps={formProps}/>
+        </FormProvider>
     );
 }
 
-export default ComposeForm;
-export type IT = InputType;
-
 export {
-    Schema as Schema,
-    InputType as InputType
+    FormProps,
+    fieldTypes
 }
