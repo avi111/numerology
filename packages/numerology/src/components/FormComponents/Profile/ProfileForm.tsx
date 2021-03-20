@@ -1,7 +1,7 @@
 import React from "react";
-import {gender, props} from "@maya259/numerology-engine";
+import {props} from "@maya259/numerology-engine";
 import { FormProvider } from "../Components/FormProvider";
-import Form from "../Components/Form";
+import FormWrapper from "../Components/FormWrapper";
 import profileProps from "../props/profile";
 
 
@@ -16,7 +16,7 @@ export default function ProfileForm() {
 
     return (
         <FormProvider {...{prepareProps}}>
-            <Form formProps={profileProps}/>
+            <FormWrapper formProps={profileProps}/>
         </FormProvider>
     );
 }
