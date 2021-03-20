@@ -1,14 +1,14 @@
 import React from "react";
 import {TextField} from "@material-ui/core";
 import {InputProps} from "./input";
-import "../form.scss";
+import "../../form.scss";
 
 
-const TimeField = (inputProps: InputProps) => {
+const DateField = (inputProps: InputProps) => {
     const {
         name,
         label = name,
-        value = "07:30",
+        value = new Date().toISOString(),
         className = "",
         onChange = () => {
         },
@@ -22,21 +22,23 @@ const TimeField = (inputProps: InputProps) => {
     return (
         <TextField
             {...{
-                type:"time",
+                type: "datetime-local",
                 name,
                 label,
                 value,
                 className,
                 placeholder,
                 required,
-                variant: "standard",
                 error: errors.length>0,
                 inputProps: props,
                 helperText: errors[0],
-                onChange
+                onChange,
+                InputLabelProps: {
+                    shrink: true,
+                }
             }}
         />
     );
 }
 
-export default TimeField;
+export default DateField;

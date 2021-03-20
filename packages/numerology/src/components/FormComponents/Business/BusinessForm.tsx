@@ -1,14 +1,14 @@
 import React, {ChangeEvent, FormEvent, useState} from "react";
 import classNames from "vest/classNames";
-import Input from "./input";
-import Button from "./button";
-import validate from "./validate";
+import Input from "../fields/input";
+import Button from "../fields/button";
+import validate from "../Profile/validate";
 import {gender, profileProps, props} from "@maya259/numerology-engine";
 import {Box} from "@material-ui/core";
-import DateField from './dateField';
+import DateField from '../fields/dateField';
 import {MaterialUiPickersDate} from "@material-ui/pickers/typings/date";
-import SelectField from "./select";
-import {Profile} from "../../numerologyEngine";
+import SelectField from "../fields/select";
+import {Profile} from "../../../numerologyEngine";
 
 export enum FieldState {
     WARNING = "warning",
@@ -25,7 +25,7 @@ const prepareProps = (formProps: props): props => {
 }
 
 
-export default function Form() {
+export default function BusinessForm() {
     const [profile, setProfile] = useState<profileProps | null>(null);
     const [formState, setFormState] = useState({} as props);
     const [usernamePending, setUsernamePending] = useState(false);
@@ -66,6 +66,8 @@ export default function Form() {
         valid: FieldState.VALID
     });
 
+
+
     return (
         <Box>
             {profile && <Box>{JSON.stringify(profile)}</Box>}
@@ -74,7 +76,7 @@ export default function Form() {
                 id="profile-form"
                 className="col-xs-10 col-lg-6"
             >
-                <h2>Authentication</h2>
+                <h2>Business</h2>
 
                 <Box>
                     <Input

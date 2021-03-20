@@ -8,11 +8,12 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Hamburger from "./components/Header/Hamburger";
 import theme from './theme';
 import {ThemeProvider} from '@material-ui/core/styles';
-import Form2, {forms} from "./components/Form";
-import Form from "./components/FormComponents/Form";
 import {services} from "./firebase";
 import Home from "./components/Home";
 import {UserContext} from "./contexts/UserContext";
+import ProfileForm from "./components/FormComponents/Profile/ProfileForm";
+import BusinessForm from "./components/FormComponents/Business/BusinessForm";
+import CoupleForm from "./components/FormComponents/Couple/CoupleForm";
 
 const App = () => {
     const [mounted, setMounted] = useState(false);
@@ -39,10 +40,13 @@ const App = () => {
                         <div>
                             <Switch>
                                 <Route path="/profile">
-                                    <Form/>
+                                    <ProfileForm/>
+                                </Route>
+                                <Route path="/business">
+                                    <BusinessForm/>
                                 </Route>
                                 <Route path="/couple">
-                                    <Form2 form={forms.PROFILE}/>
+                                    <CoupleForm/>
                                 </Route>
                                 <Route path="/">
                                     <Home/>

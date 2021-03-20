@@ -1,5 +1,5 @@
 import React from "react";
-import suite from "./validate";
+import suite from "../Profile/validate";
 import {Button} from "@material-ui/core";
 import classnames from "classnames";
 

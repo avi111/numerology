@@ -32,6 +32,7 @@ const SimpleBottomNavigation = () => {
                 <Link to="/"><BottomNavigationAction showLabel label={<Typography>Home</Typography>} icon={<RestoreIcon/>}/></Link>
                 <IsLoggedIn>
                     <Link to="/profile"><BottomNavigationAction showLabel label={<Typography>Profile</Typography>} icon={<FavoriteIcon/>}/></Link>
+                    <Link to="/business"><BottomNavigationAction showLabel label={<Typography>Business</Typography>} icon={<FavoriteIcon/>}/></Link>
                     <Link to="/couple"><BottomNavigationAction showLabel label={<Typography>Couple</Typography>} icon={<FavoriteIcon/>}/></Link>
                 </IsLoggedIn>
             </BottomNavigation>

@@ -1,5 +1,4 @@
 import vest, {enforce, test} from "vest";
-import {doesUserExist} from "./api";
 import validator from "validator";
 import {DraftResult, IVestResult} from "vest/vestResult";
 import {props, gender} from "@maya259/numerology-engine";
@@ -27,14 +26,6 @@ const suite: ICreateResult = vest.create("user_form", (data: Partial<props> = {}
     test("firstName", "Username must be at least 3 characterss long", () => {
         enforce(data.firstName).longerThanOrEquals(3);
     });
-
-    if (!suite.get().hasErrors("firstName")) {
-        test("firstName", "Username already exists", () => {
-            if (data.firstName) {
-                return doesUserExist(data.firstName);
-            }
-        });
-    }
 
     test("birthDate", "Date must be in the past", () => {
         enforce(data.birthDate).isNotEmpty();
