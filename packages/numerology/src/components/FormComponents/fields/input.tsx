@@ -25,11 +25,9 @@ const Input = (inputProps: InputProps & InputHTMLAttributes<HTMLInputElement>) =
         className = "",
         onChange = () => {
         },
-        pending,
         errors = [],
         placeholder,
-        required = false,
-        ...props
+        required = false
     } = inputProps;
 
     return (

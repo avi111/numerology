@@ -7,7 +7,7 @@ import DateField from "../fields/dateField";
 import SelectField from "../fields/select";
 
 const Field = (fieldProps: FieldProps): JSX.Element => {
-    const {result, formState, handleChange, cn, validationResult} = useContext(FormContext);
+    const {formState, handleChange, cn, validationResult} = useContext(FormContext);
     switch (fieldProps.input) {
         case fieldTypes.TEXT:
             return <Input {...{

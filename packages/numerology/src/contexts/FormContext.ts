@@ -1,6 +1,5 @@
 import {ChangeEvent, createContext, FormEvent} from "react";
 import {Strategy} from "../models/form/strategy";
-import {MaterialUiPickersDate} from "@material-ui/pickers/typings/date";
 import {profileProps, props} from "@maya259/numerology-engine";
 import {DraftResult} from "vest/vestResult";
 
