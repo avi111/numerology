@@ -5,9 +5,11 @@ import Button from "../fields/button";
 import React, {useContext} from "react";
 import {FormProps} from "../interfaces/FormProps";
 import {FormContext} from "../../../contexts/FormContext";
+import {LanguageContext} from "../../../contexts/LanguageContext";
 
 const Form = ({formProps}: {formProps: FormProps}) => {
     const {handleSubmit} = useContext(FormContext);
+    const {getWord} = useContext(LanguageContext);
 
     return (
         <form
@@ -22,7 +24,7 @@ const Form = ({formProps}: {formProps: FormProps}) => {
                 </Box>
             ))}
             <footer>
-                <Button {...{className: "btn-submit", formProps}}>Submit</Button>
+                <Button {...{className: "btn-submit", formProps}}>{getWord("submit")}</Button>
             </footer>
         </form>
     );

@@ -1,37 +1,51 @@
 import './App.css'
-import React, {useContext, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import CssBaseline from '@material-ui/core/CssBaseline';
 
-import {Box, CircularProgress, Container,} from '@material-ui/core';
+import {Box, CircularProgress, Container, Theme,} from '@material-ui/core';
 import SimpleBottomNavigation from "./components/Header/SimpleBottomNavigation";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Hamburger from "./components/Header/Hamburger";
-import theme from './theme';
+import ltr from './themes/ltr';
+import rtl from './themes/rtl';
 import {ThemeProvider} from '@material-ui/core/styles';
 import firebase, {services} from "./firebase";
 import Home from "./components/Home";
 import {UserContext} from "./contexts/UserContext";
 import ProfileForm from "./components/FormComponents/Profile/ProfileForm";
-import {language, LanguageContext} from "./contexts/LanguageContext";
+import {direction, language, LanguageContext} from "./contexts/LanguageContext";
+import {languages} from "./consts/languages";
+
+const themes = {
+    [direction.LTR]: ltr,
+    [direction.RTL]: rtl
+}
 
 const App = () => {
-    const [mounted, setMounted] = useState(false);
     const userContext = useContext(UserContext);
     const langContext = useContext(LanguageContext);
+    const [theme, setTheme] = useState<Theme>(themes[langContext.getDirection()]);
+    const [mounted, setMounted] = useState(false);
 
-    services.auth().onAuthStateChanged(async (user) => {
-        if (user) {
-            userContext.setUser(user);
-        } else {
-            userContext.setUser(null);
-        }
-        setMounted(true);
+    useEffect(() => {
+        services.auth().onAuthStateChanged(async (user) => {
+            if (user) {
+                userContext.setUser(user);
+            } else {
+                userContext.setUser(null);
+            }
+            setMounted(true);
 
 
-        const {claims} = await firebase?.auth().currentUser?.getIdTokenResult() || {};
-        const lang = claims?.language || language.HEBREW;
-        langContext.setCurrentLanguage(lang);
-    });
+            const {claims} = await firebase?.auth().currentUser?.getIdTokenResult() || {};
+            const lang = claims?.language || language.HEBREW;
+            langContext.setCurrentLanguage(lang);
+        });
+    }, [])
+
+    useEffect(() => {
+        setTheme(themes[languages.get(langContext.currentLanguage)?.direction || direction.LTR]);
+    }, [langContext.currentLanguage])
 
     return (
         <ThemeProvider theme={theme}>

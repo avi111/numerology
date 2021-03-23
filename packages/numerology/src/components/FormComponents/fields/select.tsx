@@ -1,7 +1,8 @@
-import React, {ChangeEvent, SelectHTMLAttributes} from "react";
+import React, {ChangeEvent, SelectHTMLAttributes, useContext} from "react";
 import {IVestResult} from "vest/vestResult";
 import {FormControl, InputLabel, NativeSelect, NativeSelectProps} from "@material-ui/core";
 import {v4 as uuidv4} from "uuid";
+import {LanguageContext} from "../../../contexts/LanguageContext";
 
 export interface IOption {
     option: string,
@@ -24,6 +25,8 @@ export interface InputProps {
 }
 
 const SelectField = (inputProps: InputProps & NativeSelectProps & SelectHTMLAttributes<HTMLSelectElement>) => {
+    const {getWord} = useContext(LanguageContext);
+
     const {
         name,
         options,
@@ -52,7 +55,7 @@ const SelectField = (inputProps: InputProps & NativeSelectProps & SelectHTMLAttr
                     id,
                 }}
             >
-                {options.map((option: IOption) => <option key={uuidv4()} value={option.value}>{option.option}</option>)}
+                {options.map((option: IOption) => <option key={uuidv4()} value={option.value}>{getWord(option.option)}</option>)}
             </NativeSelect>
             {error && <p className="MuiFormHelperText-root Mui-error MuiFormHelperText-filled">{errors[0]}</p>}
         </FormControl>

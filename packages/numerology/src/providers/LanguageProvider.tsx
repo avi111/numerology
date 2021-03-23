@@ -1,5 +1,7 @@
 import React, {useEffect, useState} from "react";
-import {ILanguageContext, language, LanguageContext} from "../contexts/LanguageContext";
+import {direction, ILanguageContext, language, LanguageContext, languageProps} from "../contexts/LanguageContext";
+import {languages} from "../consts/languages";
+import {dictionaryEntries} from "../consts/dictionary";
 
 export const LanguageProvider = ({children}: {
     children: any;
@@ -10,19 +12,18 @@ export const LanguageProvider = ({children}: {
     const getWord: (word: string) => string = word => dictionary.get(word.toLowerCase()) || word;
 
     useEffect(() => {
-        const entries = {
-            [language.HEBREW]: new Map([['home', 'בית']]),
-            [language.ENGLISH]: new Map([['home', 'home']]),
-            [language.RUSSIAN]: new Map([['home', 'домашняя страница']]),
-        };
-        setDictionary(entries[currentLanguage] as Map<string, string>)
+
+        setDictionary(dictionaryEntries[currentLanguage] as Map<string, string>)
     }, [currentLanguage]);
+
+    const getDirection = () => languages.get(currentLanguage)?.direction || direction.LTR;
 
     return <LanguageContext.Provider
         value={{
             currentLanguage,
             setCurrentLanguage,
             dictionary,
-            getWord
+            getWord,
+            getDirection
         } as ILanguageContext}>{children}</LanguageContext.Provider>;
 }

@@ -5,21 +5,23 @@ import {fieldTypes} from "../enums/fieldTypes";
 import Input from "../fields/input";
 import DateField from "../fields/dateField";
 import SelectField from "../fields/select";
+import {LanguageContext} from "../../../contexts/LanguageContext";
 
 const Field = (fieldProps: FieldProps): JSX.Element => {
+    const {getWord} = useContext(LanguageContext);
     const {formState, handleChange, cn, validationResult} = useContext(FormContext);
     switch (fieldProps.input) {
         case fieldTypes.TEXT:
             return <Input {...{
                 name: fieldProps.field,
                 type: fieldProps.input,
-                label: fieldProps.label,
+                label: getWord(fieldProps.label),
                 // @ts-ignore
                 value: formState[fieldProps.field],
                 onChange: handleChange,
                 required: fieldProps.required,
                 className: cn(fieldProps.field),
-                placeholder: fieldProps.placeholder,
+                placeholder: getWord(fieldProps.placeholder || ""),
                 errors: [
                     ...validationResult.getErrors(fieldProps.field),
                     ...validationResult.getWarnings(fieldProps.field)
@@ -30,7 +32,7 @@ const Field = (fieldProps: FieldProps): JSX.Element => {
                 <DateField {...{
                     name: fieldProps.field,
                     type: fieldProps.input,
-                    label: fieldProps.label,
+                    label: getWord(fieldProps.label),
                     // @ts-ignore
                     value: formState[fieldProps.field],
                     onChange: handleChange,
@@ -48,7 +50,7 @@ const Field = (fieldProps: FieldProps): JSX.Element => {
                     <SelectField {...{
                         name: fieldProps.field,
                         required: fieldProps.required,
-                        label: fieldProps.label,
+                        label: getWord(fieldProps.label),
                         // @ts-ignore
                         value: formState[fieldProps.field],
                         options: fieldProps.options,

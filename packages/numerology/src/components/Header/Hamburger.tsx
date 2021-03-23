@@ -4,6 +4,9 @@ import clsx from "clsx";
 import DehazeIcon from '@material-ui/icons/Dehaze';
 import {IsLoggedIn, IsLoggedOut} from "../../services/auth";
 import {UserContext} from "../../contexts/UserContext";
+import {direction, language, LanguageContext} from "../../contexts/LanguageContext";
+import {LanguageMenu} from "./LanguageMenu";
+import {languages} from "../../consts/languages";
 
 const Hamburger = () => {
     const useStyles = makeStyles({
@@ -16,9 +19,12 @@ const Hamburger = () => {
     });
 
     const userContext = useContext(UserContext);
+    const langContext = useContext(LanguageContext);
+    const {getWord} = langContext;
     const classes = useStyles();
     const [state, setState] = React.useState({
-        left: false
+        left: false,
+        right: false
     });
 
     const toggleDrawer = (anchor: string, open: boolean) => (event: any) => {
@@ -45,7 +51,7 @@ const Hamburger = () => {
                             <ListItemIcon>
                                 <i className="fas fa-sign-in-alt"/>
                             </ListItemIcon>
-                            <ListItemText primary="Sign in"/>
+                            <ListItemText primary={getWord("Sign in")}/>
                         </React.Fragment>
                     </ListItem>
                 </IsLoggedOut>
@@ -55,19 +61,24 @@ const Hamburger = () => {
                             <ListItemIcon>
                                 <i className="fas fa-sign-out-alt"/>
                             </ListItemIcon>
-                            <ListItemText primary="Sign Out"/>
+                            <ListItemText primary={getWord("Sign Out")}/>
                         </React.Fragment>
                     </ListItem>
                 </IsLoggedIn>
+                <LanguageMenu />
             </List>
         </div>
     );
 
     const icons = {
-        left: <DehazeIcon/>
+        left: <DehazeIcon/>,
+        right: <DehazeIcon/>
     }
 
-    const anchor = 'left';
+    const anchor = languages.get(langContext.currentLanguage)?.direction === direction.LTR ?
+        'left' :
+        'right';
+
     return (
         <React.Fragment key={anchor}>
             <Button onClick={toggleDrawer(anchor, true)}>{icons[anchor]}</Button>

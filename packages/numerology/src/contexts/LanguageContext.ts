@@ -6,10 +6,15 @@ export enum language {
     RUSSIAN = "ru_RU"
 }
 
+export enum direction {
+    RTL="rtl",
+    LTR="ltr"
+}
 export interface languageProps {
-    key: language;
     engName: string;
     originName: string;
+    direction: direction;
+    flag: string;
 }
 
 export interface ILanguageContext {
@@ -17,6 +22,7 @@ export interface ILanguageContext {
     setCurrentLanguage: (lang: language)=>void;
     currentLanguage: language;
     getWord: (word: string) => string;
+    getDirection: () => direction;
 }
 
 export const LanguageContext = createContext<ILanguageContext>({} as ILanguageContext);
