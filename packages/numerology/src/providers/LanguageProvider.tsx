@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {direction, ILanguageContext, language, LanguageContext, languageProps} from "../contexts/LanguageContext";
+import {direction, ILanguageContext, language, LanguageContext} from "../contexts/LanguageContext";
 import {languages} from "../consts/languages";
 import {dictionaryEntries} from "../consts/dictionary";
 

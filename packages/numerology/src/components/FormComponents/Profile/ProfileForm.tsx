@@ -1,6 +1,6 @@
 import React from "react";
 import {props} from "@maya259/numerology-engine";
-import { FormProvider } from "../Components/FormProvider";
+import {FormProvider} from "../Components/FormProvider";
 import FormWrapper from "../Components/FormWrapper";
 import profileProps from "../props/profile";
 

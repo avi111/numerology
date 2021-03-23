@@ -4,7 +4,7 @@ import clsx from "clsx";
 import DehazeIcon from '@material-ui/icons/Dehaze';
 import {IsLoggedIn, IsLoggedOut} from "../../services/auth";
 import {UserContext} from "../../contexts/UserContext";
-import {direction, language, LanguageContext} from "../../contexts/LanguageContext";
+import {direction, LanguageContext} from "../../contexts/LanguageContext";
 import {LanguageMenu} from "./LanguageMenu";
 import {languages} from "../../consts/languages";
 

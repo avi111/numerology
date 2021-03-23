@@ -1,5 +1,5 @@
 import vest, {enforce, test} from "vest";
-import {props, gender} from "@maya259/numerology-engine";
+import {gender, props} from "@maya259/numerology-engine";
 import {ICreateResult} from "../interfaces/ICreateResult";
 import profileProps from "../props/profile";
 
