@@ -17,7 +17,7 @@ const Form = ({formProps}: {formProps: FormProps}) => {
             id={formProps.form.id}
             className="col-xs-10 col-lg-6"
         >
-            <h2>{formProps.form.title}</h2>
+            <h2>{getWord(formProps.form.title)}</h2>
             {formProps.fields.map((field, i) => (
                 <Box key={uuid()}>
                     <Field {...{...field}}/>

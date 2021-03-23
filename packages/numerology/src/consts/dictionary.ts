@@ -16,6 +16,8 @@ export const dictionaryEntries = {
         ['male', 'זכר'],
         ['gender', 'מין'],
         ['first name', 'שם פרטי'],
+        ['family name', 'שם משפחה'],
+        ['father name', 'שם האב'],
         ['mother name', 'שם האם'],
         ['birth date', 'תאריך לידה']
     ]),
