@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
@@ -8,22 +8,17 @@ import "@fortawesome/fontawesome-free/css/fontawesome.css";
 import "@fortawesome/fontawesome-free/css/brands.css";
 import "@fortawesome/fontawesome-free/css/solid.css";
 import {init} from "./firebase";
-import {IUser, IUserContext, UserContext} from './contexts/UserContext';
+import {LanguageProvider} from './providers/LanguageProvider';
+import {UserProvider} from "./providers/UserProvider";
 
 init();
 
-export const StoreProviderWrapper = ({children}: {
-    children: any;
-}) => {
-    const [user, setUser] = useState<IUser>();
-    return <UserContext.Provider value={{user, setUser} as IUserContext}>{children}</UserContext.Provider>;
-}
-
-
 ReactDOM.render(
-    <StoreProviderWrapper>
-        <App/>
-    </StoreProviderWrapper>,
+    <LanguageProvider>
+        <UserProvider>
+            <App/>
+        </UserProvider>
+    </LanguageProvider>,
     document.getElementById('root')
 );
 

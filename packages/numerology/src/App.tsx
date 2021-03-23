@@ -8,21 +8,29 @@ import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Hamburger from "./components/Header/Hamburger";
 import theme from './theme';
 import {ThemeProvider} from '@material-ui/core/styles';
-import {services} from "./firebase";
+import firebase, {services} from "./firebase";
 import Home from "./components/Home";
 import {UserContext} from "./contexts/UserContext";
 import ProfileForm from "./components/FormComponents/Profile/ProfileForm";
+import {language, LanguageContext} from "./contexts/LanguageContext";
 
 const App = () => {
     const [mounted, setMounted] = useState(false);
     const userContext = useContext(UserContext);
-    services.auth().onAuthStateChanged(function (user) {
+    const langContext = useContext(LanguageContext);
+
+    services.auth().onAuthStateChanged(async (user) => {
         if (user) {
             userContext.setUser(user);
         } else {
             userContext.setUser(null);
         }
         setMounted(true);
+
+
+        const {claims} = await firebase?.auth().currentUser?.getIdTokenResult() || {};
+        const lang = claims?.language || language.HEBREW;
+        langContext.setCurrentLanguage(lang);
     });
 
     return (

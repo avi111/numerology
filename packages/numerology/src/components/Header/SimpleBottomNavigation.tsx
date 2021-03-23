@@ -1,41 +1,24 @@
 import React from 'react';
-import {makeStyles} from '@material-ui/core/styles';
-import BottomNavigation from '@material-ui/core/BottomNavigation';
-import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import RestoreIcon from '@material-ui/icons/Restore';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import {Link} from "react-router-dom";
-import {Box, Typography} from "@material-ui/core";
-import {IsLoggedIn} from "../../services/auth";
-
-const useStyles = makeStyles({
-    root: {
-        width: "100%",
-        maxWidth: 500
-    },
-});
+import {Box} from "@material-ui/core";
+import {IsLoggedIn, IsLoggedOut} from "../../services/auth";
+import {BaseBottomNavigationAction} from './BaseBottomNavigationAction';
+import {BaseBottomNavigation} from './BaseBottomNavigation';
 
 const SimpleBottomNavigation = () => {
-    const classes = useStyles();
     const [value, setValue] = React.useState(0);
 
     return (
         <Box display="flex">
-            <BottomNavigation
-                value={value}
-                onChange={(event, newValue) => {
-                    setValue(newValue);
-                }}
-                showLabels
-                className={classes.root}
-            >
-                <Link to="/"><BottomNavigationAction showLabel label={<Typography>Home</Typography>} icon={<RestoreIcon/>}/></Link>
-                <IsLoggedIn>
-                    <Link to="/profile"><BottomNavigationAction showLabel label={<Typography>Profile</Typography>} icon={<FavoriteIcon/>}/></Link>
-                    <Link to="/business"><BottomNavigationAction showLabel label={<Typography>Business</Typography>} icon={<FavoriteIcon/>}/></Link>
-                    <Link to="/couple"><BottomNavigationAction showLabel label={<Typography>Couple</Typography>} icon={<FavoriteIcon/>}/></Link>
-                </IsLoggedIn>
-            </BottomNavigation>
+            <IsLoggedIn>
+                <BaseBottomNavigation {...{value, setValue}}>
+                    <BaseBottomNavigationAction {...{to: "profile", label: "profile"}} />
+                    <BaseBottomNavigationAction {...{to: "business", label: "business"}} />
+                    <BaseBottomNavigationAction {...{to: "couple", label: "couple"}} />
+                </BaseBottomNavigation>
+            </IsLoggedIn>
+            <IsLoggedOut>
+                <BaseBottomNavigation {...{value, setValue}}/>
+            </IsLoggedOut>
         </Box>
     );
 }

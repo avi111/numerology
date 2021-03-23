@@ -37,6 +37,6 @@ const instance = () => {
 
 const {auth, storage, firestore, functions} = firebase;
 
-export const services = {auth, storage, firestore, functions}
+export const services = {auth, storage, firestore, functions, firebase: instance()}
 
 export default instance();
