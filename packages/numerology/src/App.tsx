@@ -41,7 +41,7 @@ const App = () => {
             const lang = claims?.language || language.HEBREW;
             langContext.setCurrentLanguage(lang);
         });
-    }, [])
+    }, [langContext, userContext])
 
     return (
         <ThemeProvider theme={theme}>
