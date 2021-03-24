@@ -7,6 +7,8 @@ import {UserContext} from "../../contexts/UserContext";
 import {direction, LanguageContext} from "../../contexts/LanguageContext";
 import {LanguageMenu} from "./LanguageMenu";
 import {languages} from "../../consts/languages";
+import PersonIcon from '@material-ui/icons/Person';
+import {Link} from "react-router-dom";
 
 const Hamburger = () => {
     const useStyles = makeStyles({
@@ -56,12 +58,20 @@ const Hamburger = () => {
                     </ListItem>
                 </IsLoggedOut>
                 <IsLoggedIn>
-                    <ListItem button onClick={userContext.logout}>
+                    <ListItem button onClick={userContext.logout} >
                         <React.Fragment>
                             <ListItemIcon>
                                 <i className="fas fa-sign-out-alt"/>
                             </ListItemIcon>
                             <ListItemText primary={getWord("Sign Out")}/>
+                        </React.Fragment>
+                    </ListItem>
+                    <ListItem button component={Link} to="/user">
+                        <React.Fragment>
+                            <ListItemIcon>
+                                <PersonIcon/>
+                            </ListItemIcon>
+                            <ListItemText primary={getWord("Edit user details")}/>
                         </React.Fragment>
                     </ListItem>
                 </IsLoggedIn>

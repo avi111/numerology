@@ -3,14 +3,15 @@ import suite from "../Profile/validate";
 import {Button} from "@material-ui/core";
 import classnames from "classnames";
 import {FormProps} from "../interfaces/FormProps";
+import {IFormContext} from "../../../contexts/FormContext";
 
-interface ButtonProps {
+interface ButtonProps<C> {
     children: string | JSX.Element,
     className: string,
-    formProps: FormProps
+    formProps: FormProps<C>
 }
 
-const ButtonComponent = (buttonProps: ButtonProps) => {
+const ButtonComponent = (buttonProps: ButtonProps<IFormContext<any, any>>) => {
     const {children, className = "", formProps: {form: {id}}} = buttonProps;
     const result = suite.get(id);
 

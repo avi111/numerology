@@ -1,18 +1,17 @@
 import {ChangeEvent, createContext, FormEvent} from "react";
-import {Strategy} from "../models/form/strategy";
-import {profileProps, props} from "@maya259/numerology-engine";
 import {DraftResult} from "vest/vestResult";
+import {Strategy} from "../models/form/strategy";
 
-export interface IFormContext {
-    strategy: Strategy.PROFILE;
-    formState: props;
-    setFormState: (state: props) => void;
+export interface IFormContext<F, R> {
+    strategy: Strategy;
+    formState: F;
+    setFormState: (state: F) => void;
     handleChange: (e: ChangeEvent) => void;
     handleSubmit: (e: FormEvent<HTMLFormElement>) => void;
-    result: profileProps | null;
-    setResult: (result: profileProps | null) => void;
+    result: R | null;
+    setResult: (result: R | null) => void;
     cn: (fieldName: string)=>string,
     validationResult: DraftResult
 }
 
-export const FormContext = createContext<IFormContext>({} as IFormContext);
+export const FormContext = createContext<IFormContext<any, any>>({} as IFormContext<any, any>);

@@ -3,11 +3,11 @@ import {v4 as uuid} from "uuid";
 import Field from "./Field";
 import Button from "../fields/button";
 import React, {useContext} from "react";
-import {FormProps} from "../interfaces/FormProps";
 import {FormContext} from "../../../contexts/FormContext";
 import {LanguageContext} from "../../../contexts/LanguageContext";
+import {IFormProps} from "./FormWrapper";
 
-const Form = ({formProps}: {formProps: FormProps}) => {
+const Form = ({formProps}: {formProps: IFormProps<any, any>}) => {
     const {handleSubmit} = useContext(FormContext);
     const {getWord} = useContext(LanguageContext);
 
@@ -24,7 +24,7 @@ const Form = ({formProps}: {formProps: FormProps}) => {
                 </Box>
             ))}
             <footer>
-                <Button {...{className: "btn-submit", formProps}}>{getWord("submit")}</Button>
+                <Button {...{className: "btn-submit", formProps}}>{getWord(formProps.form.submit || "submit")}</Button>
             </footer>
         </form>
     );

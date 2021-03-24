@@ -1,18 +1,18 @@
 import React, {ChangeEvent, FormEvent, useState} from "react";
-import {profileProps, props} from "@maya259/numerology-engine";
-import {Profile} from "../../../numerologyEngine";
+
 import validate from "../Profile/validate";
 import classNames from "vest/classNames";
 import {FieldState} from "../enums/fieldState";
 import {FormContext, IFormContext} from "../../../contexts/FormContext";
 import {Strategy} from "../../../models/form/strategy";
+import {userDetailsProps} from "./UserDetails";
 
-export const FormProvider = ({children, prepareProps}: {
+export const UserDetailsProvider = ({children, prepareProps}: {
     children: any;
-    prepareProps: (formProps: props) => props
+    prepareProps: (formProps: userDetailsProps) => userDetailsProps
 }) => {
-    const [result, setResult] = useState<profileProps | null>(null);
-    const [formState, setFormState] = useState({} as props);
+    const [result, setResult] = useState<userDetailsProps | null>(null);
+    const [formState, setFormState] = useState({} as userDetailsProps);
 
     const handleChange = (e: ChangeEvent) => {
         const {
@@ -23,7 +23,7 @@ export const FormProvider = ({children, prepareProps}: {
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setResult(new Profile(prepareProps(formState)))
+        setResult(prepareProps(formState))
     };
 
     const validationResult = validate.get();
@@ -44,5 +44,5 @@ export const FormProvider = ({children, prepareProps}: {
             handleSubmit,
             cn,
             validationResult
-        } as IFormContext<props, profileProps>}>{children}</FormContext.Provider>;
+        } as IFormContext<userDetailsProps, userDetailsProps>}>{children}</FormContext.Provider>;
 }

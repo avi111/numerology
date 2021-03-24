@@ -2,7 +2,7 @@ import './App.css'
 import React, {useContext, useEffect, useState} from "react";
 import CssBaseline from '@material-ui/core/CssBaseline';
 
-import {Box, CircularProgress, Container, Theme,} from '@material-ui/core';
+import {Box, CircularProgress, Container,} from '@material-ui/core';
 import SimpleBottomNavigation from "./components/Header/SimpleBottomNavigation";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Hamburger from "./components/Header/Hamburger";
@@ -14,7 +14,7 @@ import Home from "./components/Home";
 import {UserContext} from "./contexts/UserContext";
 import ProfileForm from "./components/FormComponents/Profile/ProfileForm";
 import {direction, language, LanguageContext} from "./contexts/LanguageContext";
-import {languages} from "./consts/languages";
+import {UserDetailsWrapper} from "./components/FormComponents/UserDetails/UserDetails";
 
 const themes = {
     [direction.LTR]: ltr,
@@ -24,7 +24,7 @@ const themes = {
 const App = () => {
     const userContext = useContext(UserContext);
     const langContext = useContext(LanguageContext);
-    const [theme, setTheme] = useState<Theme>(themes[langContext.getDirection()]);
+    const theme = themes[langContext.getDirection()]
     const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
@@ -42,10 +42,6 @@ const App = () => {
             langContext.setCurrentLanguage(lang);
         });
     }, [])
-
-    useEffect(() => {
-        setTheme(themes[languages.get(langContext.currentLanguage)?.direction || direction.LTR]);
-    }, [langContext.currentLanguage])
 
     return (
         <ThemeProvider theme={theme}>
@@ -67,6 +63,9 @@ const App = () => {
                                 </Route>
                                 <Route path="/couple">
                                     CoupleForm
+                                </Route>
+                                <Route path="/user">
+                                    <UserDetailsWrapper/>
                                 </Route>
                                 <Route path="/">
                                     <Home/>

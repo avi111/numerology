@@ -1,8 +1,8 @@
 import BottomNavigation from "@material-ui/core/BottomNavigation";
-import RestoreIcon from "@material-ui/icons/Restore";
 import React from "react";
 import {makeStyles} from "@material-ui/core/styles";
 import {BaseBottomNavigationAction} from "./BaseBottomNavigationAction";
+import HomeIcon from '@material-ui/icons/Home';
 
 const useStyles = makeStyles({
     root: {
@@ -26,7 +26,7 @@ export const BaseBottomNavigation = ({
             showLabels
             className={classes.root}
         >
-            <BaseBottomNavigationAction {...{label: "home", icon: <RestoreIcon/>}} />
+            <BaseBottomNavigationAction {...{label: "home", icon: <HomeIcon/>}} />
             {children}
         </BottomNavigation>
     )

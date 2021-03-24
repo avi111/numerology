@@ -1,12 +1,15 @@
 import React, {useContext} from "react";
-import {FormContext} from "../../../contexts/FormContext";
 import {Box} from "@material-ui/core";
 import {FormProps} from "../interfaces/FormProps";
 import Form from "./Form";
 import Results from "./Results";
+import {IFormContext} from "../../../contexts/FormContext";
+import {profileProps, props} from "@maya259/numerology-engine";
 
-const FormWrapper = ({formProps}: {formProps: FormProps}) => {
-    const {result} = useContext(FormContext);
+export type IFormProps<F, R> = FormProps<IFormContext<F, R>>;
+
+const FormWrapper = ({formProps}: {formProps: IFormProps<props, profileProps>}) => {
+    const {result} = useContext(formProps.context);
 
     return (
         <Box>
