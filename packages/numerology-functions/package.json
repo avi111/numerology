@@ -1,9 +1,0 @@
-{
-  "name": "@maya259/numerology-functions",
-  "version": "1.0.0",
-  "main": "lib/index.js",
-  "dependencies": {
-    "@maya259/numerology-engine": "^1.0.0"
-  },
-  "private": true
-}

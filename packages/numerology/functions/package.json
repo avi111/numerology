@@ -17,8 +17,7 @@
   "main": "lib/index.js",
   "dependencies": {
     "firebase-admin": "^9.2.0",
-    "firebase-functions": "^3.11.0",
-    "@maya259/numerology-engine": "^1.0.0"
+    "firebase-functions": "^3.11.0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^3.9.1",
@@ -28,5 +27,8 @@
     "typescript": "^3.8.0",
     "firebase-functions-test": "^0.2.0"
   },
-  "private": true
+  "private": true,
+  "eslintConfig": {
+    "root": true
+  }
 }
