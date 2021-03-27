@@ -19,7 +19,9 @@
     "production": "lerna run production",
     "build": "lerna run build",
     "deploy": "lerna run deploy",
-    "lerna": "lerna"
+    "bootstrap": "lerna run rimraf && lerna bootstrap",
+    "rimraf": "rm -rf node_modules",
+    "installApp": "yarn rimraf && yarn install && yarn bootstrap"
   },
   "devDependencies": {
     "lerna": "^3.22.1"

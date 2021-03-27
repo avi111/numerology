@@ -25,6 +25,7 @@
     "eslint": "^7.6.0",
     "eslint-plugin-import": "^2.22.0",
     "typescript": "^3.8.0",
+    "rimraf": "rm -rf node_modules",
     "firebase-functions-test": "^0.2.0"
   },
   "private": true

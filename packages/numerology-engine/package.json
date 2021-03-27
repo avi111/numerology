@@ -30,6 +30,7 @@
     "@babel/core": "^7.6.4",
     "@babel/preset-react": "^7.12.10",
     "@babel/preset-typescript": "^7.12.7",
+    "rimraf": "rm -rf node_modules",
     "babel-loader": "^8.2.2"
   },
   "scripts": {

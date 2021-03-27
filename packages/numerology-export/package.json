@@ -37,6 +37,7 @@
     "build": "webpack",
     "watch": "webpack --watch",
     "test": "npx jest --watch",
+    "rimraf": "rm -rf node_modules",
     "lint": "eslint . --ext .ts"
   },
   "publishConfig": {
