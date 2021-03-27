@@ -8,6 +8,7 @@
     "start": "npm run shell",
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log",
+    "rimraf": "rm -rf node_modules",
     "nvm": "export NVM_DIR=~/.nvm && source $(brew --prefix nvm)/nvm.sh"
   },
   "engines": {
@@ -25,7 +26,6 @@
     "eslint": "^7.6.0",
     "eslint-plugin-import": "^2.22.0",
     "typescript": "^3.8.0",
-    "rimraf": "rm -rf node_modules",
     "firebase-functions-test": "^0.2.0"
   },
   "private": true
