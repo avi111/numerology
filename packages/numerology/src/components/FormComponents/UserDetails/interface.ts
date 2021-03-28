@@ -10,5 +10,6 @@ export interface userDetailsProps {
 export interface userDetailsPayload extends Partial<userDetailsProps> {
     displayName: string;
     website: string;
+    email: string;
     language: language;
 }

@@ -18,13 +18,14 @@ export const UserProvider = ({children}: {
         if (user?.uid) {
             services.firestore().collection("userData").doc(user?.uid).get().then(snapshot => {
                 const details = snapshot.data();
-                const {displayName, language, website} = details as userDetailsPayload;
+                const {displayName, language, website, email} = details as userDetailsPayload;
                 setUserDetails({
                     displayName,
                     language,
                     website,
-                    email: user?.email
+                    email
                 } as Partial<userDetailsProps>)
+                language && langContext.setCurrentLanguage(language)
             });
         } else {
             setUserDetails(null);
