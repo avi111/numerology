@@ -1,18 +1,26 @@
-import React, {ChangeEvent, FormEvent, useState} from "react";
+import React, {ChangeEvent, FormEvent, useContext, useEffect, useState} from "react";
 
 import validate from "../Profile/validate";
 import classNames from "vest/classNames";
 import {FieldState} from "../enums/fieldState";
 import {FormContext, IFormContext} from "../../../contexts/FormContext";
 import {Strategy} from "../../../models/form/strategy";
-import {userDetailsProps} from "./UserDetails";
+import {userDetailsPayload, userDetailsProps} from "./interface";
+import {updateUserData} from "../../../api/usersApi/updateUserData";
+import {UserContext} from "../../../contexts/UserContext";
 
 export const UserDetailsProvider = ({children, prepareProps}: {
     children: any;
-    prepareProps: (formProps: userDetailsProps) => userDetailsProps
+    prepareProps: (formProps: userDetailsProps) => userDetailsPayload
 }) => {
-    const [result, setResult] = useState<userDetailsProps | null>(null);
-    const [formState, setFormState] = useState({} as userDetailsProps);
+    const userContext = useContext(UserContext);
+    const [result, setResult] = useState<userDetailsPayload | null>(null);
+    const [formState, setFormState] = useState(userContext.userDetails as userDetailsProps);
+    const [submitting, setSubmitting] = useState(false);
+
+    useEffect(() => {
+        userContext.setUserDetails(formState);
+    }, [formState])
 
     const handleChange = (e: ChangeEvent) => {
         const {
@@ -21,9 +29,12 @@ export const UserDetailsProvider = ({children, prepareProps}: {
         setFormState((state) => ({...state, [name]: value}));
     };
 
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setResult(prepareProps(formState))
+        setSubmitting(true);
+        const result = await updateUserData(prepareProps(formState));
+        setResult(prepareProps(formState));
+        setSubmitting(false);
     };
 
     const validationResult = validate.get();
@@ -42,6 +53,8 @@ export const UserDetailsProvider = ({children, prepareProps}: {
             setFormState,
             handleChange,
             handleSubmit,
+            submitting,
+            setSubmitting,
             cn,
             validationResult
         } as IFormContext<userDetailsProps, userDetailsProps>}>{children}</FormContext.Provider>;

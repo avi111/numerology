@@ -5,12 +5,12 @@ import {UserContext} from "../contexts/UserContext";
 
 const Home = () => {
     const {getWord} = useContext(LanguageContext);
-    const {user} = useContext(UserContext);
+    const {userDetails} = useContext(UserContext);
 
     const translate: (word: string | null | undefined) => string = word => (word || "").split(" ").map(w => getWord(w)).join(" ");
     return (
         <React.Fragment>
-            <IsLoggedIn>{getWord("Welcome")}, {translate(user?.displayName)}</IsLoggedIn>
+            <IsLoggedIn>{getWord("Welcome")}, {translate(userDetails?.displayName)}</IsLoggedIn>
             <IsLoggedOut>logged out</IsLoggedOut>
         </React.Fragment>
     );

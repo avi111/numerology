@@ -15,6 +15,8 @@ import {UserContext} from "./contexts/UserContext";
 import ProfileForm from "./components/FormComponents/Profile/ProfileForm";
 import {direction, language, LanguageContext} from "./contexts/LanguageContext";
 import {UserDetailsWrapper} from "./components/FormComponents/UserDetails/UserDetails";
+import {userDetailsProps} from "./components/FormComponents/UserDetails/interface";
+import {AppContext} from "./contexts/AppContext";
 
 const themes = {
     [direction.LTR]: ltr,
@@ -22,10 +24,10 @@ const themes = {
 }
 
 const App = () => {
+    const appContext = useContext(AppContext);
     const userContext = useContext(UserContext);
     const langContext = useContext(LanguageContext);
     const theme = themes[langContext.getDirection()]
-    const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
         services.auth().onAuthStateChanged(async (user) => {
@@ -34,8 +36,6 @@ const App = () => {
             } else {
                 userContext.setUser(null);
             }
-            setMounted(true);
-
 
             const {claims} = await firebase?.auth().currentUser?.getIdTokenResult() || {};
             const lang = claims?.language || language.HEBREW;
@@ -46,7 +46,7 @@ const App = () => {
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline/>
-            {mounted ?
+            {appContext.mounted ?
                 <Container maxWidth="sm">
                     <Router>
                         <Box display="flex">

@@ -10,15 +10,18 @@ import "@fortawesome/fontawesome-free/css/solid.css";
 import {init} from "./firebase";
 import {LanguageProvider} from './providers/LanguageProvider';
 import {UserProvider} from "./providers/UserProvider";
+import {AppProvider} from "./providers/AppProvider";
 
 init();
 
 ReactDOM.render(
-    <LanguageProvider>
-        <UserProvider>
-            <App/>
-        </UserProvider>
-    </LanguageProvider>,
+    <AppProvider>
+        <LanguageProvider>
+            <UserProvider>
+                <App/>
+            </UserProvider>
+        </LanguageProvider>
+    </AppProvider>,
     document.getElementById('root')
 );
 

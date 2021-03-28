@@ -4,12 +4,7 @@ import {FormContext, IFormContext} from "../../../contexts/FormContext";
 import {fieldTypes} from "../enums/fieldTypes";
 import Form from "../Components/Form";
 import {UserDetailsProvider} from "./UserDetailsProvider";
-
-export interface userDetailsProps {
-    displayName: string;
-    website: string;
-    email: string;
-}
+import {userDetailsProps} from "./interface";
 
 const formProps: FormProps<IFormContext<userDetailsProps, userDetailsProps>> = {
     form:

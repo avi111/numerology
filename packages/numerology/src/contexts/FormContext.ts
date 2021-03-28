@@ -8,6 +8,8 @@ export interface IFormContext<F, R> {
     setFormState: (state: F) => void;
     handleChange: (e: ChangeEvent) => void;
     handleSubmit: (e: FormEvent<HTMLFormElement>) => void;
+    submitting: boolean;
+    setSubmitting: (state: boolean) => void;
     result: R | null;
     setResult: (result: R | null) => void;
     cn: (fieldName: string)=>string,

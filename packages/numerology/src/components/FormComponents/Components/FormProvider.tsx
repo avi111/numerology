@@ -13,6 +13,7 @@ export const FormProvider = ({children, prepareProps}: {
 }) => {
     const [result, setResult] = useState<profileProps | null>(null);
     const [formState, setFormState] = useState({} as props);
+    const [submitting, setSubmitting] = useState(false);
 
     const handleChange = (e: ChangeEvent) => {
         const {
@@ -23,7 +24,9 @@ export const FormProvider = ({children, prepareProps}: {
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        setSubmitting(true);
         setResult(new Profile(prepareProps(formState)))
+        setSubmitting(false);
     };
 
     const validationResult = validate.get();
@@ -42,6 +45,8 @@ export const FormProvider = ({children, prepareProps}: {
             setFormState,
             handleChange,
             handleSubmit,
+            submitting,
+            setSubmitting,
             cn,
             validationResult
         } as IFormContext<props, profileProps>}>{children}</FormContext.Provider>;
