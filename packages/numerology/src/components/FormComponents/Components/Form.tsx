@@ -8,7 +8,7 @@ import {LanguageContext} from "../../../contexts/LanguageContext";
 import {IFormProps} from "./FormWrapper";
 
 const Form = ({formProps}: { formProps: IFormProps<any, any> }) => {
-    const {handleSubmit, submitting, setSubmitting} = useContext(FormContext);
+    const {handleSubmit, submitting} = useContext(FormContext);
     const {getWord} = useContext(LanguageContext);
 
     return (

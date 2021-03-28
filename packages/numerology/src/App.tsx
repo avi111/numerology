@@ -1,5 +1,5 @@
 import './App.css'
-import React, {useContext, useEffect, useState} from "react";
+import React, {useContext, useEffect} from "react";
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 import {Box, CircularProgress, Container,} from '@material-ui/core';
@@ -15,7 +15,6 @@ import {UserContext} from "./contexts/UserContext";
 import ProfileForm from "./components/FormComponents/Profile/ProfileForm";
 import {direction, language, LanguageContext} from "./contexts/LanguageContext";
 import {UserDetailsWrapper} from "./components/FormComponents/UserDetails/UserDetails";
-import {userDetailsProps} from "./components/FormComponents/UserDetails/interface";
 import {AppContext} from "./contexts/AppContext";
 
 const themes = {

@@ -20,7 +20,7 @@ export const UserDetailsProvider = ({children, prepareProps}: {
 
     useEffect(() => {
         userContext.setUserDetails(formState);
-    }, [formState])
+    }, [formState, userContext])
 
     const handleChange = (e: ChangeEvent) => {
         const {
@@ -32,7 +32,7 @@ export const UserDetailsProvider = ({children, prepareProps}: {
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setSubmitting(true);
-        const result = await updateUserData(prepareProps(formState));
+        await updateUserData(prepareProps(formState));
         setResult(prepareProps(formState));
         setSubmitting(false);
     };

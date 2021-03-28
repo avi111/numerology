@@ -29,7 +29,7 @@ export const UserProvider = ({children}: {
     useEffect(() => {
         const empty = userDetails && Object.keys(userDetails).length === 0;
         appContext.setMounted(!empty);
-    }, [userDetails])
+    }, [userDetails, appContext])
     return <UserContext.Provider
         value={{
             user,
