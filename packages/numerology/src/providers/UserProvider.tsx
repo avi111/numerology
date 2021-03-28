@@ -30,7 +30,7 @@ export const UserProvider = ({children}: {
         } else {
             setUserDetails(null);
         }
-    }, [user])
+    }, [user, langContext])
 
     useEffect(() => {
         const empty = userDetails && Object.keys(userDetails).length === 0;
