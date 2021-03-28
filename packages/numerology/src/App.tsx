@@ -13,7 +13,7 @@ import {services} from "./firebase";
 import Home from "./components/Home";
 import {UserContext} from "./contexts/UserContext";
 import ProfileForm from "./components/FormComponents/Profile/ProfileForm";
-import {direction, language, LanguageContext} from "./contexts/LanguageContext";
+import {direction, LanguageContext} from "./contexts/LanguageContext";
 import {UserDetailsWrapper} from "./components/FormComponents/UserDetails/UserDetails";
 import {AppContext} from "./contexts/AppContext";
 
@@ -42,7 +42,7 @@ const App = () => {
                 appContext.setMounted(true);
             }
         },1000)
-    }, [langContext, userContext])
+    }, [langContext, userContext, appContext])
 
     return (
         <ThemeProvider theme={theme}>

@@ -2,7 +2,7 @@ import React, {useContext, useEffect, useState} from "react";
 import {IUser, IUserContext, UserContext} from "../contexts/UserContext";
 import {userDetailsProps} from "../components/FormComponents/UserDetails/interface";
 import {login, logout} from "../api/usersApi/connect";
-import firebase, {services} from "../firebase";
+import {services} from "../firebase";
 import {AppContext} from "../contexts/AppContext";
 import {language, LanguageContext} from "../contexts/LanguageContext";
 
@@ -40,7 +40,7 @@ export const UserProvider = ({children}: {
             appContext.setMounted(true);
         }
 
-    }, [userDetails, appContext])
+    }, [userDetails, appContext, langContext])
     return <UserContext.Provider
         value={{
             user,

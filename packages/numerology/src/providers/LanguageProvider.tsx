@@ -24,7 +24,7 @@ export const LanguageProvider = ({children}: {
                 console.log(`language updated: ${languages.get(currentLanguage)?.originName}`)
             });
         }
-    }, [currentLanguage]);
+    }, [currentLanguage, userContext.userDetails]);
 
     const getDirection = () => languages.get(currentLanguage)?.direction || direction.LTR;
 
