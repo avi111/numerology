@@ -8,14 +8,22 @@ import {Strategy} from "../../../models/form/strategy";
 import {userDetailsPayload, userDetailsProps} from "./interface";
 import {updateUserData} from "../../../api/usersApi/updateUserData";
 import {UserContext} from "../../../contexts/UserContext";
+import {language, LanguageContext} from "../../../contexts/LanguageContext";
 
 export const UserDetailsProvider = ({children, prepareProps}: {
     children: any;
     prepareProps: (formProps: userDetailsProps) => userDetailsPayload
 }) => {
     const userContext = useContext(UserContext);
+    const langContext = useContext(LanguageContext);
+
     const [result, setResult] = useState<userDetailsPayload | null>(null);
-    const [formState, setFormState] = useState(userContext.userDetails as userDetailsProps);
+    const [formState, setFormState] = useState((userContext.userDetails || {
+        language: language.HEBREW,
+        displayName: userContext.user?.displayName,
+        email: userContext.user?.email,
+        website: ""
+    }) as userDetailsProps);
     const [submitting, setSubmitting] = useState(false);
 
     useEffect(() => {
@@ -35,6 +43,11 @@ export const UserDetailsProvider = ({children, prepareProps}: {
         await updateUserData(prepareProps(formState));
         setResult(prepareProps(formState));
         setSubmitting(false);
+
+        if(userContext.userDetails) {
+            const lang = userContext.userDetails?.language || language.HEBREW;
+            langContext.setCurrentLanguage(lang);
+        }
     };
 
     const validationResult = validate.get();

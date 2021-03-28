@@ -1,10 +1,13 @@
-import React from "react"
+import React, {useContext} from "react"
 import {FormProps} from "../interfaces/FormProps";
 import {FormContext, IFormContext} from "../../../contexts/FormContext";
 import {fieldTypes} from "../enums/fieldTypes";
 import Form from "../Components/Form";
 import {UserDetailsProvider} from "./UserDetailsProvider";
 import {userDetailsProps} from "./interface";
+import {languages} from "../../../consts/languages";
+import {UserContext} from "../../../contexts/UserContext";
+import {CircularProgress} from "@material-ui/core";
 
 const formProps: FormProps<IFormContext<userDetailsProps, userDetailsProps>> = {
     form:
@@ -18,8 +21,7 @@ const formProps: FormProps<IFormContext<userDetailsProps, userDetailsProps>> = {
         {
             input: fieldTypes.TEXT,
             label: "Display Name",
-            field: "displayName",
-            placeholder: "try: ealush"
+            field: "displayName"
         },
         {
             input: fieldTypes.TEXT,
@@ -30,6 +32,17 @@ const formProps: FormProps<IFormContext<userDetailsProps, userDetailsProps>> = {
             input: fieldTypes.TEXT,
             label: "Email",
             field: "email"
+        },
+        {
+            input: fieldTypes.SELECT,
+            label: "Language",
+            field: "language",
+            options: Array.from(languages.keys()).map(lang => {
+                return {
+                    option: `${languages.get(lang)?.engName} (${languages.get(lang)?.originName})` || "",
+                    value: lang
+                }
+            })
         }
     ]
 }
@@ -41,7 +54,10 @@ export const prepareProps = (formProps: userDetailsProps): userDetailsProps => {
 }
 
 export const UserDetailsWrapper = () => {
-    return <UserDetailsProvider prepareProps={prepareProps}>
-        <Form {...{formProps}}/>
-    </UserDetailsProvider>
+    const userContext = useContext(UserContext);
+    return userContext.userDetails ? (
+        <UserDetailsProvider prepareProps={prepareProps}>
+            <Form {...{formProps}}/>
+        </UserDetailsProvider>
+    ) : <CircularProgress/>
 }

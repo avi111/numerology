@@ -4,9 +4,13 @@ export const dictionaryEntries = {
     [language.HEBREW]: new Map([
         ['home', 'בית'],
         ['avi', 'אבי'],
+        ['language', 'שפה'],
         ['hebrew', 'עברית'],
         ['english', 'אנגלית'],
         ['russian', 'רוסית'],
+        ['hebrew (עברית)', 'עברית'],
+        ['english (english)', 'אנגלית (english)'],
+        ['russian (русский)', 'רוסית (русский)'],
         ['edit user details', 'ערוך פרטי משתמש'],
         ['user details', 'פרטי משתמש'],
         ['display name', 'שם תצוגה'],
@@ -28,9 +32,11 @@ export const dictionaryEntries = {
         ['birth date', 'תאריך לידה']
     ]),
     [language.ENGLISH]: new Map([
-        ['home', 'home']
+        ['home', 'home'],
+        ['english (english)', 'english'],
     ]),
     [language.RUSSIAN]: new Map([
-        ['home', 'домашняя страница']
+        ['home', 'домашняя страница'],
+        ['russian (русский)', 'русский'],
     ]),
 };

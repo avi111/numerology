@@ -1,10 +1,10 @@
 import React, {useContext, useEffect, useState} from "react";
 import {IUser, IUserContext, UserContext} from "../contexts/UserContext";
-import {userDetailsProps} from "../components/FormComponents/UserDetails/interface";
+import {userDetailsPayload, userDetailsProps} from "../components/FormComponents/UserDetails/interface";
 import {login, logout} from "../api/usersApi/connect";
 import {services} from "../firebase";
 import {AppContext} from "../contexts/AppContext";
-import {language, LanguageContext} from "../contexts/LanguageContext";
+import {LanguageContext} from "../contexts/LanguageContext";
 
 export const UserProvider = ({children}: {
     children: any;
@@ -18,8 +18,11 @@ export const UserProvider = ({children}: {
         if (user?.uid) {
             services.firestore().collection("userData").doc(user?.uid).get().then(snapshot => {
                 const details = snapshot.data();
+                const {displayName, language, website} = details as userDetailsPayload;
                 setUserDetails({
-                    ...details,
+                    displayName,
+                    language,
+                    website,
                     email: user?.email
                 } as Partial<userDetailsProps>)
             });
@@ -33,14 +36,10 @@ export const UserProvider = ({children}: {
         if(empty){
             appContext.setMounted(false);
         } else {
-            if(userDetails) {
-                const lang = userDetails?.language || language.HEBREW;
-                langContext.setCurrentLanguage(lang);
-            }
             appContext.setMounted(true);
         }
+    }, [userDetails, appContext, langContext.currentLanguage])
 
-    }, [userDetails, appContext, langContext])
     return <UserContext.Provider
         value={{
             user,
