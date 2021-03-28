@@ -15,13 +15,14 @@ import {AppProvider} from "./providers/AppProvider";
 init();
 
 ReactDOM.render(
-    <AppProvider>
-        <LanguageProvider>
+    <LanguageProvider>
+        <AppProvider>
+
             <UserProvider>
                 <App/>
             </UserProvider>
-        </LanguageProvider>
-    </AppProvider>,
+        </AppProvider>
+    </LanguageProvider>,
     document.getElementById('root')
 );
 

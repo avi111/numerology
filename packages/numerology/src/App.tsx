@@ -9,7 +9,7 @@ import Hamburger from "./components/Header/Hamburger";
 import ltr from './themes/ltr';
 import rtl from './themes/rtl';
 import {ThemeProvider} from '@material-ui/core/styles';
-import firebase, {services} from "./firebase";
+import {services} from "./firebase";
 import Home from "./components/Home";
 import {UserContext} from "./contexts/UserContext";
 import ProfileForm from "./components/FormComponents/Profile/ProfileForm";
@@ -35,11 +35,13 @@ const App = () => {
             } else {
                 userContext.setUser(null);
             }
-
-            const {claims} = await firebase?.auth().currentUser?.getIdTokenResult() || {};
-            const lang = claims?.language || language.HEBREW;
-            langContext.setCurrentLanguage(lang);
         });
+
+        setTimeout(()=>{
+            if(!appContext.mounted) {
+                appContext.setMounted(true);
+            }
+        },1000)
     }, [langContext, userContext])
 
     return (

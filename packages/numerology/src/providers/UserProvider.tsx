@@ -2,15 +2,17 @@ import React, {useContext, useEffect, useState} from "react";
 import {IUser, IUserContext, UserContext} from "../contexts/UserContext";
 import {userDetailsProps} from "../components/FormComponents/UserDetails/interface";
 import {login, logout} from "../api/usersApi/connect";
-import {services} from "../firebase";
+import firebase, {services} from "../firebase";
 import {AppContext} from "../contexts/AppContext";
+import {language, LanguageContext} from "../contexts/LanguageContext";
 
 export const UserProvider = ({children}: {
     children: any;
 }) => {
+    const langContext = useContext(LanguageContext);
     const appContext = useContext(AppContext);
     const [user, setUser] = useState<IUser>();
-    const [userDetails, setUserDetails] = useState<Partial<userDetailsProps>>({});
+    const [userDetails, setUserDetails] = useState<Partial<userDetailsProps> | null>(null);
 
     useEffect(() => {
         if (user?.uid) {
@@ -22,13 +24,22 @@ export const UserProvider = ({children}: {
                 } as Partial<userDetailsProps>)
             });
         } else {
-            setUserDetails({});
+            setUserDetails(null);
         }
     }, [user])
 
     useEffect(() => {
         const empty = userDetails && Object.keys(userDetails).length === 0;
-        appContext.setMounted(!empty);
+        if(empty){
+            appContext.setMounted(false);
+        } else {
+            if(userDetails) {
+                const lang = userDetails?.language || language.HEBREW;
+                langContext.setCurrentLanguage(lang);
+            }
+            appContext.setMounted(true);
+        }
+
     }, [userDetails, appContext])
     return <UserContext.Provider
         value={{

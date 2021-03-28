@@ -34,13 +34,13 @@ const formProps: FormProps<IFormContext<userDetailsProps, userDetailsProps>> = {
     ]
 }
 
-export const UserDetailsWrapper = () => {
-    const prepareProps = (formProps: userDetailsProps): userDetailsProps => {
-        return {
-            ...formProps
-        }
+export const prepareProps = (formProps: userDetailsProps): userDetailsProps => {
+    return {
+        ...formProps
     }
+}
 
+export const UserDetailsWrapper = () => {
     return <UserDetailsProvider prepareProps={prepareProps}>
         <Form {...{formProps}}/>
     </UserDetailsProvider>
