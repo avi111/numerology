@@ -17,7 +17,6 @@ init();
 ReactDOM.render(
     <LanguageProvider>
         <AppProvider>
-
             <UserProvider>
                 <App/>
             </UserProvider>

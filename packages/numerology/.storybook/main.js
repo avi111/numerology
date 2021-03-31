@@ -6,7 +6,7 @@ module.exports = {
     "addons": [
         "@storybook/addon-links",
         "@storybook/addon-essentials",
-        "storybook-addon-material-ui",
+        // "storybook-addon-material-ui",
         "@storybook/preset-create-react-app"
     ],
     typescript: {

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Meta} from '@storybook/react';
 import Home from "./Home";
-import LoginHelper from "../stories/LoginHelper";
+import {language} from "../contexts/LanguageContext";
 
 export default {
     title: 'Pages/Home',
@@ -9,22 +9,18 @@ export default {
 } as Meta;
 
 
-const Template = (args: { loggedIn: any; }) => {
-    return (
-        <LoginHelper {...{args}}>
-            <Home/>
-        </LoginHelper>
-    );
-}
+const Template = () => <Home/>;
 
 export const LoggedIn = Template.bind({});
-// @ts-ignore
-LoggedIn.args = {
-    loggedIn: true
-}
-
 export const LoggedOut = Template.bind({});
 // @ts-ignore
+LoggedIn.args = {
+    loggedIn: true,
+    lang: language.HEBREW
+}
+
+// @ts-ignore
 LoggedOut.args = {
-    loggedIn: false
+    loggedIn: false,
+    lang: language.HEBREW
 }

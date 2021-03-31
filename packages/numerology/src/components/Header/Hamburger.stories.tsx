@@ -1,30 +1,30 @@
 import React from 'react';
-
 import Hamburger from './Hamburger';
-import LoginHelper from "../../stories/LoginHelper";
+import {language} from "../../contexts/LanguageContext";
+import {Meta} from "@storybook/react";
 
 export default {
     title: 'Header/Hamburger',
-    component: Hamburger
-};
+    component: Hamburger,
+    args: {
+        loggedIn: true,
+        lang: language
+    }
+} as Meta;
 
 
-const Template = (args: { loggedIn: any; }) => {
-    return (
-        <LoginHelper {...{args}}>
-            <Hamburger/>
-        </LoginHelper>
-    )
-}
+const Template = () => <Hamburger/>
 
 export const LoggedIn = Template.bind({});
-// @ts-ignore
-LoggedIn.args = {
-    loggedIn: true
-}
-
 export const LoggedOut = Template.bind({});
 // @ts-ignore
+LoggedIn.args = {
+    loggedIn: true,
+    lang: language.HEBREW
+}
+
+// @ts-ignore
 LoggedOut.args = {
-    loggedIn: false
+    loggedIn: false,
+    lang: language.HEBREW
 }

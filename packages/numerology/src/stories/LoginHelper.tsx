@@ -2,15 +2,16 @@ import {IsLoggedIn, IsLoggedOut} from "../services/auth";
 import React, {useEffect, useState} from "react";
 import {IUser, IUserContext, UserContext} from "../contexts/UserContext";
 
-const LoginHelper = ({args, children}: { args: { loggedIn: boolean }, children: JSX.Element }) => {
-    const Logged = args.loggedIn ? IsLoggedIn : IsLoggedOut;
+const LoginHelper = ({args: {loggedIn}, children}: { args: { loggedIn: boolean }, children: JSX.Element }) => {
+    const Logged = loggedIn ? IsLoggedIn : IsLoggedOut;
+
     const [user, setUser] = useState<IUser>();
 
     useEffect(() => {
-        if (args.loggedIn) {
+        if (loggedIn) {
             setUser({} as IUser);
         }
-    }, [args.loggedIn])
+    }, [loggedIn])
 
     return (
         <UserContext.Provider value={{user, setUser} as IUserContext}>
