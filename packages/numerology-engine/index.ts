@@ -1,5 +1,5 @@
 import Gematria from "./helpers/Gematria/Gematria";
-import MainTriangle from "./Calculations/mainTriangle";
+import MainTriangle, {Triangle} from "./Calculations/mainTriangle";
 import Profile from "./MainTools/Profile";
 import Props, {Gender} from "./interfaces/props";
 import Couple from "./MainTools/Couple";
@@ -18,7 +18,8 @@ const numerologyEngine = {
     NameMapClass
 }
 
-export {Props as props};
+export type IProps = Props;
 export {Gender as gender};
-export {ProfileProps as profileProps}
+export type IProfileProps = ProfileProps;
+export type ITriangle = Triangle;
 export default numerologyEngine;

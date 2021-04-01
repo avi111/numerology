@@ -2,7 +2,7 @@ import {Meta} from "@storybook/react";
 import {language} from "../../../contexts/LanguageContext";
 import React, {ChangeEvent, FormEvent, useState} from "react";
 import {prepareProps} from "./ProfileForm";
-import {profileProps, props} from "@maya259/numerology-engine";
+import {IProfileProps, IProps} from "@maya259/numerology-engine";
 import {Profile} from "../../../numerologyEngine";
 import validate from "./validate";
 import classNames from "vest/classNames";
@@ -25,15 +25,15 @@ const Template = () => <FormProvider>
 const FormProvider = ({children}: {
     children: any;
 }) => {
-    const [result, setResult] = useState<profileProps | null>(null);
-    const [formState, setFormState] = useState({} as props);
+    const [result, setResult] = useState<IProfileProps | null>(null);
+    const [formState, setFormState] = useState({} as IProps);
     const [submitting, setSubmitting] = useState(false);
 
     const handleChange = (e: ChangeEvent) => {
         const {
             target: {value, name}
         } = e as ChangeEvent<HTMLInputElement>;
-        setFormState((state) => ({...state, [name]: value}));
+        setFormState((state: IProps) => ({...state, [name]: value}));
     };
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
@@ -63,7 +63,7 @@ const FormProvider = ({children}: {
             setSubmitting,
             cn,
             validationResult
-        } as IFormContext<props, profileProps>}>{children}</FormContext.Provider>;
+        } as IFormContext<IProps, IProfileProps>}>{children}</FormContext.Provider>;
 }
 
 export const LoggedIn = Template.bind({});

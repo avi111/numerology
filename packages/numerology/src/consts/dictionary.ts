@@ -29,7 +29,9 @@ export const dictionaryEntries = {
         ['family name', 'שם משפחה'],
         ['father name', 'שם האב'],
         ['mother name', 'שם האם'],
-        ['birth date', 'תאריך לידה']
+        ['birth date', 'תאריך לידה'],
+        ['birth day', 'יום לידה'],
+        ['destiny', 'גורל']
     ]),
     [language.ENGLISH]: new Map([
         ['home', 'home'],

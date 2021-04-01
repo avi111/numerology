@@ -1,9 +1,9 @@
 import {FormProps} from "../interfaces/FormProps";
 import {fieldTypes} from "../enums/fieldTypes";
-import {gender, profileProps, props} from "@maya259/numerology-engine";
+import {gender, IProfileProps, IProps} from "@maya259/numerology-engine";
 import {FormContext, IFormContext} from "../../../contexts/FormContext";
 
-const _profileProps: FormProps<IFormContext<props, profileProps>> = {
+const _profileProps: FormProps<IFormContext<IProps, IProfileProps>> = {
     form:
         {
             title: "Profile",

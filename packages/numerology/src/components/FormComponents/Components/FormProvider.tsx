@@ -1,5 +1,5 @@
 import React, {ChangeEvent, FormEvent, useState} from "react";
-import {profileProps, props} from "@maya259/numerology-engine";
+import {IProfileProps, IProps} from "@maya259/numerology-engine";
 import {Profile} from "../../../numerologyEngine";
 import validate from "../Profile/validate";
 import classNames from "vest/classNames";
@@ -9,10 +9,10 @@ import {Strategy} from "../../../models/form/strategy";
 
 export const FormProvider = ({children, prepareProps}: {
     children: any;
-    prepareProps: (formProps: props) => props
+    prepareProps: (formProps: IProps) => IProps
 }) => {
-    const [result, setResult] = useState<profileProps | null>(null);
-    const [formState, setFormState] = useState({} as props);
+    const [result, setResult] = useState<IProfileProps | null>(null);
+    const [formState, setFormState] = useState({} as IProps);
     const [submitting, setSubmitting] = useState(false);
 
     const handleChange = (e: ChangeEvent) => {
@@ -49,5 +49,5 @@ export const FormProvider = ({children, prepareProps}: {
             setSubmitting,
             cn,
             validationResult
-        } as IFormContext<props, profileProps>}>{children}</FormContext.Provider>;
+        } as IFormContext<IProps, IProfileProps>}>{children}</FormContext.Provider>;
 }
