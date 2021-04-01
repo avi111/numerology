@@ -3,7 +3,7 @@ import {language} from "../../../contexts/LanguageContext";
 import React from "react";
 
 export default {
-    title: 'Result/Triangle',
+    title: 'Result/Components/Triangle',
     component: TriangleComponent,
     argTypes: {
         loggedIn: {
