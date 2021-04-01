@@ -1,10 +1,10 @@
 import React from "react";
-import {props} from "@maya259/numerology-engine";
+import {IProps} from "@maya259/numerology-engine";
 import {FormProvider} from "../Components/FormProvider";
 import FormWrapper from "../Components/FormWrapper";
 import profileProps from "../props/profile";
 
-export const prepareProps = (formProps: props): props => {
+export const prepareProps = (formProps: IProps): IProps => {
     return {
         ...formProps,
         birthDate: new Date(formProps.birthDate),
