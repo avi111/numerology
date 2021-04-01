@@ -9,7 +9,7 @@ import {languages} from "../../../consts/languages";
 import {UserContext} from "../../../contexts/UserContext";
 import {CircularProgress} from "@material-ui/core";
 
-const formProps: FormProps<IFormContext<userDetailsProps, userDetailsProps>> = {
+export const formProps: FormProps<IFormContext<userDetailsProps, userDetailsProps>> = {
     form:
         {
             title: "User Details",
