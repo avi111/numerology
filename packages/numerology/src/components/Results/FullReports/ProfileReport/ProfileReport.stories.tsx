@@ -1,7 +1,6 @@
 import React from 'react';
 import {default as ProfileReportComponent} from './ProfileReport';
 import {language} from "../../../../contexts/LanguageContext";
-import {gender, Profile} from "@maya259/numerology-engine";
 import {profile} from "../../testData/profile";
 
 export default {
@@ -21,7 +20,7 @@ export default {
     }
 };
 
-const Template = (args: { hebrewDate: boolean; width: number }) => {
+const Template = () => {
     return (
         <ProfileReportComponent profile={profile}/>
     );
