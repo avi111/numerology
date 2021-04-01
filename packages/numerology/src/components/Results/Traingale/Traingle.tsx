@@ -1,11 +1,11 @@
 import React, {useContext} from "react";
 import {LanguageContext} from "../../../contexts/LanguageContext";
-import {ITriangle} from "@maya259/numerology-engine";
 import './triangle.scss';
 import {Box, Typography} from "@material-ui/core";
 import classNames from "classnames";
+import {MainTriangle} from "@maya259/numerology-engine";
 
-const Triangle = ({triangle, width = 200, hebrewDate = false}: { triangle: ITriangle, width: number, hebrewDate: boolean }) => {
+const Triangle = ({triangle, width = 200, hebrewDate = false}: { triangle: MainTriangle, width: number, hebrewDate: boolean }) => {
     const langContext = useContext(LanguageContext);
     const {getWord} = langContext;
     return (

@@ -1,8 +1,8 @@
-import numerologyEngine from "@maya259/numerology-engine";
+import {Profile, Gematria, IProps, IProfileProps} from "@maya259/numerology-engine";
 
-export const {Gematria, Profile} = numerologyEngine;
+export {Gematria, Profile};
 
 export const interfaces = {
-    props: numerologyEngine.props,
-    profileProps: numerologyEngine.profileProps
+    props: IProps,
+    profileProps: IProfileProps
 }

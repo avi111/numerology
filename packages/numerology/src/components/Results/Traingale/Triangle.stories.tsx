@@ -1,6 +1,8 @@
 import {default as TriangleComponent} from "./Traingle";
 import {language} from "../../../contexts/LanguageContext";
 import React from "react";
+import {MainTriangle} from "@maya259/numerology-engine";
+import {profile} from "../testData/profile";
 
 export default {
     title: 'Result/Components/Triangle',
@@ -16,15 +18,7 @@ export default {
 
 const Template = (args: { hebrewDate: boolean; width: number }) => (
     <TriangleComponent
-        triangle={{
-            sumTriangle: 2,
-            birthDay: 2,
-            birthYear: 4,
-            firstName: 5,
-            destiny: 3,
-            power: 6,
-            birthMonth: 5
-        }}
+        triangle={profile.triangle}
         hebrewDate={args.hebrewDate}
         width={args.width}/>
 )

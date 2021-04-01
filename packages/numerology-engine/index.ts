@@ -8,7 +8,7 @@ import Chakra from "./Calculations/Chakra";
 import NameMapClass from "./MainTools/NameMapClass";
 import ProfileProps from './MainTools/Profile';
 
-const numerologyEngine = {
+export {
     Gematria,
     MainTriangle,
     Profile,
@@ -16,10 +16,9 @@ const numerologyEngine = {
     Business,
     Chakra,
     NameMapClass
-}
+};
 
 export type IProps = Props;
 export {Gender as gender};
 export type IProfileProps = ProfileProps;
 export type ITriangle = Triangle;
-export default numerologyEngine;
