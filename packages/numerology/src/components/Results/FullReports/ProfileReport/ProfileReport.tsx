@@ -1,16 +1,34 @@
 import {Profile} from '../../../../numerologyEngine';
 import React from 'react';
-import {Box} from "@material-ui/core";
+import {Box, Card, CardContent} from "@material-ui/core";
 import Triangle from "../../Traingale/Traingle";
+import Title from "../../Title/Title";
 
 type Props = { profile: Profile }
 
-export default function ProfileReport({profile}: Props) {
+const ProfileReport = ({profile}: Props)  =>{
     const {triangle, triangleHeb} = profile;
     return (
         <Box className="ProfileReport">
-            <Triangle triangle={triangle} width={200} hebrewDate={false} />
-            {triangleHeb && <Triangle triangle={triangleHeb} width={200} hebrewDate={true} />}
+            <Box>
+                <Title profile={profile} />
+            </Box>
+            <Box>
+                <Card>
+                    <CardContent>
+                <Triangle triangle={triangle} width={200} hebrewDate={false}/>
+                    </CardContent>
+                </Card>
+                {triangleHeb && (
+                    <Card>
+                        <CardContent>
+                            <Triangle triangle={triangleHeb} width={200} hebrewDate={true}/>
+                        </CardContent>
+                    </Card>
+                )}
+            </Box>
         </Box>
     );
 }
+
+export default ProfileReport;

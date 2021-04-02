@@ -3,7 +3,7 @@ import {default as ProfileReportComponent} from './ProfileReport';
 import {language} from "../../../../contexts/LanguageContext";
 import {profile} from "../../testData/profile";
 
-export default {
+const Story = {
     title: "Result/Reports",
     component: ProfileReportComponent,
     argTypes: {
@@ -19,6 +19,8 @@ export default {
         }
     }
 };
+
+export default Story;
 
 const Template = () => {
     return (

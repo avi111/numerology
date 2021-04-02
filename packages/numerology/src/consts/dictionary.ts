@@ -31,7 +31,8 @@ export const dictionaryEntries = {
         ['mother name', 'שם האם'],
         ['birth date', 'תאריך לידה'],
         ['birth day', 'יום לידה'],
-        ['destiny', 'גורל']
+        ['destiny', 'גורל'],
+        ['numerological map','מפה נומרולוגית']
     ]),
     [language.ENGLISH]: new Map([
         ['home', 'home'],

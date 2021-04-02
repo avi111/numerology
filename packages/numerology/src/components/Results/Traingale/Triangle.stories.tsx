@@ -1,10 +1,9 @@
 import {default as TriangleComponent} from "./Traingle";
 import {language} from "../../../contexts/LanguageContext";
 import React from "react";
-import {MainTriangle} from "@maya259/numerology-engine";
 import {profile} from "../testData/profile";
 
-export default {
+const Story = {
     title: 'Result/Components/Triangle',
     component: TriangleComponent,
     argTypes: {
@@ -15,6 +14,8 @@ export default {
         }
     }
 }
+
+export default Story;
 
 const Template = (args: { hebrewDate: boolean; width: number }) => (
     <TriangleComponent
