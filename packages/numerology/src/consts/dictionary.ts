@@ -32,7 +32,10 @@ export const dictionaryEntries = {
         ['birth date', 'תאריך לידה'],
         ['birth day', 'יום לידה'],
         ['destiny', 'גורל'],
-        ['numerological map','מפה נומרולוגית']
+        ['no data', 'אין נתונים'],
+        ['hebrew date','תאריך עברי'],
+        ['numerological map','מפה נומרולוגית'],
+        ['your birth date numbers','מספרי תאריך הלידה שלך']
     ]),
     [language.ENGLISH]: new Map([
         ['home', 'home'],

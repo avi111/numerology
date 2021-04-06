@@ -20,7 +20,7 @@ export const themes = {
 export const decorators = [
     (Story, parameters) => {
         const {args} = parameters;
-        const theme = themes[languages.get(args.lang).direction]
+        const theme = themes[languages.get(args.lang)?.direction || 'rtl']
 
         return <LanguageHelper {...{args}}>
             <RouterHelper>
