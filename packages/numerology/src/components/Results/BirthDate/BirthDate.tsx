@@ -56,17 +56,14 @@ function BirthDate({profile, date = DateTypes.GREGORIAN, showWhenNull = false}: 
     const {birthDay, birthMonth, birthYear, destiny} = triangle || {};
 
     birthYearContents.retrieve(birthYear+"").then(data=>{
-        console.log({data}, langContext.currentLanguage, data?.data);
         data && setBirthYearContent(data.data[langContext.currentLanguage as string]);
     })
 
     destinyContents.retrieve(destiny+"").then(data=>{
-        console.log({data}, langContext.currentLanguage, data?.data);
         data && setDestinyContent(data.data[langContext.currentLanguage as string]);
     })
 
     birthDayContents.retrieve(birthDay+"").then(data=>{
-        console.log({data}, langContext.currentLanguage, data?.data);
         data && setBirthDayContent(data.data[langContext.currentLanguage as string]);
     })
 
@@ -74,6 +71,21 @@ function BirthDate({profile, date = DateTypes.GREGORIAN, showWhenNull = false}: 
         return <React.Fragment/>
     }
 
+    const report = (word: string, value: string, content: string) => {
+        return (
+            <Box>
+                <Typography variant="h6"
+                            classes={{root: classes.root}}>{getWord(word)} - {value}</Typography>
+                <Typography>{content}</Typography>
+            </Box>
+        )
+    }
+
+    const getAvatar = (className: string | undefined, value: string) => {
+        return (
+            <Box><Avatar className={className}>{value}</Avatar></Box>
+        )
+    }
 
     if (showWhenNull && !triangle) {
         return (
@@ -108,26 +120,17 @@ function BirthDate({profile, date = DateTypes.GREGORIAN, showWhenNull = false}: 
                         <Box>{birthYear}</Box>
                     </Box>
                     <Box display="flex">
-                        <Box><Avatar className={classes.number}>{birthDay}</Avatar></Box>
-                        <Box><Avatar className={classes.number}>{birthMonth}</Avatar></Box>
-                        <Box><Avatar className={classes.number}>{birthYear}</Avatar></Box>
-                        <Box><Avatar className={classes.number}> = </Avatar></Box>
-                        <Box><Avatar className={`${classes.number} ${classes.destiny}`}>{destiny}</Avatar></Box>
+                        {getAvatar(classes.number, birthDay as unknown as string)}
+                        {getAvatar(classes.number, birthMonth as unknown as string)}
+                        {getAvatar(classes.number, birthYear as unknown as string)}
+                        {getAvatar(classes.number, "=")}
+                        {getAvatar(`${classes.number} ${classes.destiny}`, destiny as unknown as string)}
                     </Box>
                 </Box>
                 <Box>
-                    <Box>
-                        <Typography variant="h6" classes={{root: classes.root}}>{getWord('birth year')} - {birthYear}</Typography>
-                        <Typography>{birthYearContent}</Typography>
-                    </Box>
-                    <Box>
-                        <Typography variant="h6" classes={{root: classes.root}}>{getWord('destiny')} - {destiny}</Typography>
-                        <Typography>{destinyContent}</Typography>
-                    </Box>
-                    <Box>
-                        <Typography variant="h6" classes={{root: classes.root}}>{getWord('birth day')} - {birthDay}</Typography>
-                        <Typography>{birthDayContent}</Typography>
-                    </Box>
+                    {report('birth year', birthYear as unknown as string, birthYearContent)}
+                    {report('destiny', destiny as unknown as string, destinyContent)}
+                    {report('birth day', birthDay as unknown as string, birthDayContent)}
                 </Box>
             </CardContent>
         </Card>

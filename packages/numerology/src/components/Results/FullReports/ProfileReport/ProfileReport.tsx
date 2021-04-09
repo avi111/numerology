@@ -3,8 +3,7 @@ import React from 'react';
 import {Box} from "@material-ui/core";
 import Triangle from "../../Triangle/Triangle";
 import Title from "../../Title/Title";
-import BirthDate from "../../BirthDate/BirthDate";
-import {language} from "../../../../contexts/LanguageContext";
+import BirthDate, {DateTypes} from "../../BirthDate/BirthDate";
 
 type Props = { profile: Profile }
 
@@ -20,10 +19,10 @@ const ProfileReport = ({profile}: Props) => {
                 {triangleHeb && (<Triangle triangle={triangleHeb} width={200} hebrewDate={true}/>)}
             </Box>
             <Box>
-                <BirthDate profile={profile} date={language.ENGLISH}/>
+                <BirthDate profile={profile} date={DateTypes.GREGORIAN}/>
             </Box>
             <Box>
-                <BirthDate profile={profile} date={language.HEBREW}/>
+                <BirthDate profile={profile} date={DateTypes.HEBREW}/>
             </Box>
         </Box>
     );
