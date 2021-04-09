@@ -43,7 +43,9 @@ function BirthDate({profile, lang = language.ENGLISH, showWhenNull = false}: Pro
                             {getWord('your birth date numbers')}{date && ` (${getWord(date)})`}:
                         </Typography>
                         <Typography>{getWord('no data')}</Typography>
-                    </Box></CardContent></Card>)
+                    </Box>
+                </CardContent>
+            </Card>)
     }
     if (!triangle) {
         return <React.Fragment/>
