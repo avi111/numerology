@@ -1,5 +1,7 @@
 enum categories {
-    birthdate
+    birthYear = "birthYear",
+    destiny="destiny",
+    birthDay="birthDay"
 }
 
 export default categories;

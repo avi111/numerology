@@ -31,6 +31,7 @@ export const dictionaryEntries = {
         ['mother name', 'שם האם'],
         ['birth date', 'תאריך לידה'],
         ['birth day', 'יום לידה'],
+        ['birth year', 'שנת לידה'],
         ['destiny', 'גורל'],
         ['no data', 'אין נתונים'],
         ['hebrew date','תאריך עברי'],

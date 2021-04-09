@@ -20,10 +20,10 @@ const ProfileReport = ({profile}: Props) => {
                 {triangleHeb && (<Triangle triangle={triangleHeb} width={200} hebrewDate={true}/>)}
             </Box>
             <Box>
-                <BirthDate profile={profile} lang={language.ENGLISH}/>
+                <BirthDate profile={profile} date={language.ENGLISH}/>
             </Box>
             <Box>
-                <BirthDate profile={profile} lang={language.HEBREW}/>
+                <BirthDate profile={profile} date={language.HEBREW}/>
             </Box>
         </Box>
     );

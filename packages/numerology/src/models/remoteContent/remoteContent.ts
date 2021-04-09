@@ -5,6 +5,7 @@ import firebase from "../../firebase";
 
 const availableLetter = [...allLetters, ..."0123456789".split('')];
 export type Key = typeof availableLetter[number];
+export type Content = { data: {[key: string]: string}, key: string }
 
 interface IRemoteContent {
     category: string,
@@ -25,8 +26,7 @@ class RemoteContent implements IRemoteContent {
     user;
     userId: string;
 
-    constructor(props: IRemoteContentProps) {
-        const {category, user} = props;
+    constructor({category, user}: IRemoteContentProps) {
         this.user = user;
         this.userId = user.uid;
         this.category = category as unknown as string;
@@ -42,24 +42,31 @@ class RemoteContent implements IRemoteContent {
 
     getDB() {
         if (!('indexedDB' in window)) {
-            return indexedDB.open(this.category as unknown as string, 1);
+            return;
         }
+
+        return indexedDB.open(this.category as unknown as string);
     }
 
-    async retrieve(key: Key) {
+    async retrieve(key?: Key): Promise<Content> {
         const self = this;
         const openDB = this.getDB();
+        if (!key) {
+            return {} as Content;
+        }
 
         return await new Promise((resolve, reject) => {
             if (!openDB) return;
-            openDB.onupgradeneeded = async e => await self.init(openDB);
+            openDB.onupgradeneeded = async e => {
+                await self.init(openDB);
+            }
             openDB.onsuccess = () => {
-                if (openDB) {
+                const db = openDB.result;
+                if (db && db.objectStoreNames.contains(self.category)) {
                     const tx = openDB.result.transaction(self.category)
                     const content = tx.objectStore(self.category).get(key)
-                    content.onsuccess = () => resolve(content.result);
+                    content.onsuccess = () => resolve(content.result as Content);
                     content.onerror = () => reject(content.error);
-                    tx.oncomplete = () => openDB.result.close();
                 }
             }
 
@@ -70,17 +77,19 @@ class RemoteContent implements IRemoteContent {
     async init(openDB: IDBOpenDBRequest) {
         let db = openDB.result;
         if (!db.objectStoreNames.contains(this.category)) {
-            const store = db.createObjectStore(this.category, {keyPath: 'key'});
+            db.createObjectStore(this.category, {keyPath: 'key'});
+
             const userContents = await firebase?.firestore().collection("contents").doc(this.userId).get();
             let contents;
             if (userContents?.exists) {
                 contents = await userContents.ref.collection(this.category).get();
             } else {
-                contents = await firebase?.firestore().collection("legacyContents").get();
+                contents = await firebase?.firestore().collection("legacyContents").doc("site").collection(this.category).get();
             }
 
+            const tx = db.transaction(this.category, "readwrite");
             contents?.forEach(doc => {
-                store.add(doc.data(), doc.id);
+                tx.objectStore(this.category).put({data: doc.data(), key: doc.id});
             })
         }
     }

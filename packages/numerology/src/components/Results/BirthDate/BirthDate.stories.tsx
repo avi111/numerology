@@ -1,8 +1,7 @@
 import React from 'react';
-import {default as BirthDateComponent} from './BirthDate';
+import {DateTypes, default as BirthDateComponent} from './BirthDate';
 import {language} from "../../../contexts/LanguageContext";
 import {profile} from "../testData/profile";
-import {Typography} from "@material-ui/core";
 
 const Story = {
     title: 'Result/Components/Birthdate',
@@ -12,25 +11,24 @@ const Story = {
             table: {
                 disable: true
             }
-        }
+        },
+        date: {
+            control: {
+                name: 'dateType',
+                type: 'select',
+                description: 'date type',
+                options: DateTypes,
+                defaultValue: DateTypes.GREGORIAN
+            }
+        },
     }
 };
 
 export default Story;
 
-const Template = ({lang}: { lang: language }) => {
-    if (lang !== language.HEBREW) {
-        lang = language.ENGLISH;
-    }
-
+const Template = ({date}: { date: DateTypes }) => {
     return (
-        <React.Fragment>
-            <Typography>
-                השפה קובעת אם מדובר בתאריך עברי או לועזי
-            </Typography>
-            <hr />
-        <BirthDateComponent  {...{profile, lang, showWhenNull: true}} />
-        </React.Fragment>
+        <BirthDateComponent  {...{profile, date, showWhenNull: true}} />
     )
 }
 
@@ -39,5 +37,6 @@ export const BirthDate = Template.bind({});
 // @ts-ignore
 BirthDate.args = {
     loggedIn: true,
-    lang: language.ENGLISH
+    lang: language.HEBREW,
+    date: DateTypes.GREGORIAN,
 }
