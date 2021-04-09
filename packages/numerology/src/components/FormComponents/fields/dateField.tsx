@@ -3,7 +3,6 @@ import {TextField} from "@material-ui/core";
 import {InputProps} from "./input";
 import "../../form.scss";
 
-
 const DateField = (inputProps: InputProps) => {
     const {
         name,

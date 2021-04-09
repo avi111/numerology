@@ -34,6 +34,11 @@ export const formProps: FormProps<IFormContext<userDetailsProps, userDetailsProp
             field: "email"
         },
         {
+            input: fieldTypes.CHECKBOX,
+            label: "Enable edit contents",
+            field: "contents"
+        },
+        {
             input: fieldTypes.SELECT,
             label: "Language",
             field: "language",

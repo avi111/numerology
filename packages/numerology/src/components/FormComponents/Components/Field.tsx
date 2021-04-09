@@ -6,6 +6,7 @@ import Input from "../fields/input";
 import DateField from "../fields/dateField";
 import SelectField from "../fields/select";
 import {LanguageContext} from "../../../contexts/LanguageContext";
+import Checkbox from "../fields/checkbox";
 
 const Field = (fieldProps: FieldProps): JSX.Element => {
     const {getWord} = useContext(LanguageContext);
@@ -14,19 +15,35 @@ const Field = (fieldProps: FieldProps): JSX.Element => {
         case fieldTypes.TEXT:
             return <Input {...{
                 name: fieldProps.field,
-                type: fieldProps.input,
                 label: getWord(fieldProps.label),
                 // @ts-ignore
-                value: formState[fieldProps.field],
+                checked: formState[fieldProps.field],
                 onChange: handleChange,
                 required: fieldProps.required,
                 className: cn(fieldProps.field),
-                placeholder: getWord(fieldProps.placeholder || ""),
                 errors: [
                     ...validationResult.getErrors(fieldProps.field),
                     ...validationResult.getWarnings(fieldProps.field)
                 ]
             }} />
+        case fieldTypes.CHECKBOX:
+            return (
+                <Checkbox
+                    {...{
+                        name: fieldProps.field,
+                        type: fieldProps.input,
+                        label: getWord(fieldProps.label),
+                        // @ts-ignore
+                        value: formState[fieldProps.field],
+                        onChange: handleChange,
+                        required: fieldProps.required,
+                        className: cn(fieldProps.field),
+                        errors: [
+                            ...validationResult.getErrors(fieldProps.field),
+                            ...validationResult.getWarnings(fieldProps.field)
+                        ]
+                    }}/>
+            )
         case fieldTypes.DATE:
             return (
                 <DateField {...{

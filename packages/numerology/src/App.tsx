@@ -16,6 +16,7 @@ import ProfileForm from "./components/FormComponents/Profile/ProfileForm";
 import {direction, LanguageContext} from "./contexts/LanguageContext";
 import {UserDetailsWrapper} from "./components/FormComponents/UserDetails/UserDetails";
 import {AppContext} from "./contexts/AppContext";
+import EditContents from "./components/EditContents/EditContents";
 
 const themes = {
     [direction.LTR]: ltr,
@@ -67,6 +68,9 @@ const App = () => {
                                 </Route>
                                 <Route path="/user">
                                     <UserDetailsWrapper/>
+                                </Route>
+                                <Route path="/contents">
+                                    <EditContents/>
                                 </Route>
                                 <Route path="/">
                                     <Home/>

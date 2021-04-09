@@ -36,7 +36,9 @@ export const dictionaryEntries = {
         ['no data', 'אין נתונים'],
         ['hebrew date','תאריך עברי'],
         ['numerological map','מפה נומרולוגית'],
-        ['your birth date numbers','מספרי תאריך הלידה שלך']
+        ['your birth date numbers','מספרי תאריך הלידה שלך'],
+        ['edit contents', 'עריכת תכנים'],
+        ['enable edit contents','אפשר עריכת תכנים']
     ]),
     [language.ENGLISH]: new Map([
         ['home', 'home'],

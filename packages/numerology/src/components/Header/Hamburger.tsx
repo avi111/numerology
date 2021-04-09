@@ -1,13 +1,12 @@
 import React, {useContext} from "react";
 import {Button, Drawer, List, ListItem, ListItemIcon, ListItemText, makeStyles} from "@material-ui/core";
 import clsx from "clsx";
-import DehazeIcon from '@material-ui/icons/Dehaze';
 import {IsLoggedIn, IsLoggedOut} from "../../services/auth";
 import {UserContext} from "../../contexts/UserContext";
 import {direction, LanguageContext} from "../../contexts/LanguageContext";
 import {languages} from "../../consts/languages";
-import PersonIcon from '@material-ui/icons/Person';
 import {Link} from "react-router-dom";
+import {BorderColor, Dehaze, Person} from "@material-ui/icons";
 
 const Hamburger = () => {
     const useStyles = makeStyles({
@@ -68,9 +67,17 @@ const Hamburger = () => {
                     <ListItem button component={Link} to="/user">
                         <React.Fragment>
                             <ListItemIcon>
-                                <PersonIcon/>
+                                <Person/>
                             </ListItemIcon>
                             <ListItemText primary={getWord("Edit user details")}/>
+                        </React.Fragment>
+                    </ListItem>
+                    <ListItem button component={Link} to="/contents">
+                        <React.Fragment>
+                            <ListItemIcon>
+                                <BorderColor/>
+                            </ListItemIcon>
+                            <ListItemText primary={getWord("Edit contents")}/>
                         </React.Fragment>
                     </ListItem>
                 </IsLoggedIn>
@@ -79,8 +86,8 @@ const Hamburger = () => {
     );
 
     const icons = {
-        left: <DehazeIcon/>,
-        right: <DehazeIcon/>
+        left: <Dehaze/>,
+        right: <Dehaze/>
     }
 
     const anchor = languages.get(langContext.currentLanguage)?.direction === direction.LTR ?
