@@ -40,7 +40,7 @@ function BirthDate({profile, lang = language.ENGLISH, showWhenNull = false}: Pro
                 <CardContent>
                     <Box className="BirthDate">
                         <Typography variant="h6" classes={{root: classes.root}}>
-                            {getWord('your birth date numbers')}{date && `(${getWord(date)}`}:
+                            {getWord('your birth date numbers')}{date && ` (${getWord(date)})`}:
                         </Typography>
                         <Typography>{getWord('no data')}</Typography>
                     </Box></CardContent></Card>)
@@ -55,7 +55,7 @@ function BirthDate({profile, lang = language.ENGLISH, showWhenNull = false}: Pro
             <CardContent>
                 <Box className="BirthDate">
                     <Typography variant="h6" classes={{root: classes.root}}>
-                        {getWord('your birth date numbers')}{date && `(${getWord(date)}`}:
+                        {getWord('your birth date numbers')}{date && ` (${getWord(date)})`}:
                     </Typography>
                     <Box display="flex">
                         <Box>{birthDay}</Box>

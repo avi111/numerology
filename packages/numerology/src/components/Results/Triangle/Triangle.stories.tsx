@@ -1,4 +1,4 @@
-import {default as TriangleComponent} from "./Traingle";
+import {default as TriangleComponent} from "./Triangle";
 import {language} from "../../../contexts/LanguageContext";
 import React from "react";
 import {profile} from "../testData/profile";
