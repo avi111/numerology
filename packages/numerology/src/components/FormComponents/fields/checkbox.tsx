@@ -13,17 +13,13 @@ interface CheckboxProps {
     required?: boolean;
 }
 
-type handleChangeProps = (event: ChangeEvent<HTMLInputElement>) => void
-
 const Checkbox = (checkboxProps: CheckboxProps) => {
     const {
         name,
         label = name,
         checked = false,
         className,
-        onChange,
-        runValidate,
-        setFormState,
+        onChange
     } = checkboxProps;
 
     return (

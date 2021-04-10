@@ -1,18 +1,20 @@
 import React, {useEffect, useState} from "react";
 import {direction, ILanguageContext, language, LanguageContext} from "../contexts/LanguageContext";
 import {languages} from "../consts/languages";
-import {dictionaryEntries} from "../consts/dictionary";
+import {dictionaryEntries, dictionaryKeys} from "../consts/dictionary";
 
 export const LanguageProvider = ({children}: {
     children: any;
 }) => {
     const [currentLanguage, setCurrentLanguage] = useState<language>((localStorage.getItem('language') as language) || language.HEBREW);
-    const [dictionary, setDictionary] = useState<Map<string, string>>(new Map());
+    const [dictionary, setDictionary] = useState<Map<dictionaryKeys, string>>(new Map());
 
-    const getWord: (word: string) => string = word => dictionary.get(word.toLowerCase()) || word;
+    const getWord: (word: dictionaryKeys) => string = word => {
+        return (dictionary.get((word as unknown as string).toLowerCase() as unknown as dictionaryKeys) || word) as string;
+    }
 
     useEffect(() => {
-        setDictionary(dictionaryEntries[currentLanguage] as Map<string, string>)
+        setDictionary(dictionaryEntries[currentLanguage] as unknown as Map<dictionaryKeys, string>)
         localStorage.setItem('language', currentLanguage);
     }, [currentLanguage]);
 
@@ -25,5 +27,5 @@ export const LanguageProvider = ({children}: {
             dictionary,
             getWord,
             getDirection
-        } as ILanguageContext}>{children}</LanguageContext.Provider>;
+        } as unknown as ILanguageContext}>{children}</LanguageContext.Provider>;
 }

@@ -23,6 +23,24 @@ const themes = {
     [direction.RTL]: rtl
 }
 
+const route = ({
+                   path = '/',
+                   criteria = true,
+                   destination,
+                   redirect = '/'
+               }: {
+    path?: string,
+    criteria?: boolean,
+    destination: JSX.Element | string,
+    redirect?: string
+}) => {
+    path = '/' + path;
+    return <Route {...{
+        path,
+        render: () => criteria ? destination : <Redirect to={redirect}/>
+    }} />;
+}
+
 const App = () => {
     const appContext = useContext(AppContext);
     const userContext = useContext(UserContext);
@@ -38,11 +56,11 @@ const App = () => {
             }
         });
 
-        setTimeout(()=>{
-            if(!appContext.mounted) {
+        setTimeout(() => {
+            if (!appContext.mounted) {
                 appContext.setMounted(true);
             }
-        },1000)
+        }, 1000)
     }, [langContext, userContext, appContext])
 
     return (
@@ -57,31 +75,34 @@ const App = () => {
                         </Box>
                         <div>
                             <Switch>
-                                <Route path="/profile">
-                                    <ProfileForm/>
-                                </Route>
-                                <Route path="/business">
-                                    BusinessForm
-                                </Route>
-                                <Route path="/couple">
-                                    CoupleForm
-                                </Route>
-                                <Route path="/user">
-                                    <UserDetailsWrapper/>
-                                </Route>
-                                <Route
-                                    render={() =>
-                                        userContext.canEditContents
-                                            ? <EditContents/>
-                                            : <Redirect
-                                                to={`/`}
-                                            />}
-                                    path="/contents">
-
-                                </Route>
-                                <Route path="/" exact>
-                                    <Home/>
-                                </Route>
+                                {route({
+                                    path: 'profile',
+                                    destination: <ProfileForm/>,
+                                    criteria: !!userContext.user
+                                })}
+                                {route({
+                                    path: 'business',
+                                    destination: "BusinessForm",
+                                    criteria: !!userContext.user
+                                })}
+                                {route({
+                                    path: 'couple',
+                                    destination: "CoupleForm",
+                                    criteria: !!userContext.user
+                                })}
+                                {route({
+                                    path: 'user',
+                                    destination: <UserDetailsWrapper/>,
+                                    criteria: !!userContext.user
+                                })}
+                                {route({
+                                    path: 'contents',
+                                    destination: <EditContents/>,
+                                    criteria: userContext.canEditContents
+                                })}
+                                {route({
+                                    destination: <Home/>
+                                })}
                             </Switch>
                         </div>
                     </Router>

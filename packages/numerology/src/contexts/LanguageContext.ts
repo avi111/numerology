@@ -1,4 +1,5 @@
 import {createContext} from "react";
+import {dictionaryKeys} from "../consts/dictionary";
 
 export enum language {
     HEBREW = "he_IL",
@@ -18,7 +19,7 @@ export interface languageProps {
 }
 
 export interface ILanguageContext {
-    dictionary: Map<string, string>;
+    dictionary: Map<dictionaryKeys | string, string>;
     setCurrentLanguage: (lang: language)=>void;
     currentLanguage: language;
     getWord: (word: string) => string;
