@@ -69,13 +69,13 @@ const VerticalTabs = () => {
             >
                 {Object.values(categoryItems).map((c, i) => {
                     return (
-                        <Tab label={getWord(c.name)} {...a11yProps(i)} />
+                        <Tab key={i} label={getWord(c.name)} {...a11yProps(i)} />
                     )
                 })}
             </Tabs>
             {Object.values(categoryItems).map((c, i) => {
                 return (
-                    <TabPanel value={value} index={i}>
+                    <TabPanel value={value} index={i} key={i}>
                         Item {i}
                     </TabPanel>
                 );
