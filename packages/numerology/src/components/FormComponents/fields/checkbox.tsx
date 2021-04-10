@@ -21,22 +21,22 @@ const Checkbox = (checkboxProps: CheckboxProps) => {
         label = name,
         checked = false,
         className,
+        onChange,
         runValidate,
         setFormState,
     } = checkboxProps;
-
-    const handleChange: handleChangeProps = ({target: {checked, name}}) => {
-        setFormState && setFormState((state: any) => ({...state, [name]: checked}));
-        runValidate && runValidate(name, checked);
-    };
 
     return (
         <label className={`v-center ${className}`}>
             <input
                 type="checkbox"
-                name={name}
-                checked={checked}
-                onChange={handleChange}
+                {
+                    ...{
+                        name,
+                        checked,
+                        onChange
+                    }
+                }
             />
             <small>{label}</small>
         </label>

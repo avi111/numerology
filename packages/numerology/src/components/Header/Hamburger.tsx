@@ -56,7 +56,7 @@ const Hamburger = () => {
                     </ListItem>
                 </IsLoggedOut>
                 <IsLoggedIn>
-                    <ListItem button onClick={userContext.logout} >
+                    <ListItem button onClick={userContext.logout}>
                         <React.Fragment>
                             <ListItemIcon>
                                 <i className="fas fa-sign-out-alt"/>
@@ -72,14 +72,14 @@ const Hamburger = () => {
                             <ListItemText primary={getWord("Edit user details")}/>
                         </React.Fragment>
                     </ListItem>
-                    <ListItem button component={Link} to="/contents">
+                    {(userContext.userDetails?.admin || userContext.enableEditContents) && <ListItem button component={Link} to="/contents">
                         <React.Fragment>
                             <ListItemIcon>
                                 <BorderColor/>
                             </ListItemIcon>
                             <ListItemText primary={getWord("Edit contents")}/>
                         </React.Fragment>
-                    </ListItem>
+                    </ListItem>}
                 </IsLoggedIn>
             </List>
         </div>

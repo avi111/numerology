@@ -23,7 +23,7 @@ export const BaseBottomNavigationAction = ({
     return (
         <BottomNavigationAction
             component={Link}
-            to={`/${label.toLowerCase() || ""}`}
+            to={to || `/${label.toLowerCase() || ""}`}
             showLabel={true}
             label={<Typography className={classes.root}>{getWord(label)}</Typography>}
             icon={icon}/>

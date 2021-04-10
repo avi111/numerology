@@ -26,7 +26,7 @@ export const BaseBottomNavigation = ({
             showLabels
             className={classes.root}
         >
-            <BaseBottomNavigationAction {...{label: "home", icon: <HomeIcon/>}} />
+            <BaseBottomNavigationAction {...{label: "home", to: '/', icon: <HomeIcon/>}} />
             {children}
         </BottomNavigation>
     )

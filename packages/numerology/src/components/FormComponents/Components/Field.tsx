@@ -17,7 +17,7 @@ const Field = (fieldProps: FieldProps): JSX.Element => {
                 name: fieldProps.field,
                 label: getWord(fieldProps.label),
                 // @ts-ignore
-                checked: formState[fieldProps.field],
+                value: formState[fieldProps.field],
                 onChange: handleChange,
                 required: fieldProps.required,
                 className: cn(fieldProps.field),
@@ -34,7 +34,7 @@ const Field = (fieldProps: FieldProps): JSX.Element => {
                         type: fieldProps.input,
                         label: getWord(fieldProps.label),
                         // @ts-ignore
-                        value: formState[fieldProps.field],
+                        checked: formState[fieldProps.field] || false,
                         onChange: handleChange,
                         required: fieldProps.required,
                         className: cn(fieldProps.field),

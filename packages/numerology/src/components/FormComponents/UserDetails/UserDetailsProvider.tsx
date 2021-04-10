@@ -22,7 +22,8 @@ export const UserDetailsProvider = ({children, prepareProps}: {
         language: language.HEBREW,
         displayName: userContext.user?.displayName,
         email: userContext.user?.email,
-        website: ""
+        website: "",
+        contents: false
     }) as userDetailsProps);
     const [submitting, setSubmitting] = useState(false);
 
@@ -32,9 +33,16 @@ export const UserDetailsProvider = ({children, prepareProps}: {
 
     const handleChange = (e: ChangeEvent) => {
         const {
-            target: {value, name}
+            target: {value, name, checked, type}
         } = e as ChangeEvent<HTMLInputElement>;
-        setFormState((state) => ({...state, [name]: value}));
+        let deliveredValue: string | boolean;
+
+        if (type === "checkbox") {
+            deliveredValue = checked;
+        } else {
+            deliveredValue = value;
+        }
+        setFormState((state) => ({...state, [name]: deliveredValue}));
     };
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -44,9 +52,10 @@ export const UserDetailsProvider = ({children, prepareProps}: {
         setResult(prepareProps(formState));
         setSubmitting(false);
 
-        if(userContext.userDetails) {
+        if (userContext.userDetails) {
             const lang = userContext.userDetails?.language || language.HEBREW;
             langContext.setCurrentLanguage(lang);
+            userContext.setEnableEditContents(userContext.userDetails?.contents || false)
         }
     };
 

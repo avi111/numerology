@@ -4,7 +4,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 
 import {Box, CircularProgress, Container,} from '@material-ui/core';
 import SimpleBottomNavigation from "./components/Header/SimpleBottomNavigation";
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom";
 import Hamburger from "./components/Header/Hamburger";
 import ltr from './themes/ltr';
 import rtl from './themes/rtl';
@@ -69,10 +69,17 @@ const App = () => {
                                 <Route path="/user">
                                     <UserDetailsWrapper/>
                                 </Route>
-                                <Route path="/contents">
-                                    <EditContents/>
+                                <Route
+                                    render={() =>
+                                        userContext.canEditContents
+                                            ? <EditContents/>
+                                            : <Redirect
+                                                to={`/`}
+                                            />}
+                                    path="/contents">
+
                                 </Route>
-                                <Route path="/">
+                                <Route path="/" exact>
                                     <Home/>
                                 </Route>
                             </Switch>

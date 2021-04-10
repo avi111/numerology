@@ -6,6 +6,7 @@ export interface userDetailsProps {
     email: string;
     contents: boolean;
     language: language;
+    admin: boolean;
 }
 
 export interface userDetailsPayload extends Partial<userDetailsProps> {
