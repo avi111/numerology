@@ -1,8 +1,10 @@
-import React, {useContext, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {LanguageContext} from "../../contexts/LanguageContext";
-import {ICategoryItem, sets} from "../../models/remoteContent/categories";
+import categories, {ICategoryItem, sets} from "../../models/remoteContent/categories";
 import {allLetters} from "@maya259/numerology-engine";
 import {Box, Button, FormControl, TextField, Typography} from "@material-ui/core";
+import RemoteContent from "../../models/remoteContent/remoteContent";
+import {UserContext} from "../../contexts/UserContext";
 
 const getElements = (set: sets) => {
     switch (set) {
@@ -16,12 +18,35 @@ const getElements = (set: sets) => {
 }
 
 const ContentsForm = ({category}: { category: ICategoryItem }) => {
-    const {getWord} = useContext(LanguageContext);
+    const {user} = useContext(UserContext);
     const [value, setValue] = useState<{ [key: string]: string }>({});
+    const {getWord, currentLanguage} = useContext(LanguageContext);
+
+    useEffect(()=>{
+        const savedContents = new RemoteContent({category: categories[category.key], user});
+
+        savedContents.retrieveAll().then(data => {
+            setValue(data
+                .reduce((total, currentValue, currentIndex, arr) => {
+                    return {...total, [currentValue.key]: currentValue.data[currentLanguage]};
+                }, {}));
+        })
+    },[currentLanguage, user, category.key])
+
     const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log(value);
+        updateLocally(value);
+        saveRemotely(value);
     }
+
+    const saveRemotely = (value: { [key: string]: string }) => {
+        console.log('save remotely');
+    };
+
+    const updateLocally = (value: { [key: string]: string }) => {
+        console.log('update locally');
+    };
+
     return (
         <form {...{onSubmit}}>
             <Typography variant="h5">{getWord(category.name)}</Typography>

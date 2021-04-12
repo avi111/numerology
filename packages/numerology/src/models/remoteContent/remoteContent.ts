@@ -2,6 +2,7 @@ import categories from "./categories";
 import {allLetters} from "@maya259/numerology-engine";
 import {language} from "../../contexts/LanguageContext";
 import firebase from "../../firebase";
+import {IUser} from "../../contexts/UserContext";
 
 const availableLetter = [...allLetters, ..."0123456789".split('')];
 export type Key = typeof availableLetter[number];
@@ -11,24 +12,24 @@ interface IRemoteContent {
     category: string,
     content: string,
     language: language,
-    user: firebase.default.User
+    user: IUser
 }
 
 interface IRemoteContentProps {
     category: categories,
-    user: firebase.default.User
+    user: IUser
 }
 
 class RemoteContent implements IRemoteContent {
     category: string;
     content: string = '';
     language: language = language.HEBREW;
-    user;
-    userId: string;
+    user: IUser;
+    userId?: string;
 
     constructor({category, user}: IRemoteContentProps) {
         this.user = user;
-        this.userId = user.uid;
+        this.userId = user?.uid;
         this.category = category as unknown as string;
 
         for (let prop of Object.getOwnPropertyNames(RemoteContent.prototype)) {
@@ -46,6 +47,24 @@ class RemoteContent implements IRemoteContent {
         }
 
         return indexedDB.open(this.category as unknown as string);
+    }
+
+    async retrieveAll(): Promise<Content[]> {
+        const self = this;
+        const openDB = this.getDB();
+        if (!openDB) return [];
+
+        return await new Promise((resolve, reject) => {
+            openDB.onsuccess = () => {
+                const db = openDB?.result;
+                if (db && db.objectStoreNames.contains(self.category)) {
+                    const tx = openDB.result.transaction(self.category)
+                    const content = tx.objectStore(self.category).getAll();
+                    content.onsuccess = () => resolve(content.result as Content[]);
+                    content.onerror = () => reject(content.error);
+                }
+            }
+        })
     }
 
     async retrieve(key?: Key): Promise<Content> {
