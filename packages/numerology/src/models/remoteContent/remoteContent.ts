@@ -3,10 +3,11 @@ import {allLetters} from "@maya259/numerology-engine";
 import {language} from "../../contexts/LanguageContext";
 import firebase from "../../firebase";
 import {IUser} from "../../contexts/UserContext";
+import {updateContents} from "../../api/usersApi/updateContents";
 
 const availableLetter = [...allLetters, ..."0123456789".split('')];
 export type Key = typeof availableLetter[number];
-export type Content = { data: {[key: string]: string}, key: string }
+export type Content = { data: { [key: string]: string }, key: string }
 
 interface IRemoteContent {
     category: string,
@@ -46,7 +47,9 @@ class RemoteContent implements IRemoteContent {
             return;
         }
 
-        return indexedDB.open(this.category as unknown as string);
+        let prefix = process.env.STORYBOOK_PREFIX || '';
+
+        return indexedDB.open(`${prefix}contents` as string);
     }
 
     async retrieveAll(): Promise<Content[]> {
@@ -64,6 +67,10 @@ class RemoteContent implements IRemoteContent {
                     content.onerror = () => reject(content.error);
                 }
             }
+
+            openDB.onupgradeneeded = async e => {
+                await self.init(openDB);
+            }
         })
     }
 
@@ -79,7 +86,7 @@ class RemoteContent implements IRemoteContent {
             openDB.onupgradeneeded = async e => {
                 await self.init(openDB);
             }
-            openDB.onsuccess = () => {
+            openDB.onsuccess = async () => {
                 const db = openDB.result;
                 if (db && db.objectStoreNames.contains(self.category)) {
                     const tx = openDB.result.transaction(self.category)
@@ -93,22 +100,53 @@ class RemoteContent implements IRemoteContent {
         })
     }
 
+    async loadContents(openDB: IDBOpenDBRequest, category: categories) {
+        let db = openDB.result;
+        const userContents = await firebase?.firestore().collection("contents").doc(this.userId).get();
+        let contents;
+        if (userContents?.exists) {
+            contents = await userContents.ref.collection(category).get();
+        } else {
+            contents = await firebase?.firestore().collection("legacyContents").doc("site").collection(category).get();
+        }
+
+        const tx = db.transaction(category, "readwrite");
+        contents?.forEach(doc => {
+            tx.objectStore(category).put({data: doc.data(), key: doc.id});
+        })
+    }
+
     async init(openDB: IDBOpenDBRequest) {
         let db = openDB.result;
-        if (!db.objectStoreNames.contains(this.category)) {
-            db.createObjectStore(this.category, {keyPath: 'key'});
-
-            const userContents = await firebase?.firestore().collection("contents").doc(this.userId).get();
-            let contents;
-            if (userContents?.exists) {
-                contents = await userContents.ref.collection(this.category).get();
-            } else {
-                contents = await firebase?.firestore().collection("legacyContents").doc("site").collection(this.category).get();
+        for (const category of Object.values(categories)) {
+            if (!db.objectStoreNames.contains(category)) {
+                db.createObjectStore(category, {keyPath: 'key'});
             }
+        }
 
-            const tx = db.transaction(this.category, "readwrite");
-            contents?.forEach(doc => {
-                tx.objectStore(this.category).put({data: doc.data(), key: doc.id});
+        for (const category of Object.values(categories)) {
+            await this.loadContents(openDB, category)
+        }
+    }
+
+    async updateRemotely(contents: { [key: string]: string }) {
+        const {category} = this;
+        await updateContents({category, contents});
+    }
+
+    async updateLocally(contents: { [key: string]: string }) {
+        const openDB = this.getDB();
+        const {category} = this;
+        if (!openDB) return;
+
+        openDB.onsuccess = async () => {
+            let db = openDB.result;
+
+            const tx = db.transaction(category, "readwrite");
+            Object.values(contents)?.forEach((value, i) => {
+                const action = tx.objectStore(category).put({data: value, key: Object.keys(contents)[i]});
+                action.onsuccess = () => console.log(action.result)
+                action.onerror = () => console.log(action.error)
             })
         }
     }

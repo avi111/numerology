@@ -33,18 +33,16 @@ const ContentsForm = ({category}: { category: ICategoryItem }) => {
         })
     },[currentLanguage, user, category.key])
 
-    const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        updateLocally(value);
-        saveRemotely(value);
+        await update(value);
     }
 
-    const saveRemotely = (value: { [key: string]: string }) => {
-        console.log('save remotely');
-    };
+    const update = async (value: { [key: string]: string }) => {
+        const savedContents = new RemoteContent({category: categories[category.key], user});
+        await savedContents.updateLocally(value);
+        await savedContents.updateRemotely(value);
 
-    const updateLocally = (value: { [key: string]: string }) => {
-        console.log('update locally');
     };
 
     return (
