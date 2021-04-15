@@ -121,8 +121,8 @@ class RemoteContent implements IRemoteContent {
     }
 
     async updateRemotely(contents: { [key: string]: string }) {
-        const {category} = this;
-        await updateContents({category, contents});
+        const {category, language} = this;
+        await updateContents({category, contents, language});
     }
 
     async updateLocally(contents: { [key: string]: string }) {
