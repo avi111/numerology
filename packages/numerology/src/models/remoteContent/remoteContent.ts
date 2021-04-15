@@ -1,9 +1,10 @@
 import categories from "./categories";
 import {allLetters} from "@maya259/numerology-engine";
 import {language} from "../../contexts/LanguageContext";
-import firebase from "../../firebase";
+import {services} from "../../firebase";
 import {IUser} from "../../contexts/UserContext";
 import {updateContents} from "../../api/usersApi/updateContents";
+import {status} from "../../api/connection/status";
 
 const availableLetter = [...allLetters, ..."0123456789".split('')];
 export type Key = typeof availableLetter[number];
@@ -100,22 +101,6 @@ class RemoteContent implements IRemoteContent {
         })
     }
 
-    async loadContents(openDB: IDBOpenDBRequest, category: categories) {
-        let db = openDB.result;
-        const userContents = await firebase?.firestore().collection("contents").doc(this.userId).get();
-        let contents;
-        if (userContents?.exists) {
-            contents = await userContents.ref.collection(category).get();
-        } else {
-            contents = await firebase?.firestore().collection("legacyContents").doc("site").collection(category).get();
-        }
-
-        const tx = db.transaction(category, "readwrite");
-        contents?.forEach(doc => {
-            tx.objectStore(category).put({data: doc.data(), key: doc.id});
-        })
-    }
-
     async init(openDB: IDBOpenDBRequest) {
         let db = openDB.result;
         for (const category of Object.values(categories)) {
@@ -124,8 +109,14 @@ class RemoteContent implements IRemoteContent {
             }
         }
 
-        for (const category of Object.values(categories)) {
-            await this.loadContents(openDB, category)
+        const {data} = await services.functions().httpsCallable('loadContents')()
+        if(data && data.status === status.success) {
+            data.data.forEach(({id, data}: { id: string, data: { [key: string]: string } }) => {
+                const tx = db.transaction(id, "readwrite");
+                Object.keys(data).forEach((key, index) => {
+                    tx.objectStore(id).put({data: Object.values(data)[index], key});
+                })
+            })
         }
     }
 
