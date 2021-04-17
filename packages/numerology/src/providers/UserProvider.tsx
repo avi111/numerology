@@ -44,7 +44,7 @@ export const UserProvider = ({children}: {
         } else {
             setUserDetails(null);
         }
-    }, [user, langContext])
+    }, [user, langContext, appContext])
 
     const isAdmin = userDetails?.admin;
     const canEditContents = (isAdmin || enableEditContents)
