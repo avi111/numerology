@@ -14,12 +14,18 @@ export const UserProvider = ({children}: {
     const [user, setUser] = useState<IUser>();
     const [enableEditContents, setEnableEditContents] = useState<boolean>();
     const [userDetails, setUserDetails] = useState<Partial<userDetailsProps> | null>(null);
-
     useEffect(() => {
         if (user?.uid) {
             services.firestore().collection("userData").doc(user?.uid).get().then(snapshot => {
                 const details = snapshot.data();
-                const {displayName, language, website, email, contents, admin} = details as userDetailsPayload;
+                const {
+                    displayName,
+                    language,
+                    website,
+                    email,
+                    contents,
+                    admin
+                } = details as userDetailsPayload;
                 setUserDetails({
                     displayName,
                     language,
@@ -29,20 +35,16 @@ export const UserProvider = ({children}: {
                     admin
                 } as Partial<userDetailsProps>)
                 language && langContext.setCurrentLanguage(language)
+
+                if (displayName) {
+                    appContext.setMounted({state: true});
+                }
             });
+
         } else {
             setUserDetails(null);
         }
     }, [user, langContext])
-
-    useEffect(() => {
-        const empty = userDetails && Object.keys(userDetails).length === 0;
-        if(empty){
-            appContext.setMounted(false);
-        } else {
-            appContext.setMounted(true);
-        }
-    }, [userDetails, appContext, langContext.currentLanguage])
 
     const isAdmin = userDetails?.admin;
     const canEditContents = (isAdmin || enableEditContents)

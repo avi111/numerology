@@ -18,7 +18,7 @@ interface IRemoteContent {
 }
 
 interface IRemoteContentProps {
-    category: categories,
+    category?: categories,
     user: IUser
 }
 
@@ -75,6 +75,27 @@ class RemoteContent implements IRemoteContent {
         })
     }
 
+    async reset() {
+        return await new Promise((resolve, reject) => {
+            try {
+                const self = this;
+                let prefix = process.env.STORYBOOK_PREFIX || '';
+                const deleteDB = indexedDB.deleteDatabase(`${prefix}contents`);
+
+                deleteDB.onsuccess = async e => {
+                    const openDB = self.getDB();
+                    if (!openDB) return [];
+                    openDB.onupgradeneeded = async e => {
+                        await self.init(openDB);
+                        resolve(true);
+                    }
+                }
+            } catch (e) {
+                reject(e);
+            }
+        })
+    }
+
     async retrieve(key?: Key): Promise<Content> {
         const self = this;
         const openDB = this.getDB();
@@ -101,6 +122,21 @@ class RemoteContent implements IRemoteContent {
         })
     }
 
+    async populate(openDB: IDBOpenDBRequest) {
+        let db = openDB.result;
+
+        const {data} = await services.functions().httpsCallable('loadContents')()
+        if (data && data.status === status.success) {
+            data.data.forEach(({id, data}: { id: string, data: { [key: string]: string } }) => {
+                const tx = db.transaction(id, "readwrite");
+
+                Object.keys(data).forEach((key, index) => {
+                    tx.objectStore(id).put({data: Object.values(data)[index], key});
+                })
+            })
+        }
+    }
+
     async init(openDB: IDBOpenDBRequest) {
         let db = openDB.result;
         for (const category of Object.values(categories)) {
@@ -109,36 +145,28 @@ class RemoteContent implements IRemoteContent {
             }
         }
 
-        const {data} = await services.functions().httpsCallable('loadContents')()
-        if(data && data.status === status.success) {
-            data.data.forEach(({id, data}: { id: string, data: { [key: string]: string } }) => {
-                const tx = db.transaction(id, "readwrite");
-                Object.keys(data).forEach((key, index) => {
-                    tx.objectStore(id).put({data: Object.values(data)[index], key});
-                })
-            })
-        }
+        await this.populate(openDB);
     }
 
-    async updateRemotely(contents: { [key: string]: string }) {
-        const {category, language} = this;
-        await updateContents({category, contents, language});
-    }
-
-    async updateLocally(contents: { [key: string]: string }) {
+    async update(contents: { [key: string]: string }, date?: Date) {
         const openDB = this.getDB();
-        const {category} = this;
+        const {category, language} = this;
         if (!openDB) return;
-
         openDB.onsuccess = async () => {
             let db = openDB.result;
 
             const tx = db.transaction(category, "readwrite");
             Object.values(contents)?.forEach((value, i) => {
-                const action = tx.objectStore(category).put({data: value, key: Object.keys(contents)[i]});
-                action.onsuccess = () => console.log(action.result)
-                action.onerror = () => console.log(action.error)
+                const content = tx.objectStore(category).get(Object.keys(contents)[i]);
+                content.onsuccess = () => {
+                    tx.objectStore(category).put({
+                        data: {...content, [language]: value},
+                        key: Object.keys(contents)[i]
+                    });
+                }
             })
+
+            await updateContents({category, contents, language, date: date?.toISOString() || ""});
         }
     }
 }

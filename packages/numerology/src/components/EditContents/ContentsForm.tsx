@@ -2,14 +2,14 @@ import React, {useContext, useEffect, useState} from "react";
 import {LanguageContext} from "../../contexts/LanguageContext";
 import categories, {ICategoryItem, sets} from "../../models/remoteContent/categories";
 import {allLetters} from "@maya259/numerology-engine";
-import {Box, Button, FormControl, TextField, Typography} from "@material-ui/core";
+import {Box, Button, CircularProgress, FormControl, TextField, Typography} from "@material-ui/core";
 import RemoteContent from "../../models/remoteContent/remoteContent";
 import {UserContext} from "../../contexts/UserContext";
 
 const getElements = (set: sets) => {
     switch (set) {
         case sets.numbers:
-            return "0123456789".split('')
+            return "012345678".split('')
         case sets.letters:
             return allLetters
         default:
@@ -20,35 +20,41 @@ const getElements = (set: sets) => {
 const ContentsForm = ({category}: { category: ICategoryItem }) => {
     const {user} = useContext(UserContext);
     const [value, setValue] = useState<{ [key: string]: string }>({});
+    const [loading, setLoading] = useState(false);
     const {getWord, currentLanguage} = useContext(LanguageContext);
 
-    useEffect(()=>{
+    useEffect(() => {
         const savedContents = new RemoteContent({category: categories[category.key], user});
 
         savedContents.retrieveAll().then(data => {
-            setValue(data
+            const contents = data
                 .reduce((total, currentValue, currentIndex, arr) => {
-                    return {...total, [currentValue.key]: currentValue.data[currentLanguage]};
-                }, {}));
+                    total[currentValue.key] = currentValue.data[currentLanguage];
+                    return total;
+                }, {} as { [key: string]: string });
+
+            setValue(contents);
         })
-    },[currentLanguage, user, category.key])
+    }, [currentLanguage, user, category.key])
 
     const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        setLoading(true);
         await update(value);
+        setLoading(false);
     }
 
     const update = async (value: { [key: string]: string }) => {
         const savedContents = new RemoteContent({category: categories[category.key], user});
-        await savedContents.updateLocally(value);
-        await savedContents.updateRemotely(value);
-
+        const date = new Date(Date.now());
+        await savedContents.update(value, date);
     };
 
     return (
         <form {...{onSubmit}}>
             <Typography variant="h5">{getWord(category.name)}</Typography>
-            {getElements(category.set).map((element, i) => {
+            {loading && <CircularProgress />}
+            {!loading && getElements(category.set).map((element, i) => {
                 const id = `${category.name}-${element}`;
                 return (
                     <Box key={i}>

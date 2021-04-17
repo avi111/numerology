@@ -13,17 +13,24 @@ const useStyles = makeStyles({
 });
 
 export const BaseBottomNavigationAction = ({
-                                        to = "",
-                                        label,
-                                        icon = <FavoriteIcon/>
-                                    }: { to?: string, label: string, icon?: JSX.Element }) => {
+                                               to = "",
+                                               label,
+                                               icon = <FavoriteIcon/>,
+                                               onClick
+                                           }: {
+    to?: string,
+    label: string,
+    icon?: JSX.Element,
+    onClick?: () => void
+}) => {
     const {getWord} = useContext(LanguageContext);
     const classes = useStyles();
 
     return (
         <BottomNavigationAction
+            onClick={onClick}
             component={Link}
-            to={to || `/${label.toLowerCase() || ""}`}
+            to={onClick ? (to || "#") : (to || `/${label.toLowerCase() || ""}`)}
             showLabel={true}
             label={<Typography className={classes.root}>{getWord(label)}</Typography>}
             icon={icon}/>

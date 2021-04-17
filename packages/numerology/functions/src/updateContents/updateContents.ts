@@ -5,10 +5,11 @@ import isAdmin from "../helpers";
 export interface IUpdateContents {
     category: string,
     contents: { [key: string]: { [key: string]: string } },
-    language: string
+    language: string,
+    date: string
 }
 
-const updateContents = functions.https.onCall(async ({category, contents, language}: IUpdateContents, context) => {
+const updateContents = functions.https.onCall(async ({category, contents, language, date}: IUpdateContents, context) => {
     try {
         const uid = context.auth?.uid + "";
         const admin = uid && await isAdmin(uid);
@@ -24,6 +25,9 @@ const updateContents = functions.https.onCall(async ({category, contents, langua
             status: status.success,
             data: await Promise.all(Object.keys(contents).map(async (key, i) => {
                 const value = Object.values(contents)[i];
+                await db.collection("userData").doc(uid).set({
+                    updatedContents: date
+                }, {merge: true})
                 return await workingDoc.collection(category).doc(key).set({
                     [language]: value
                 }, {merge: true});

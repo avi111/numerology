@@ -21,6 +21,19 @@ const collectionToData = async (document: FirebaseFirestore.DocumentSnapshot<Fir
     });
 }
 
+export const loadByUserId = async (userId: string) => {
+    const userContents = await db.collection("contents").doc(userId).get();
+
+    return await new Promise(async resolve => {
+        if (userContents?.exists) {
+            resolve(await collectionToData(userContents))
+        } else {
+            const siteContents = await db.collection("legacyContents").doc("site").get();
+            resolve(await collectionToData(siteContents));
+        }
+    })
+}
+
 const loadContents = functions.https.onCall(async (data, context) => {
     try {
         const userId = context.auth?.uid;
@@ -28,20 +41,13 @@ const loadContents = functions.https.onCall(async (data, context) => {
             throw new Error("no id");
         }
 
-        const userContents = await db.collection("contents").doc(userId).get();
-
-        const contents = await new Promise(async resolve => {
-            if (userContents?.exists) {
-                resolve(await collectionToData(userContents))
-            } else {
-                const siteContents = await db.collection("legacyContents").doc("site").get();
-                resolve(await collectionToData(siteContents));
-            }
-        })
+        await db.collection("userData").doc(userId).set({
+            loadedContents: new Date(Date.now()).toISOString()
+        }, {merge: true})
 
         return {
             status: status.success,
-            data: contents
+            data: await loadByUserId(userId)
         }
     } catch (err) {
         return {
