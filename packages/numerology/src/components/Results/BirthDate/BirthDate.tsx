@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {LanguageContext} from "../../../contexts/LanguageContext";
 import {Avatar, Box, Card, CardContent, Typography} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
@@ -44,28 +44,28 @@ function BirthDate({profile, date = DateTypes.GREGORIAN, showWhenNull = false}: 
     const [birthDayContent, setBirthDayContent] = useState<string>("");
 
 
-    if (!user) {
-        return <React.Fragment />;
-    }
-
-    const birthYearContents = new RemoteContent({category: categories.birthYear, user});
-    const destinyContents = new RemoteContent({category: categories.destiny, user});
-    const birthDayContents = new RemoteContent({category: categories.birthYear, user});
     const triangle = date === DateTypes.GREGORIAN ? profile.triangle : profile.triangleHeb;
     const dateType = date === DateTypes.GREGORIAN ? '' : 'hebrew date';
-    const {birthDay, birthMonth, birthYear, destiny} = triangle || {};
 
-    birthYearContents.retrieve(birthYear+"").then(data=>{
-        data && setBirthYearContent(data.data[langContext.currentLanguage as string]);
-    })
+    useEffect(()=>{
+        const {birthDay, birthYear, destiny} = triangle || {};
 
-    destinyContents.retrieve(destiny+"").then(data=>{
-        data && setDestinyContent(data.data[langContext.currentLanguage as string]);
-    })
+        const birthYearContents = new RemoteContent({category: categories.birthYear, user});
+        const destinyContents = new RemoteContent({category: categories.destiny, user});
+        const birthDayContents = new RemoteContent({category: categories.birthYear, user});
 
-    birthDayContents.retrieve(birthDay+"").then(data=>{
-        data && setBirthDayContent(data.data[langContext.currentLanguage as string]);
-    })
+        birthYearContents.retrieve(birthYear+"").then(data=>{
+            data && setBirthYearContent(data.data[langContext.currentLanguage as string]);
+        })
+
+        destinyContents.retrieve(destiny+"").then(data=>{
+            data && setDestinyContent(data.data[langContext.currentLanguage as string]);
+        })
+
+        birthDayContents.retrieve(birthDay+"").then(data=>{
+            data && setBirthDayContent(data.data[langContext.currentLanguage as string]);
+        })
+    },[langContext.currentLanguage, triangle, user])
 
     if (!user) {
         return <React.Fragment/>
@@ -104,6 +104,8 @@ function BirthDate({profile, date = DateTypes.GREGORIAN, showWhenNull = false}: 
     if (!triangle) {
         return <React.Fragment/>
     }
+
+    const {birthDay, birthMonth, birthYear, destiny} = triangle || {};
 
     return (
         <Card>

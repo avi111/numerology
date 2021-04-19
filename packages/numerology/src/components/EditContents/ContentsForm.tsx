@@ -1,7 +1,7 @@
 import React, {useContext, useEffect, useState} from "react";
 import {LanguageContext} from "../../contexts/LanguageContext";
 import categories, {ICategoryItem, sets} from "../../models/remoteContent/categories";
-import {allLetters} from "@maya259/numerology-engine";
+import {REGULAR_LETTERS} from "@maya259/numerology-engine";
 import {Box, Button, CircularProgress, FormControl, TextField, Typography} from "@material-ui/core";
 import RemoteContent from "../../models/remoteContent/remoteContent";
 import {UserContext} from "../../contexts/UserContext";
@@ -11,7 +11,7 @@ const getElements = (set: sets) => {
         case sets.numbers:
             return "012345678".split('')
         case sets.letters:
-            return allLetters
+            return REGULAR_LETTERS
         default:
             return [];
     }

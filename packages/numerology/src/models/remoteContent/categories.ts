@@ -3,7 +3,8 @@ import {dictionaryKeys} from "../../consts/dictionary";
 enum categories {
     birthYear = "birthYear",
     destiny="destiny",
-    birthDay="birthDay"
+    birthDay="birthDay",
+    lettersContents="lettersContents"
 }
 
 export enum sets {
@@ -32,6 +33,11 @@ export const categoryItems: {[key: string]: ICategoryItem} = {
         key: categories.birthDay,
         name: dictionaryKeys["birth day"],
         set: sets.numbers
+    },
+    lettersContents: {
+        key: categories.lettersContents,
+        name: dictionaryKeys["name letters"],
+        set: sets.letters
     }
 }
 export default categories;

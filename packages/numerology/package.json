@@ -69,6 +69,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:watch": "react-scripts test --watch",
+    "emulate": "firebase emulators:start --inspect-functions",
     "eject": "react-scripts eject",
     "deploy": "firebase deploy",
     "production": "npm run build && serve -s build",

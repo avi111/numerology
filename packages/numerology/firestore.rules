@@ -1,18 +1,18 @@
 rules_version = '2';
 service cloud.firestore {
-  match /databases/{database}/documents {
-  function isAdmin() {
-      return get(/databases/$(database)/documents/userData/$(request.auth.uid)).admin == true
-    }
+    match /databases/{database}/documents {
+        function isAdmin() {
+            return get(/databases/$(database)/documents/userData/$(request.auth.uid)) .admin == true
+        }
 
-    match /contents/{userId} {
-      allow read, write: if request.auth != null && request.auth.uid == userId;
+        match /contents/{userId} {
+            allow read, write: if request.auth != null && request.auth.uid == userId;
+        }
+        match /legacyContents {
+            allow read, write: if request.auth != null && isAdmin();
+        }
+        match /userData/{userId} {
+            allow read, write: if request.auth != null && request.auth.uid == userId;
+        }
     }
-    match /legacyContents {
-      allow read, write: if request.auth != null && isAdmin();
-    }
-    match /userData/{userId} {
-      allow read, write: if request.auth != null && request.auth.uid == userId;
-    }
-  }
 }

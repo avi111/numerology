@@ -7,7 +7,7 @@ import Business from "./MainTools/Business";
 import Chakra from "./Calculations/Chakra";
 import NameMapClass from "./MainTools/NameMapClass";
 import ProfileProps from './MainTools/Profile';
-import { allLetters } from "./consts/letters";
+import { allLetters, REGULAR_LETTERS } from "./consts/letters";
 
 export {
     Gematria,
@@ -17,7 +17,8 @@ export {
     Business,
     Chakra,
     NameMapClass,
-    allLetters
+    allLetters,
+    REGULAR_LETTERS
 };
 
 export type IProps = Props;

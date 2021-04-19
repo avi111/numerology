@@ -5,6 +5,7 @@ import {services} from "../../firebase";
 import {IUser} from "../../contexts/UserContext";
 import {updateContents} from "../../api/usersApi/updateContents";
 import {status} from "../../api/connection/status";
+import {contents} from "../../components/Results/testData/contents";
 
 const availableLetter = [...allLetters, ..."0123456789".split('')];
 export type Key = typeof availableLetter[number];
@@ -128,6 +129,16 @@ class RemoteContent implements IRemoteContent {
         const {data} = await services.functions().httpsCallable('loadContents')()
         if (data && data.status === status.success) {
             data.data.forEach(({id, data}: { id: string, data: { [key: string]: string } }) => {
+                const tx = db.transaction(id, "readwrite");
+
+                Object.keys(data).forEach((key, index) => {
+                    tx.objectStore(id).put({data: Object.values(data)[index], key});
+                })
+            })
+        }
+
+        if (data && data.status === status.failure && process.env.STORYBOOK_PREFIX) {
+            contents.result.data.forEach(({id, data}: { id: string, data: { [key: string]: { [key: string]: string | undefined } | undefined } }) => {
                 const tx = db.transaction(id, "readwrite");
 
                 Object.keys(data).forEach((key, index) => {

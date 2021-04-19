@@ -40,7 +40,9 @@ export enum dictionaryKeys {
     "sync contents" = "sync contents",
     "contents were refreshed" = "contents were refreshed",
     "syncing contents" = "syncing contents",
-    "loading user details" = "loading user details"
+    "loading user details" = "loading user details",
+    "name letters" = "name letters",
+    "your name letters meaning" = "your name letters meaning"
 }
 
 export const dictionaryEntries = {
@@ -84,7 +86,9 @@ export const dictionaryEntries = {
             [dictionaryKeys["sync contents"], "סנכרן תכנים"],
             [dictionaryKeys["contents were refreshed"], "התכנים סונכרו"],
             [dictionaryKeys["syncing contents"], "מסנכרן תכנים"],
-            [dictionaryKeys["loading user details"],"טוען פרטי משתמש"]
+            [dictionaryKeys["loading user details"],"טוען פרטי משתמש"],
+            [dictionaryKeys["your name letters meaning"],"פירוש אותיות שמך"],
+            [dictionaryKeys["name letters"],"אותיות השם"]
         ]),
         [language.ENGLISH]:
             new Map<dictionaryKeys, string>([
