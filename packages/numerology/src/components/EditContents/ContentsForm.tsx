@@ -1,17 +1,20 @@
 import React, {useContext, useEffect, useState} from "react";
 import {LanguageContext} from "../../contexts/LanguageContext";
 import categories, {ICategoryItem, sets} from "../../models/remoteContent/categories";
-import {REGULAR_LETTERS} from "@maya259/numerology-engine";
+import {allLetters, SUFFIX_LETTERS} from "@maya259/numerology-engine";
 import {Box, Button, CircularProgress, FormControl, TextField, Typography} from "@material-ui/core";
 import RemoteContent from "../../models/remoteContent/remoteContent";
 import {UserContext} from "../../contexts/UserContext";
+import _difference from "lodash/difference";
 
 const getElements = (set: sets) => {
     switch (set) {
         case sets.numbers:
             return "012345678".split('')
         case sets.letters:
-            return REGULAR_LETTERS
+            const diff = _difference(allLetters, SUFFIX_LETTERS)
+            console.log(diff, allLetters, SUFFIX_LETTERS);
+            return diff;
         default:
             return [];
     }
@@ -53,7 +56,7 @@ const ContentsForm = ({category}: { category: ICategoryItem }) => {
     return (
         <form {...{onSubmit}}>
             <Typography variant="h5">{getWord(category.name)}</Typography>
-            {loading && <CircularProgress />}
+            {loading && <CircularProgress/>}
             {!loading && getElements(category.set).map((element, i) => {
                 const id = `${category.name}-${element}`;
                 return (

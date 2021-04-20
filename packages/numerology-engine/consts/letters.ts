@@ -1,7 +1,7 @@
 const allLetters = 'אבגדהוזחטיכלמנסעפצקרשתםןץףך'.split('');
 const letters = allLetters.join('');
 const EHEVI_LETTERS: string[] = 'אהוי'.split('');
-const SUFFIX_LETTERS: string[] = 'םןץפך'.split('');
+const SUFFIX_LETTERS: string[] = 'םןץףך'.split('');
 const REGULAR_LETTERS: string[] = 'מנצפכ'.split('');
 
 const gematriaValues = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30,
