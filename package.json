@@ -12,14 +12,18 @@
     ]
   },
   "scripts": {
-    "start": "lerna run start",
+    "bootstrap": "lerna run rimraf && lerna run tsc --stream && lerna bootstrap --hoist",
+    "start": "lerna run start --stream",
+    "tsc": "lerna run tsc --stream",
+    "watch": "lerna run watch --stream",
+    "dev": "lerna run dev",
+    "dev-logs": "lerna run dev --parallel",
+    "dev-module": "lerna run dev --scope",
     "test": "lerna run test",
-    "watch": "lerna run watch",
     "storybook": "lerna run storybook",
     "production": "lerna run production",
     "build": "lerna run build",
     "deploy": "lerna run deploy",
-    "bootstrap": "lerna run rimraf && lerna bootstrap",
     "rimraf": "rm -rf node_modules",
     "installApp": "yarn rimraf && yarn install && yarn bootstrap"
   },

@@ -12,9 +12,7 @@ const getElements = (set: sets) => {
         case sets.numbers:
             return "012345678".split('')
         case sets.letters:
-            const diff = _difference(allLetters, SUFFIX_LETTERS)
-            console.log(diff, allLetters, SUFFIX_LETTERS);
-            return diff;
+            return _difference(allLetters, SUFFIX_LETTERS);
         default:
             return [];
     }

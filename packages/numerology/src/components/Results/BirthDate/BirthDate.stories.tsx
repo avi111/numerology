@@ -26,7 +26,7 @@ const Story = {
 
 export default Story;
 
-const Template = ({date}: { date: DateTypes }) => {
+const Template  = ({date}: { date: DateTypes }) => {
     return (
         <BirthDateComponent  {...{profile, date, showWhenNull: true}} />
     )

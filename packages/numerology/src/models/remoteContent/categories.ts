@@ -4,7 +4,8 @@ enum categories {
     birthYear = "birthYear",
     destiny="destiny",
     birthDay="birthDay",
-    lettersContents="lettersContents"
+    lettersContents="lettersContents",
+    firstNameNumber="firstNameNumber"
 }
 
 export enum sets {
@@ -37,6 +38,11 @@ export const categoryItems: {[key: string]: ICategoryItem} = {
     lettersContents: {
         key: categories.lettersContents,
         name: dictionaryKeys["name letters"],
+        set: sets.letters
+    },
+    firstNameNumber: {
+        key: categories.firstNameNumber,
+        name: dictionaryKeys["first name number"],
         set: sets.letters
     }
 }

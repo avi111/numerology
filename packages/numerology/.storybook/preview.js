@@ -11,6 +11,11 @@ import React from "react";
 import {ThemeProvider} from "@material-ui/core/styles";
 import {languages} from "../src/consts/languages";
 import {CssBaseline} from "@material-ui/core";
+import RemoteContent from "../src/models/remoteContent/remoteContent";
+
+const content = new RemoteContent({});
+content.reset().then(reset=>console.log(reset && "db reset"));
+
 
 export const themes = {
     [direction.LTR]: ltr,
