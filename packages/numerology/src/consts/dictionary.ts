@@ -44,7 +44,17 @@ export enum dictionaryKeys {
     "name letters" = "name letters",
     "your name letters meaning" = "your name letters meaning",
     "your first name number meaning" = "your first name number meaning",
-    "first name number"="first name number"
+    "first name number" = "first name number",
+    "your ambition in life" = "your ambition in life",
+    "your full name number meaning" = "your full name number meaning",
+    "full name number" = "full name number",
+    "consonants" = "consonants",
+    "meaning of consonant letters in your name" = "meaning of consonant letters in your name",
+    "how others see you" = "how others see you",
+    "ehevi" = "ehevi",
+    "meaning of ehevi letters in your name" = "meaning of ehevi letters in your name",
+    "you soul's desire" = "you soul's desire"
+
 }
 
 export const dictionaryEntries = {
@@ -88,11 +98,21 @@ export const dictionaryEntries = {
             [dictionaryKeys["sync contents"], "סנכרן תכנים"],
             [dictionaryKeys["contents were refreshed"], "התכנים סונכרו"],
             [dictionaryKeys["syncing contents"], "מסנכרן תכנים"],
-            [dictionaryKeys["loading user details"],"טוען פרטי משתמש"],
-            [dictionaryKeys["your name letters meaning"],"פירוש אותיות שמך"],
-            [dictionaryKeys["name letters"],"אותיות השם"],
-            [dictionaryKeys["your first name number meaning"],"פירוש מספר שמך הפרטי"],
-            [dictionaryKeys["first name number"],"מספר שם פרטי"]
+            [dictionaryKeys["loading user details"], "טוען פרטי משתמש"],
+            [dictionaryKeys["your name letters meaning"], "פירוש אותיות שמך"],
+            [dictionaryKeys["name letters"], "אותיות השם"],
+            [dictionaryKeys["your first name number meaning"], "פירוש מספר שמך הפרטי"],
+            [dictionaryKeys["first name number"], "מספר שם פרטי"],
+            [dictionaryKeys["your full name number meaning"], "פירוש שמך המלא"],
+            [dictionaryKeys["full name number"], "מספר שם מלא"],
+            [dictionaryKeys["your ambition in life"], "השאיפה שלך בחיים"],
+            [dictionaryKeys["consonants"], "עיצורים"],
+            [dictionaryKeys["meaning of consonant letters in your name"], "פירוש אותיות העיצורים בשמך"],
+            [dictionaryKeys["how others see you"], "איך הסביבה רואה אותך"],
+            [dictionaryKeys["ehevi"], "אהו\"י"],
+            [dictionaryKeys["meaning of ehevi letters in your name"], "פירוש אותיות אהו\"י בשמך"],
+            [dictionaryKeys["you soul's desire"], "רצון הנשמה שלך"],
+
         ]),
         [language.ENGLISH]:
             new Map<dictionaryKeys, string>([

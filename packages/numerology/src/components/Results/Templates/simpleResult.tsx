@@ -8,10 +8,11 @@ import categories from "../../../models/remoteContent/categories";
 interface ISimpleResult {
     value: number | string,
     category: categories,
-    primaryText: string
+    primaryText: string,
+    secondaryText?: string
 }
 
-const SimpleResult = ({value, category, primaryText}: ISimpleResult) => {
+const SimpleResult = ({value, category, primaryText, secondaryText}: ISimpleResult) => {
     const {getWord, currentLanguage} = useContext(LanguageContext);
     const {user} = useContext(UserContext);
     const [content, setContent] = useState<string>("");
@@ -31,7 +32,7 @@ const SimpleResult = ({value, category, primaryText}: ISimpleResult) => {
                     <Box mb={4}>
                         <Box display="flex" alignItems="center">
                             <Typography
-                                variant="h6">{getWord(primaryText)} - {value}:</Typography>
+                                variant="h6">{getWord(primaryText)}{secondaryText && ` - ${getWord(secondaryText)}`} - {value}:</Typography>
                         </Box>
                         <Typography>{content}</Typography>
                     </Box>
