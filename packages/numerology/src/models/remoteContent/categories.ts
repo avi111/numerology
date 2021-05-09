@@ -8,7 +8,10 @@ enum categories {
     firstNameNumber="firstNameNumber",
     fullNameNumber="fullNameNumber",
     consonants="consonants",
-    ehevi="ehevi"
+    ehevi="ehevi",
+    matchNameBirthDate="matchNameBirthDate",
+    rows="rows",
+    isFirstNameAHilltop="isFirstNameAHilltop"
 }
 
 export enum sets {
@@ -62,6 +65,16 @@ export const categoryItems: {[key: string]: ICategoryItem} = {
         key: categories.ehevi,
         name: dictionaryKeys.ehevi,
         set: sets.letters
+    },
+    isFirstNameAHilltop: {
+        key: categories.isFirstNameAHilltop,
+        name: dictionaryKeys["is first name on a hilltop"],
+        set: sets.numbers
+    },
+    rows: {
+        key: categories.rows,
+        name: dictionaryKeys["number of rows in the matrix"],
+        set: sets.numbers
     }
 }
 export default categories;

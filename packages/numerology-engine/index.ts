@@ -8,6 +8,7 @@ import Chakra from "./Calculations/Chakra";
 import NameMapClass from "./MainTools/NameMapClass";
 import ProfileProps from './MainTools/Profile';
 import { allLetters, REGULAR_LETTERS, SUFFIX_LETTERS } from "./consts/letters";
+import Square from "./helpers/square";
 
 export {
     Gematria,
@@ -17,6 +18,7 @@ export {
     Business,
     Chakra,
     NameMapClass,
+    Square,
     allLetters,
     SUFFIX_LETTERS,
     REGULAR_LETTERS

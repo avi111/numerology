@@ -53,7 +53,14 @@ export enum dictionaryKeys {
     "how others see you" = "how others see you",
     "ehevi" = "ehevi",
     "meaning of ehevi letters in your name" = "meaning of ehevi letters in your name",
-    "you soul's desire" = "you soul's desire"
+    "you soul's desire" = "you soul's desire",
+    "match between name and birth date" = "match between name and birth date",
+    "no" = "no",
+    "yes" = "yes",
+    "hard numbers" = "hard numbers",
+    "light numbers" = "light numbers",
+    "number of rows in the matrix"="number of rows in the matrix",
+    "is first name on a hilltop"="is first name on a hilltop"
 
 }
 
@@ -112,6 +119,13 @@ export const dictionaryEntries = {
             [dictionaryKeys["ehevi"], "אהו\"י"],
             [dictionaryKeys["meaning of ehevi letters in your name"], "פירוש אותיות אהו\"י בשמך"],
             [dictionaryKeys["you soul's desire"], "רצון הנשמה שלך"],
+            [dictionaryKeys["match between name and birth date"],"התאמה בין שם לתאריך לידה"],
+            [dictionaryKeys.no,"לא"],
+            [dictionaryKeys.yes,"כן"],
+            [dictionaryKeys["is first name on a hilltop"],"האם השם הפרטי מתחבר לאחת הפסגות"],
+            [dictionaryKeys["number of rows in the matrix"], "מספר שורות במטריצה המצויירת"],
+            [dictionaryKeys["hard numbers"],"מספרים קשים"],
+            [dictionaryKeys["light numbers"],"מספרים קלים"]
 
         ]),
         [language.ENGLISH]:

@@ -4,6 +4,7 @@ import {UserContext} from "../../../contexts/UserContext";
 import {Box, Card, CardContent, Typography} from "@material-ui/core";
 import RemoteContent from "../../../models/remoteContent/remoteContent";
 import categories from "../../../models/remoteContent/categories";
+import Title from "../Title";
 
 interface ISimpleResult {
     value: number | string,
@@ -28,12 +29,10 @@ const SimpleResult = ({value, category, primaryText, secondaryText}: ISimpleResu
     return (
         <Card>
             <CardContent>
-                <Box className="NameLetters">
+                <Box className="SimpleResult">
                     <Box mb={4}>
-                        <Box display="flex" alignItems="center">
-                            <Typography
-                                variant="h6">{getWord(primaryText)}{secondaryText && ` - ${getWord(secondaryText)}`} - {value}:</Typography>
-                        </Box>
+                        <Title
+                            title={`${getWord(primaryText)}${secondaryText && ` - ${getWord(secondaryText)}`} - ${value}:}`}/>
                         <Typography>{content}</Typography>
                     </Box>
                 </Box>

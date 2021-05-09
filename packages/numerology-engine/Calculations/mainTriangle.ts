@@ -97,8 +97,12 @@ class MainTriangle implements Triangle {
     get prominentAgesDate(): ProminentAgesDate {
         return this._prominentAgesDate;
     }
+    
+    get hilltop(): number {
+        return this._hilltop;
+    }
 
-    // eslint-disable-next-line @typescript-eslint/ban-types
+// eslint-disable-next-line @typescript-eslint/ban-types
     private _objects: { [key: string]: object } = {};
 
     private readonly _birthDayOriginal: number;
@@ -124,6 +128,7 @@ class MainTriangle implements Triangle {
     private readonly _power: number;
     private readonly _personalMagic: number;
     private readonly _year: Year;
+    private readonly _hilltop: number;
 
     // eslint-disable-next-line @typescript-eslint/ban-types
     get objects(): { [p: string]: object } {
@@ -167,6 +172,7 @@ class MainTriangle implements Triangle {
             whatWantsInPartner: new WhatWantsInPartner(this.birthMonth, this.destiny),
         };
 
+        this._hilltop = this.isNameNumberOnHilltop();
         this._healthSensitivities = objects2.healthSensitivity.result;
         this._howFunctionsAsPartner = objects2.howFunctionsAsPartner.result;
         this._whatWantsInPartner = objects2.whatWantsInPartner.result;
