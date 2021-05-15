@@ -27,9 +27,9 @@ const Square = ({square, master, unbold}: ISquare) => {
                 <TableBody>
                     {
                         master.map((row, irow) =>
-                            <TableRow>
+                            <TableRow key={irow}>
                                 {row.map((el, iel) =>
-                                    <TableCell align="center">{showNum(el, irow, iel) ? el : <>&nbsp;</>}</TableCell>)}
+                                    <TableCell key={iel} align="center">{showNum(el, irow, iel) ? el : <>&nbsp;</>}</TableCell>)}
                             </TableRow>
                         )
                     }

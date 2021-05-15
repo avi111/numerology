@@ -13,6 +13,10 @@ const getElements = (set: sets) => {
             return "012345678".split('')
         case sets.letters:
             return _difference(allLetters, SUFFIX_LETTERS);
+        case sets.hardAndLight:
+            return ["0-3", "1-2", "2-1", "3-0"];
+        case sets.numRows:
+            return "123".split('');
         default:
             return [];
     }

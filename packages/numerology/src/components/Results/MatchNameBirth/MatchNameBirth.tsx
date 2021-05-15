@@ -5,6 +5,8 @@ import Title from "../Title";
 import {dictionaryKeys} from "../../../consts/dictionary";
 import {Profile, Square as sq} from "@maya259/numerology-engine";
 import Square from "../Square";
+import SimpleResult from "../Templates/simpleResult";
+import categories, {getBoolean} from "../../../models/remoteContent/categories";
 
 const MatchNameBirth = ({profile}: { profile: Profile }) => {
     const {getWord} = useContext(LanguageContext);
@@ -17,7 +19,7 @@ const MatchNameBirth = ({profile}: { profile: Profile }) => {
             rows,
             light
         },
-        triangle: {hilltop}
+        triangle: {hilltop, firstName}
     } = profile;
 
     const chunk = (square: number[]) => {
@@ -35,18 +37,37 @@ const MatchNameBirth = ({profile}: { profile: Profile }) => {
                             <Box>
                                 <Square {...{master: chunk(square), square: actualSquare}} />
                             </Box>
-                            <Box>
-                                <Box mb={4}>
-                                    <Title
-                                        title={`${getWord('hard numbers')} - ${hard}, ${getWord('light numbers')} - ${light}`}/>
+                            <Box component="ol">
+                                <Box mb={4} component="li">
+                                    <SimpleResult {...{
+                                        value: `${hard}-${light}`,
+                                        category: categories.hardLightNumbers,
+                                        primaryText: getWord("you have xxx hard numbers and yyy light numbers").replace("xxx",hard+'').replace('yyy',light+'')+': ',
+                                        inline: true,
+                                        showValue: false,
+                                        card: false
+                                    }} />
                                 </Box>
-                                <Box mb={4}>
-                                    <Title
-                                        title={`${getWord('number of rows in the matrix')} - ${rows}`}/>
+                                <Box mb={4} component="li">
+                                    <SimpleResult {...{
+                                        value: rows,
+                                        category: categories.numRows,
+                                        primaryText: getWord('number of rows in the matrix')+': ',
+                                        inline: true,
+                                        showValue: false,
+                                        card: false
+                                    }} />
                                 </Box>
-                                <Box mb={4}>
-                                    <Title
-                                        title={`${getWord('is first name on a hilltop')} - ${getWord(hilltop ? 'yes' : 'no')}`}/>
+                                <Box mb={4} component="li">
+                                    <SimpleResult {...{
+                                        value: getBoolean(!!hilltop),
+                                        category: categories.isFirstNameAHilltop,
+                                        primaryText: getWord('is first name on a hilltop')+': ',
+                                        inline: true,
+                                        showValue: false,
+                                        card: false,
+                                        payload: str => str.replace('xxx', firstName+'')
+                                    }} />
                                 </Box>
                             </Box>
                         </Box>

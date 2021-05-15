@@ -59,8 +59,10 @@ export enum dictionaryKeys {
     "yes" = "yes",
     "hard numbers" = "hard numbers",
     "light numbers" = "light numbers",
-    "number of rows in the matrix"="number of rows in the matrix",
-    "is first name on a hilltop"="is first name on a hilltop"
+    "hard and light numbers" = "hard and light numbers",
+    "number of rows in the matrix" = "number of rows in the matrix",
+    "is first name on a hilltop" = "is first name on a hilltop",
+    "you have xxx hard numbers and yyy light numbers" = "you have xxx hard numbers and yyy light numbers"
 
 }
 
@@ -119,14 +121,15 @@ export const dictionaryEntries = {
             [dictionaryKeys["ehevi"], "אהו\"י"],
             [dictionaryKeys["meaning of ehevi letters in your name"], "פירוש אותיות אהו\"י בשמך"],
             [dictionaryKeys["you soul's desire"], "רצון הנשמה שלך"],
-            [dictionaryKeys["match between name and birth date"],"התאמה בין שם לתאריך לידה"],
-            [dictionaryKeys.no,"לא"],
-            [dictionaryKeys.yes,"כן"],
-            [dictionaryKeys["is first name on a hilltop"],"האם השם הפרטי מתחבר לאחת הפסגות"],
+            [dictionaryKeys["match between name and birth date"], "התאמה בין שם לתאריך לידה"],
+            [dictionaryKeys.no, "לא"],
+            [dictionaryKeys.yes, "כן"],
+            [dictionaryKeys["is first name on a hilltop"], "האם השם הפרטי מתחבר לאחת הפסגות"],
             [dictionaryKeys["number of rows in the matrix"], "מספר שורות במטריצה המצויירת"],
-            [dictionaryKeys["hard numbers"],"מספרים קשים"],
-            [dictionaryKeys["light numbers"],"מספרים קלים"]
-
+            [dictionaryKeys["hard numbers"], "מספרים קשים"],
+            [dictionaryKeys["light numbers"], "מספרים קלים"],
+            [dictionaryKeys["hard and light numbers"], "מספרים קשים וקלים"],
+            [dictionaryKeys["you have xxx hard numbers and yyy light numbers"], "יש לך xxx מספרים קשים ו-yyy מספרים קלים"]
         ]),
         [language.ENGLISH]:
             new Map<dictionaryKeys, string>([

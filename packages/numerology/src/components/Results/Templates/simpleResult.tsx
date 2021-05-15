@@ -10,10 +10,23 @@ interface ISimpleResult {
     value: number | string,
     category: categories,
     primaryText: string,
-    secondaryText?: string
+    secondaryText?: string,
+    showValue?: boolean,
+    inline?: boolean,
+    card?: boolean,
+    payload?: (datum: string) => string
 }
 
-const SimpleResult = ({value, category, primaryText, secondaryText}: ISimpleResult) => {
+const SimpleResult = ({
+                          value,
+                          category,
+                          primaryText,
+                          secondaryText,
+                          showValue = true,
+                          inline = false,
+                          card = true,
+                          payload
+                      }: ISimpleResult) => {
     const {getWord, currentLanguage} = useContext(LanguageContext);
     const {user} = useContext(UserContext);
     const [content, setContent] = useState<string>("");
@@ -22,23 +35,37 @@ const SimpleResult = ({value, category, primaryText, secondaryText}: ISimpleResu
         const contents = new RemoteContent({category, user});
 
         contents.retrieve(value + "").then(data => {
-            data && setContent(data.data[currentLanguage as string]);
+            if(payload){
+                data && setContent(payload(data.data[currentLanguage as string]));
+            } else {
+                data && setContent(data.data[currentLanguage as string]);
+            }
         })
     });
 
-    return (
+    const title = `${getWord(primaryText)}${secondaryText ? ` - ${getWord(secondaryText)}` : ''}${showValue ? `- ${value}:` : ''}`;
+
+    const cardContent = (
+        <Box className="SimpleResult">
+            <Box mb={4} display={inline ? "inline" : undefined}>
+                <Title
+                    {...{
+                        title,
+                        inline
+                    }}
+                />
+                <Typography component={inline ? "span" : "p"}>{content}</Typography>
+            </Box>
+        </Box>
+    );
+
+    return card ? (
         <Card>
             <CardContent>
-                <Box className="SimpleResult">
-                    <Box mb={4}>
-                        <Title
-                            title={`${getWord(primaryText)}${secondaryText && ` - ${getWord(secondaryText)}`} - ${value}:}`}/>
-                        <Typography>{content}</Typography>
-                    </Box>
-                </Box>
+                {cardContent}
             </CardContent>
         </Card>
-    );
+    ) : cardContent;
 }
 
 export default SimpleResult;

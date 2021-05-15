@@ -19,7 +19,7 @@
     "dev": "lerna run dev",
     "dev-logs": "lerna run dev --parallel",
     "dev-module": "lerna run dev --scope",
-    "storybook": "lerna run storybook",
+    "storybook": "lerna run storybook --stream",
     "production": "lerna run production",
     "build": "lerna run build",
     "deploy": "lerna run deploy",

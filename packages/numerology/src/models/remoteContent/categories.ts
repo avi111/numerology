@@ -10,14 +10,20 @@ enum categories {
     consonants="consonants",
     ehevi="ehevi",
     matchNameBirthDate="matchNameBirthDate",
-    rows="rows",
-    isFirstNameAHilltop="isFirstNameAHilltop"
+    numRows="numRows",
+    isFirstNameAHilltop="isFirstNameAHilltop",
+    hardLightNumbers="hardLightNumbers",
 }
 
 export enum sets {
     numbers="numbers",
-    letters="letters"
+    letters="letters",
+    hardAndLight="hardAndLight",
+    numRows="numRows",
+    boolean="boolean"
 }
+
+export const getBoolean = (bool: boolean) => bool ? 'yes' : 'no';
 
 export interface ICategoryItem {
     key: categories,
@@ -69,12 +75,17 @@ export const categoryItems: {[key: string]: ICategoryItem} = {
     isFirstNameAHilltop: {
         key: categories.isFirstNameAHilltop,
         name: dictionaryKeys["is first name on a hilltop"],
-        set: sets.numbers
+        set: sets.boolean
     },
     rows: {
-        key: categories.rows,
+        key: categories.numRows,
         name: dictionaryKeys["number of rows in the matrix"],
-        set: sets.numbers
+        set: sets.numRows
+    },
+    hardLightNumbers: {
+        key: categories.hardLightNumbers,
+        name: dictionaryKeys["hard and light numbers"],
+        set: sets.hardAndLight
     }
 }
 export default categories;
