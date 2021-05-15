@@ -13,6 +13,7 @@ enum categories {
     numRows="numRows",
     isFirstNameAHilltop="isFirstNameAHilltop",
     hardLightNumbers="hardLightNumbers",
+    missingNumbers="missingNumbers"
 }
 
 export enum sets {
@@ -86,6 +87,11 @@ export const categoryItems: {[key: string]: ICategoryItem} = {
         key: categories.hardLightNumbers,
         name: dictionaryKeys["hard and light numbers"],
         set: sets.hardAndLight
+    },
+    missingNumbers: {
+        key: categories.missingNumbers,
+        name: dictionaryKeys["missing numbers in your full name"],
+        set: sets.numbers
     }
 }
 export default categories;

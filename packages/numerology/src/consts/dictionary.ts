@@ -62,7 +62,8 @@ export enum dictionaryKeys {
     "hard and light numbers" = "hard and light numbers",
     "number of rows in the matrix" = "number of rows in the matrix",
     "is first name on a hilltop" = "is first name on a hilltop",
-    "you have xxx hard numbers and yyy light numbers" = "you have xxx hard numbers and yyy light numbers"
+    "you have xxx hard numbers and yyy light numbers" = "you have xxx hard numbers and yyy light numbers",
+    "missing numbers in your full name" = "missing numbers in your full name"
 
 }
 
@@ -129,7 +130,8 @@ export const dictionaryEntries = {
             [dictionaryKeys["hard numbers"], "מספרים קשים"],
             [dictionaryKeys["light numbers"], "מספרים קלים"],
             [dictionaryKeys["hard and light numbers"], "מספרים קשים וקלים"],
-            [dictionaryKeys["you have xxx hard numbers and yyy light numbers"], "יש לך xxx מספרים קשים ו-yyy מספרים קלים"]
+            [dictionaryKeys["you have xxx hard numbers and yyy light numbers"], "יש לך xxx מספרים קשים ו-yyy מספרים קלים"],
+            [dictionaryKeys["missing numbers in your full name"],"מספרים חסרים בשם המלא"]
         ]),
         [language.ENGLISH]:
             new Map<dictionaryKeys, string>([

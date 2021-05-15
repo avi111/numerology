@@ -17,6 +17,14 @@ interface ISimpleResult {
     payload?: (datum: string) => string
 }
 
+export const wrapWithCard = (content: JSX.Element | string) => (
+    <Card>
+        <CardContent>
+            {content}
+        </CardContent>
+    </Card>
+)
+
 const SimpleResult = ({
                           value,
                           category,
@@ -48,24 +56,18 @@ const SimpleResult = ({
     const cardContent = (
         <Box className="SimpleResult">
             <Box mb={4} display={inline ? "inline" : undefined}>
-                <Title
+                {(primaryText || secondaryText) && <Title
                     {...{
                         title,
                         inline
                     }}
-                />
-                <Typography component={inline ? "span" : "p"}>{content}</Typography>
+                />}
+                {content && <Typography component={inline ? "span" : "p"}>{content}</Typography>}
             </Box>
         </Box>
     );
 
-    return card ? (
-        <Card>
-            <CardContent>
-                {cardContent}
-            </CardContent>
-        </Card>
-    ) : cardContent;
+    return card ? wrapWithCard(cardContent) : cardContent;
 }
 
 export default SimpleResult;
