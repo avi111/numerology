@@ -13,7 +13,10 @@ enum categories {
     numRows="numRows",
     isFirstNameAHilltop="isFirstNameAHilltop",
     hardLightNumbers="hardLightNumbers",
-    missingNumbers="missingNumbers"
+    missingNumbers="missingNumbers",
+    PersonalYearWestern="PersonalYearWestern",
+    PersonalYearKabbalic="PersonalYearKabbalic",
+    PersonalYearHidden="PersonalYearHidden"
 }
 
 export enum sets {
@@ -91,6 +94,21 @@ export const categoryItems: {[key: string]: ICategoryItem} = {
     missingNumbers: {
         key: categories.missingNumbers,
         name: dictionaryKeys["missing numbers in your full name"],
+        set: sets.numbers
+    },
+    PersonalYearWestern: {
+        key: categories.PersonalYearWestern,
+        name: dictionaryKeys["western personal year"],
+        set: sets.numbers
+    },
+    PersonalYearKabbalic: {
+        key: categories.PersonalYearKabbalic,
+        name: dictionaryKeys["kabbalic personal year"],
+        set: sets.numbers
+    },
+    PersonalYearHidden: {
+        key: categories.PersonalYearHidden,
+        name: dictionaryKeys["hidden personal year"],
         set: sets.numbers
     }
 }
