@@ -36,9 +36,9 @@ export const UserProvider = ({children}: {
                 } as Partial<userDetailsProps>)
                 language && langContext.setCurrentLanguage(language)
 
-                if (displayName) {
-                    appContext.setMounted({state: true});
-                }
+                // if (displayName) {
+                //     appContext.setMounted({state: true});
+                // }
             });
 
         } else {

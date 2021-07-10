@@ -12,7 +12,7 @@
     ]
   },
   "scripts": {
-    "bootstrap": "lerna run rimraf && lerna run tsc --stream && lerna bootstrap --hoist",
+    "bootstrap": "lerna bootstrap",
     "start": "lerna run start --parallel",
     "tsc": "lerna run tsc --stream",
     "test:watch": "lerna run test:watch --parallel",
