@@ -64,7 +64,7 @@ const ContentsForm = ({category}: { category: ICategoryItem }) => {
                 return (
                     <Box key={i}>
                         <FormControl fullWidth>
-                            <Typography variant="h6">{getWord(element)}</Typography>
+                            <Typography variant="h6">{getWord(element as unknown as string)}</Typography>
                             <TextField
                                 {...{
                                     variant: "outlined",
@@ -72,8 +72,8 @@ const ContentsForm = ({category}: { category: ICategoryItem }) => {
                                     multiline: true,
                                     rows: 10,
                                     id,
-                                    value: value[element],
-                                    onChange: e => setValue({...value, [element]: e.target.value})
+                                    value: value[element as unknown as string],
+                                    onChange: e => setValue({...value, [element as unknown as string]: e.target.value})
                                 }}
                             />
                         </FormControl>

@@ -4,19 +4,21 @@ import ExportNameMapClass from "../export/NameMapClass";
 import ExportBusiness from "../export/Business";
 import ExportCouple from "../export/Couple";
 import ExportChakra from "../export/Chakra";
+import {Strategy} from "../interfaces/strategy";
 
 
 class PrepareDoc {
     private profile: IExportDoc;
-    private filename?: string;
+    private strategy: Strategy;
     private exporter?: ExportDocProps;
 
-    constructor(profile: IExportDoc) {
+    constructor(profile: IExportDoc, strategy: Strategy) {
         this.profile = profile;
+        this.strategy = strategy;
     }
 
-    public static prepare(profile: IExportDoc) {
-        const prep = new PrepareDoc(profile);
+    public static prepare(profile: IExportDoc, strategy: Strategy) {
+        const prep = new PrepareDoc(profile, strategy);
         prep.route();
         prep.export();
     }
@@ -24,24 +26,20 @@ class PrepareDoc {
     public route() {
         const {profile} = this;
 
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        const type = profile.constructor.name;
-
-        switch (type) {
-            case 'Chakra':
+        switch (this.strategy) {
+            case Strategy.CHAKRA:
                 this.exporter = new ExportChakra(profile);
                 break;
-            case 'Profile':
+            case Strategy.PROFILE:
                 this.exporter = new ExportProfile(profile);
                 break;
-            case 'NameMapClass':
+            case Strategy.NAME_MAP_CLASS:
                 this.exporter = new ExportNameMapClass(profile);
                 break;
-            case 'Business':
+            case Strategy.BUSINESS:
                 this.exporter = new ExportBusiness(profile);
                 break;
-            case 'Couple':
+            case Strategy.COUPLE:
                 this.exporter = new ExportCouple(profile);
                 break;
         }

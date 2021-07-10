@@ -8,7 +8,7 @@ import validate from "../Profile/validate";
 import classNames from "vest/classNames";
 import {FieldState} from "../enums/fieldState";
 import {FormContext, IFormContext} from "../../../contexts/FormContext";
-import {Strategy} from "../../../models/form/strategy";
+import {Strategy} from "@maya259/numerology-export";
 import Form from "../Components/Form";
 import {action} from "@storybook/addon-actions";
 

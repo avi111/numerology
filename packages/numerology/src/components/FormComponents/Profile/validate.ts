@@ -1,9 +1,9 @@
 import vest, {enforce, test} from "vest";
-import {gender, IProps} from "@maya259/numerology-engine";
+import {Gender, Props} from "@maya259/numerology-engine";
 import {ICreateResult} from "../interfaces/ICreateResult";
 import profileProps from "../props/profile";
 
-const suite: ICreateResult = vest.create(profileProps.form.id, (data: Partial<IProps> = {}, currentField) => {
+const suite: ICreateResult = vest.create(profileProps.form.id, (data: Partial<Props> = {}, currentField) => {
     vest.only(currentField);
 
     test("firstName", "Username is required", () => {
@@ -26,7 +26,7 @@ const suite: ICreateResult = vest.create(profileProps.form.id, (data: Partial<IP
     });
 
     test("gender", "gender must be valid", () => {
-        data.gender && enforce([gender.FEMALE, gender.MALE].includes(data.gender)).isTruthy();
+        data.gender && enforce([Gender.FEMALE, Gender.MALE].includes(data.gender)).isTruthy();
     })
 });
 

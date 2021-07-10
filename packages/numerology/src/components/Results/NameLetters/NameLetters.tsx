@@ -21,7 +21,7 @@ const NameLetters = ({profile}: { profile: Profile }) => {
     useEffect(() => {
         const lettersContents = new RemoteContent({category: categories.lettersContents, user});
 
-        const promises = letters.map(letter => {
+        const promises = letters.map((letter: string) => {
             return new Promise(async (resolve, reject) => {
                 const data = await lettersContents.retrieve(letter + "");
                 resolve({letter, data: data ? data.data[currentLanguage] : ""})
@@ -29,8 +29,9 @@ const NameLetters = ({profile}: { profile: Profile }) => {
         });
 
         Promise.all(promises).then(values => {
-            const data = values.reduce((total, currentValue, currentIndex) => {
-                return {...total, [currentValue.letter]: currentValue.data}
+            const data = values.reduce((total: { [key: string]: string }, currentValue: unknown) => {
+                const {letter, data} = currentValue as PromiseValue;
+                return {...total, [letter]: data}
             }, {} as { [key: string]: string });
             setLettersContent(
                 data
@@ -51,7 +52,7 @@ const NameLetters = ({profile}: { profile: Profile }) => {
             <CardContent>
                 <Box className="NameLetters">
                     <Typography variant="h5">{getWord("your name letters meaning")}</Typography>
-                    {letters.map(letter => {
+                    {letters.map((letter: string) => {
                         return (
                             <Box key={letter} mb={4}>
                                 <Box display="flex" alignItems="center">

@@ -4,11 +4,11 @@ import {FormProps} from "../interfaces/FormProps";
 import Form from "./Form";
 import Results from "./Results";
 import {IFormContext} from "../../../contexts/FormContext";
-import {IProfileProps, IProps} from "@maya259/numerology-engine";
+import {ProfileProps, Props} from "@maya259/numerology-engine";
 
 export type IFormProps<F, R> = FormProps<IFormContext<F, R>>;
 
-const FormWrapper = ({formProps}: {formProps: IFormProps<IProps, IProfileProps>}) => {
+const FormWrapper = ({formProps}: {formProps: IFormProps<Props, ProfileProps>}) => {
     const {result} = useContext(formProps.context);
 
     return (

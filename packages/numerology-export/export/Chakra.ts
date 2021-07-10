@@ -1,20 +1,26 @@
-// import Handlebars from 'handlebars';
-import {ExportDocProps} from "../interfaces/IExportDoc";
+import IExportDoc, {ExportDocProps} from "../interfaces/IExportDoc";
 import ExportDoc from "../mainTools/exportDoc";
+import {Chakra,} from "@maya259/numerology-engine";
 
 class ExportChakra implements ExportDocProps {
-    private data: any;
 
-    constructor(data: any) {
+    data: IExportDoc;
+
+    constructor(data: IExportDoc) {
         this.data = data;
     }
 
-    public export = () => new ExportDoc(this.prepare(), this.getFileName()).method2();
+    public export = () => new ExportDoc().execute(this.prepare(), this.getFileName());
 
-    public getFileName = () => `${this.data.firstName} ${this.data.lastName}`;
 
     public prepare() {
-        return JSON.stringify(this.data);
+        const chakra = this.data as Chakra;
+        return JSON.stringify(chakra);
+    }
+
+    getFileName(): string {
+        const chakra = this.data as Chakra;
+        return `${chakra.firstName} ${chakra.lastName}`;
     }
 }
 

@@ -1,20 +1,27 @@
-import {ExportDocProps} from "../interfaces/IExportDoc";
+import IExportDoc, {ExportDocProps} from "../interfaces/IExportDoc";
 import ExportDoc from "../mainTools/exportDoc";
+import {Business} from "@maya259/numerology-engine";
 
 class ExportBusiness implements ExportDocProps {
-    public export: () => void;
-    public getFileName: () => string;
-    public prepare: () => string;
-    private data: any;
-
-    constructor(data: any) {
+    constructor(data: IExportDoc) {
         this.data = data;
-        this.getFileName = () => `${data.selfProps.firstName} ${data.selfProps.birthDate.toDateString()}`;
-        this.prepare = () => {
-            return JSON.stringify(this.data);
-        };
+    }
 
-        this.export = () => new ExportDoc(this.prepare(), this.getFileName()).method2();
+    data: IExportDoc;
+
+    export() {
+        return new ExportDoc().execute(this.prepare(), this.getFileName());
+    }
+
+    getFileName(): string {
+        const business = this.data as Business;
+
+        return `${business.selfProps.firstName} ${business.selfProps.birthDate.toDateString()}`;
+    }
+
+    prepare(): string {
+        const business = this.data as Business;
+        return JSON.stringify(business);
     }
 }
 

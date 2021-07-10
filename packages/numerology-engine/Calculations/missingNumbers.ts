@@ -22,7 +22,6 @@ class MissingNumbers implements Name, Occurence {
     public missing: number[];
     public occurence: number[];
 
-
     constructor(firstName: string, familyName: string) {
         this.familyName = familyName;
         this.firstName = firstName;
@@ -42,7 +41,7 @@ class MissingNumbers implements Name, Occurence {
 
         const occurence: number[] = new Array(10).fill(0);
 
-        numbers.forEach((num) => {
+        numbers.forEach((num: number) => {
             occurence[num] = occurence[num] + 1;
         });
 
@@ -51,7 +50,7 @@ class MissingNumbers implements Name, Occurence {
         const existing: number[] = [];
         const missing: number[] = [];
 
-        occurence.forEach((num, index) => {
+        occurence.forEach((num: number, index: number) => {
             if (num) {
                 existing.push(index);
             } else {

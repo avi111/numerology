@@ -1,20 +1,23 @@
-import {ExportDocProps} from "../interfaces/IExportDoc";
+import IExportDoc, {ExportDocProps} from "../interfaces/IExportDoc";
 import ExportDoc from "../mainTools/exportDoc";
+import {Profile} from "@maya259/numerology-engine";
 
 class ExportProfile implements ExportDocProps {
     public export: () => void;
     public getFileName: () => string;
     public prepare: () => string;
-    private data: any;
+    public data: IExportDoc;
 
-    constructor(data: any) {
+    constructor(data: IExportDoc) {
         this.data = data;
-        this.getFileName = () => `${data.firstName} ${data.familyName}`;
+        const profile = this.data as Profile;
+
+        this.getFileName = () => `${profile.firstName} ${profile.familyName}`;
         this.prepare = () => {
-            return JSON.stringify(this.data);
+            return JSON.stringify(profile);
         };
 
-        this.export = () => new ExportDoc(this.prepare(), this.getFileName()).method2();
+        this.export = () => new ExportDoc().execute(this.prepare(), this.getFileName());
     }
 }
 

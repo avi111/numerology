@@ -1,15 +1,18 @@
-import Profile from "../export/Profile";
-import Couple from "../export/Couple";
-import Business from "../export/Business";
-import NameMapClass from "../export/NameMapClass";
-import Chakra from "../export/Chakra";
+import {
+    Profile,
+    Couple,
+    Business,
+    Chakra,
+    NameMapClass,
+} from "@maya259/numerology-engine";
 
 export interface ExportDocProps {
     getFileName: () => string;
     prepare: () => string;
     export: () => void;
+    data: IExportDoc;
 }
 
-type IExportDoc = Profile | Couple | Business | NameMapClass | Chakra | undefined;
+type IExportDoc = Profile | Couple | Business | NameMapClass | Chakra;
 
 export default IExportDoc;

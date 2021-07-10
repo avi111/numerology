@@ -5,10 +5,16 @@ import Props, {Gender} from "./interfaces/props";
 import Couple from "./MainTools/Couple";
 import Business from "./MainTools/Business";
 import Chakra from "./Calculations/Chakra";
-import NameMapClass from "./MainTools/NameMapClass";
+import NameMapClass, {NameMapClassProps} from "./MainTools/NameMapClass";
 import ProfileProps from './MainTools/Profile';
 import { allLetters, REGULAR_LETTERS, SUFFIX_LETTERS } from "./consts/letters";
 import Square from "./helpers/square";
+
+const numerologyEngine = {
+
+}
+
+export default numerologyEngine;
 
 export {
     Gematria,
@@ -21,10 +27,10 @@ export {
     Square,
     allLetters,
     SUFFIX_LETTERS,
-    REGULAR_LETTERS
+    REGULAR_LETTERS,
+    Props,
+    Gender,
+    ProfileProps,
+    NameMapClassProps,
+    Triangle
 };
-
-export type IProps = Props;
-export {Gender as gender};
-export type IProfileProps = ProfileProps;
-export type ITriangle = Triangle;

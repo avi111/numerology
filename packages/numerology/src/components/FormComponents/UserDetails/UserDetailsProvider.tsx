@@ -4,7 +4,7 @@ import validate from "../Profile/validate";
 import classNames from "vest/classNames";
 import {FieldState} from "../enums/fieldState";
 import {FormContext, IFormContext} from "../../../contexts/FormContext";
-import {Strategy} from "../../../models/form/strategy";
+import {Strategy} from "@maya259/numerology-export";
 import {userDetailsPayload, userDetailsProps} from "./interface";
 import {updateUserData} from "../../../api/usersApi/updateUserData";
 import {UserContext} from "../../../contexts/UserContext";

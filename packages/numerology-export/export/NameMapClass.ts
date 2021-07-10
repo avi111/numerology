@@ -1,21 +1,25 @@
-import {ExportDocProps} from "../interfaces/IExportDoc";
+import IExportDoc, {ExportDocProps} from "../interfaces/IExportDoc";
 import ExportDoc from "../mainTools/exportDoc";
+import {NameMapClass} from "@maya259/numerology-engine";
 
 class ExportNameMapClass implements ExportDocProps {
     public export: () => void;
     public getFileName: () => string;
     public prepare: () => string;
-    private data: any;
 
-    constructor(data: any) {
+    constructor(data: IExportDoc) {
         this.data = data;
-        this.getFileName = () => `${data.props.firstName} ${data.props.familyName}`;
+        const nameMapClass = this.data as NameMapClass;
+
+        this.getFileName = () => `${nameMapClass.props.firstName} ${nameMapClass.props.familyName}`;
         this.prepare = () => {
-            return JSON.stringify(this.data);
+            return JSON.stringify(nameMapClass);
         };
 
-        this.export = () => new ExportDoc(this.prepare(), this.getFileName()).method2();
+        this.export = () => new ExportDoc().execute(this.prepare(), this.getFileName());
     }
+
+    data: IExportDoc;
 }
 
 export default ExportNameMapClass;

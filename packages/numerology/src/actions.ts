@@ -6,6 +6,7 @@ import alertify from 'alertifyjs';
 import {IAppContext} from "./contexts/AppContext";
 import {ILanguageContext} from "./contexts/LanguageContext";
 import {IUserContext} from "./contexts/UserContext";
+import {PrepareDoc, Strategy} from "@maya259/numerology-export";
 
 export const actions = ({
                             appContext,
@@ -26,7 +27,9 @@ export const actions = ({
             appContext.setMounted({state: true});
         },
         [actionNames.EXPORT]: () => {
-            alert("export")
+            if (appContext.lastResult?.result) {
+                PrepareDoc.prepare(appContext.lastResult.result, Strategy.PROFILE);
+            }
         }
     }
 }

@@ -1,9 +1,9 @@
 import {FormProps} from "../interfaces/FormProps";
 import {fieldTypes} from "../enums/fieldTypes";
-import {gender, IProfileProps, IProps} from "@maya259/numerology-engine";
+import {Gender, ProfileProps, Props} from "@maya259/numerology-engine";
 import {FormContext, IFormContext} from "../../../contexts/FormContext";
 
-const _profileProps: FormProps<IFormContext<IProps, IProfileProps>> = {
+const _profileProps: FormProps<IFormContext<Props, ProfileProps>> = {
     form:
         {
             title: "Profile",
@@ -45,11 +45,11 @@ const _profileProps: FormProps<IFormContext<IProps, IProfileProps>> = {
         {
             input: fieldTypes.SELECT,
             label: "Gender",
-            field: "gender",
+            field: "Gender",
             required: true,
             options: [
-                {option: gender.MALE, value: gender.MALE},
-                {option: gender.FEMALE, value: gender.FEMALE},
+                {option: Gender.MALE, value: Gender.MALE},
+                {option: Gender.FEMALE, value: Gender.FEMALE},
             ]
         }
     ]

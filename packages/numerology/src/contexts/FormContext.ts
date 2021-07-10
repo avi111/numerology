@@ -1,6 +1,6 @@
 import {ChangeEvent, createContext, FormEvent} from "react";
 import {DraftResult} from "vest/vestResult";
-import {Strategy} from "../models/form/strategy";
+import {Strategy} from "@maya259/numerology-export";
 
 export interface IFormContext<F, R> {
     strategy: Strategy;

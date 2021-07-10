@@ -21,7 +21,7 @@ const MissingNumbers = ({profile}: { profile: Profile }) => {
             <Title
                 title={`${getWord(dictionaryKeys["missing numbers in your full name"])}: ${missing.join(" ")}`}/>
             <Box>
-                {missing.map((num, i) => <Box mb={4}>
+                {missing.map((num: number, i: number) => <Box mb={4}>
                     <SimpleResult {...{
                         key: i,
                         value: `${num}`,

@@ -9,6 +9,7 @@
     "handlebars": "^4.7.6"
   },
   "devDependencies": {
+    "@maya259/numerology-engine": "1.0.0",
     "eslint": "^7.16.0",
     "@babel/runtime": "^7.12.5",
     "@babel/plugin-transform-runtime": "^7.12.10",
@@ -30,12 +31,11 @@
     "@babel/core": "^7.6.4",
     "@babel/preset-react": "^7.12.10",
     "@babel/preset-typescript": "^7.12.7",
-    "babel-loader": "^8.2.2",
-    "@maya259/numerology-engine": "1.0.0"
+    "babel-loader": "^8.2.2"
   },
   "scripts": {
-    "build": "webpack",
-    "watch": "webpack --watch",
+    "build": "webpack && cp ./bundle.d.ts ./dist",
+    "start": "webpack --watch",
     "test": "npx jest --watch",
     "rimraf": "rm -rf node_modules",
     "lint": "eslint . --ext .ts"
