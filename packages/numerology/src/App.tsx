@@ -2,7 +2,7 @@ import './App.css'
 import React, {useContext, useEffect} from "react";
 import CssBaseline from '@material-ui/core/CssBaseline';
 
-import {Box, Container,} from '@material-ui/core';
+import {Box, CircularProgress, Container, Typography,} from '@material-ui/core';
 import SimpleBottomNavigation from "./components/Header/SimpleBottomNavigation";
 import {BrowserRouter as Router, Redirect, Route, Switch} from "react-router-dom";
 import Hamburger from "./components/Header/Hamburger";
@@ -17,9 +17,6 @@ import {direction, LanguageContext} from "./contexts/LanguageContext";
 import {UserDetailsWrapper} from "./components/FormComponents/UserDetails/UserDetails";
 import {AppContext} from "./contexts/AppContext";
 import EditContents from "./components/EditContents/EditContents";
-import RemoteContent from "./models/remoteContent/remoteContent";
-// @ts-ignore
-import alertify from 'alertifyjs';
 import 'alertifyjs/build/css/alertify.css';
 
 const themes = {
@@ -50,6 +47,7 @@ const App = () => {
     const userContext = useContext(UserContext);
     const langContext = useContext(LanguageContext);
     const theme = themes[langContext.getDirection()]
+    const {userDetails} = useContext(UserContext);
 
     useEffect(() => {
         services.auth().onAuthStateChanged(async (user) => {
@@ -63,25 +61,15 @@ const App = () => {
         }, 1000)
     }, [langContext, userContext, appContext])
 
-    const functions = {
-        "sync contents": async () => {
-            const savedContents = new RemoteContent({category: undefined, user: userContext.user})
-            appContext.setMounted({state: false, msg: "syncing contents"});
-            const reset = await savedContents.reset()
-            reset && alertify.success(langContext.getWord("contents were refreshed"))
-            appContext.setMounted({state: true});
-        }
-    }
-
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline/>
-            {/*{appContext.mounted.state ?*/}
+            {userDetails?.displayName ?
             <Container maxWidth="sm">
                 <Router>
                     <Box display="flex">
                         <Hamburger/>
-                        <SimpleBottomNavigation {...{functions}}/>
+                        <SimpleBottomNavigation />
                     </Box>
                     <div>
                         <Switch>
@@ -117,13 +105,13 @@ const App = () => {
                     </div>
                 </Router>
             </Container>
-            {/*: <Box width="100vw" height="100vh" display="flex" justifyContent="center"*/}
-            {/*       flexDirection="column"*/}
-            {/*       alignItems="center">*/}
-            {/*    <CircularProgress/>*/}
-            {/*    {appContext.mounted.msg &&*/}
-            {/*    <Typography>{langContext.getWord(appContext.mounted.msg)}</Typography>}*/}
-            {/*</Box>}*/}
+            : <Box width="100vw" height="100vh" display="flex" justifyContent="center"
+                   flexDirection="column"
+                   alignItems="center">
+                <CircularProgress/>
+                {appContext.mounted.msg &&
+                <Typography>{langContext.getWord(appContext.mounted.msg)}</Typography>}
+            </Box>}
         </ThemeProvider>
     );
 }
