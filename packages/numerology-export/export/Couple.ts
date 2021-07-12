@@ -1,22 +1,28 @@
 import IExportDoc, {ExportDocProps} from "../interfaces/IExportDoc";
 import ExportDoc from "../mainTools/exportDoc";
-import {Couple} from "@maya259/numerology-engine";
+import {IExportProps} from "../mainTools/PrepareDoc";
+import {Couple, Profile} from "@maya259/numerology-engine";
 
 class ExportCouple implements ExportDocProps {
     public export: () => void;
     public getFileName: () => string;
     public prepare: () => string;
-    data: IExportDoc;
+    public data: IExportDoc;
 
-    constructor(data: IExportDoc) {
+    constructor({style, body, data}: IExportProps) {
         this.data = data;
-        const couple = this.data as Couple
+        const couple = this.data as Couple;
         this.getFileName = () => `${couple.Partner1Props.firstName} ${couple.Partner2Props.familyName}`;
+
         this.prepare = () => {
-            return JSON.stringify(couple);
+            return body;
         };
 
-        this.export = () => new ExportDoc().execute(this.prepare(), this.getFileName());
+        this.export = () => new ExportDoc().execute({
+            style,
+            body: this.prepare(),
+            filename: this.getFileName()
+        });
     }
 }
 

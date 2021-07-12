@@ -1,4 +1,4 @@
-import * as exp from "./index"
+import * as exp from "./bundle"
 
 export import Strategy = exp.Strategy;
 export import IExportDoc = exp.IExportDoc;

@@ -6,7 +6,7 @@ import alertify from 'alertifyjs';
 import {IAppContext} from "./contexts/AppContext";
 import {ILanguageContext} from "./contexts/LanguageContext";
 import {IUserContext} from "./contexts/UserContext";
-import {PrepareDoc, Strategy} from "@maya259/numerology-export";
+import {IExportDoc, PrepareDoc, Strategy} from "@maya259/numerology-export";
 
 export const actions = ({
                             appContext,
@@ -27,8 +27,17 @@ export const actions = ({
             appContext.setMounted({state: true});
         },
         [actionNames.EXPORT]: () => {
-            if (appContext.lastResult?.result) {
-                PrepareDoc.prepare(appContext.lastResult.result, Strategy.PROFILE);
+            if (appContext.lastResult?.result as IExportDoc) {
+                const data = appContext.lastResult?.result;
+                // PrepareDoc.prepare(appContext.lastResult.result, Strategy.PROFILE);
+                const style = `${Array.from(document.head.querySelectorAll("style")).map(style => style.innerHTML).join("")}`;
+                const body = new XMLSerializer().serializeToString(document.body?.querySelector(".ProfileReport") as Node);
+                PrepareDoc.prepare({
+                    style,
+                    body,
+                    strategy: Strategy.PROFILE,
+                    data
+                })
             }
         }
     }

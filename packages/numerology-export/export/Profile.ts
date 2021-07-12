@@ -1,5 +1,6 @@
 import IExportDoc, {ExportDocProps} from "../interfaces/IExportDoc";
 import ExportDoc from "../mainTools/exportDoc";
+import {IExportProps} from "../mainTools/PrepareDoc";
 import {Profile} from "@maya259/numerology-engine";
 
 class ExportProfile implements ExportDocProps {
@@ -8,16 +9,20 @@ class ExportProfile implements ExportDocProps {
     public prepare: () => string;
     public data: IExportDoc;
 
-    constructor(data: IExportDoc) {
+    constructor({style, body, data}: IExportProps) {
         this.data = data;
         const profile = this.data as Profile;
-
         this.getFileName = () => `${profile.firstName} ${profile.familyName}`;
+
         this.prepare = () => {
-            return JSON.stringify(profile);
+            return body;
         };
 
-        this.export = () => new ExportDoc().execute(this.prepare(), this.getFileName());
+        this.export = () => new ExportDoc().execute({
+            style,
+            body: this.prepare(),
+            filename: this.getFileName()
+        });
     }
 }
 

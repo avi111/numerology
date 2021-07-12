@@ -1,4 +1,4 @@
-import * as engine from "./index"
+import * as engine from "./bundle"
 
 export import Business = engine.Business;
 export import Gematria = engine.Gematria;

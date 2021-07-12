@@ -1,5 +1,7 @@
+import {IExecute} from "./PrepareDoc";
+
 interface IExportStrategy {
-    setHtml: (src: string) => string;
+    setHtml: ({style, body, filename}: IExecute) => string;
     download: (html: string, filename: string) => void
 }
 
@@ -11,10 +13,11 @@ class ExportDoc {
         this.setStrategy(new Strategy2());
     }
 
-    execute(src: string, filename: string) {
+    execute({style, body, filename}: IExecute) {
         if (this.strategy == undefined)
             return;
-        const html = this.strategy.setHtml(src);
+
+        const html = this.strategy.setHtml({style, body, filename});
         this.strategy.download(html, filename);
         return html;
     }
@@ -25,16 +28,16 @@ class ExportDoc {
 }
 
 export class Strategy1 implements IExportStrategy {
-    public setHtml(src: string) {
+    public setHtml({style, body, filename}: IExecute) {
         const header = '<html xmlns:o=\'urn:schemas-microsoft-com:office:office\' ' +
             'xmlns:w=\'urn:schemas-microsoft-com:office:word\' ' +
             'xmlns=\'http://www.w3.org/TR/REC-html40\'>' +
+            `<style>${style}</style>` +
             '<head><meta charset=\'utf-8\'><title>Export HTML to Word Document with JavaScript</title></head><body>';
         const footer = '</body></html>';
-        const sourceHTML = header + src + footer;
+        const sourceHTML = header + body + footer;
 
-        const source = 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(sourceHTML);
-        return source;
+        return 'data:application/vnd.ms-word;charset=utf-8,' + encodeURIComponent(sourceHTML);
     }
 
 
@@ -81,10 +84,16 @@ export class Strategy2 implements IExportStrategy {
         document.body.removeChild(downloadLink);
     }
 
-    public setHtml(src: string) {
-        const preHtml = '<html xmlns:o=\'urn:schemas-microsoft-com:office:office\' xmlns:w=\'urn:schemas-microsoft-com:office:word\' xmlns=\'http://www.w3.org/TR/REC-html40\'><head><meta charset=\'utf-8\'><title>Export HTML To Doc</title></head><body>';
+    public setHtml({style, body, filename}: IExecute) {
+        const preHtml = '<html xmlns:o=\'urn:schemas-microsoft-com:office:office\' xmlns:w=\'urn:schemas-microsoft-com:office:word\' xmlns=\'http://www.w3.org/TR/REC-html40\'>' +
+            '<head>' +
+            '<meta charset=\'utf-8\'><title>Export HTML To Doc</title>' +
+            `<style>${style}</style>` +
+            '</head>' +
+            '<body>';
         const postHtml = '</body></html>';
-        const html = preHtml + src + postHtml;
+        const html = preHtml + body + postHtml;
+        console.log(html)
         return html;
     }
 }

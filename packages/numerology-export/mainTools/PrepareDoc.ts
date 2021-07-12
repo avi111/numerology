@@ -1,46 +1,77 @@
 import IExportDoc, {ExportDocProps} from "../interfaces/IExportDoc";
 import ExportProfile from "../export/Profile";
+import {Strategy} from "../interfaces/strategy";
+import ExportChakra from "../export/Chakra";
 import ExportNameMapClass from "../export/NameMapClass";
 import ExportBusiness from "../export/Business";
 import ExportCouple from "../export/Couple";
-import ExportChakra from "../export/Chakra";
-import {Strategy} from "../interfaces/strategy";
 
+export interface IPrepareDoc {
+    style: string,
+    body: string,
+    filename: string,
+    strategy: Strategy,
+    data: IExportDoc
+}
+
+export interface IExportProps {
+    style: string,
+    body: string,
+    data: IExportDoc
+}
+
+export interface IExecute {
+    style: string,
+    body: string,
+    filename: string
+}
 
 class PrepareDoc {
-    private profile: IExportDoc;
     private strategy: Strategy;
     private exporter?: ExportDocProps;
+    private body: string;
+    private style: string;
+    private filename: string;
+    private data: IExportDoc;
 
-    constructor(profile: IExportDoc, strategy: Strategy) {
-        this.profile = profile;
+    constructor({
+                    style,
+                    body,
+                    filename,
+                    strategy,
+                    data
+                }: IPrepareDoc) {
+        this.style = style;
+        this.body = body;
         this.strategy = strategy;
+        this.filename = filename;
+        this.data = data;
     }
 
-    public static prepare(profile: IExportDoc, strategy: Strategy) {
-        const prep = new PrepareDoc(profile, strategy);
+    public static prepare(prepareDoc: IPrepareDoc) {
+        const prep = new PrepareDoc(prepareDoc);
         prep.route();
         prep.export();
     }
 
     public route() {
-        const {profile} = this;
-
+        const {style, body, filename, data} = this;
+        const payload = {style, body, filename, data};
         switch (this.strategy) {
             case Strategy.CHAKRA:
-                this.exporter = new ExportChakra(profile);
+                this.exporter = new ExportChakra(payload);
                 break;
             case Strategy.PROFILE:
-                this.exporter = new ExportProfile(profile);
+                this.exporter = new ExportProfile(payload);
                 break;
             case Strategy.NAME_MAP_CLASS:
-                this.exporter = new ExportNameMapClass(profile);
+                this.exporter = new ExportNameMapClass(payload);
                 break;
             case Strategy.BUSINESS:
-                this.exporter = new ExportBusiness(profile);
+                this.exporter = new ExportBusiness(payload);
                 break;
             case Strategy.COUPLE:
-                this.exporter = new ExportCouple(profile);
+                this.exporter = new ExportCouple(payload);
                 break;
         }
     }
