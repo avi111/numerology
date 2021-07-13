@@ -1,13 +1,13 @@
-import {Gender, Profile} from "@maya259/numerology-engine";
+import {Gender, Profile, Props} from "@maya259/numerology-engine";
 
-const props = {
+const props: Props = {
     birthDate: new Date('1980-9-16'),
     familyName: 'לבקוביץ',
     fatherName: 'יעקב',
     fatherNameAtBirthOfPatient: '',
     firstName: 'אבי',
     firstNameAtBirth: '',
-    Gender: Gender.MALE,
+    gender: Gender.MALE,
     motherName: 'טובה',
     motherNameAtBirthOfPatient: '',
     birthHour: false

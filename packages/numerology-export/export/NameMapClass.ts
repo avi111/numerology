@@ -1,7 +1,7 @@
 import IExportDoc, {ExportDocProps} from "../interfaces/IExportDoc";
 import ExportDoc from "../mainTools/exportDoc";
 import {IExportProps} from "../mainTools/PrepareDoc";
-import {NameMapClass, Profile} from "@maya259/numerology-engine";
+import {NameMapClass} from "@maya259/numerology-engine";
 
 class ExportNameMapClass implements ExportDocProps {
     public export: () => void;
