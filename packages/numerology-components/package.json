@@ -1,0 +1,47 @@
+{
+  "name": "@maya259/components",
+  "version": "1.0.0",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "esbuild": "^0.12.15",
+    "react": "^17.0.2",
+    "material-ui": "^0.20.2",
+    "eslint": "~7.21.0",
+    "eslint-config-prettier": "~8.1.0",
+    "eslint-plugin-jest": "~24.1.5",
+    "eslint-watch": "^7.0.0",
+    "jest": "~26.6.3",
+    "jest-watch-typeahead": "^0.6.3",
+    "styled-components": "^5.3.0",
+    "@material-ui/core": "^4.12.1",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.2",
+    "@storybook/addon-actions": "^6.2.9",
+    "@storybook/addon-essentials": "^6.2.9",
+    "@storybook/addon-links": "^6.2.9",
+    "@storybook/react": "^6.2.9",
+    "storybook-addon-react-docgen": "^1.2.42",
+    "ts-jest": "~26.5.2",
+    "tslib": "^2.2.0",
+    "tsutils": "~3.20.0",
+    "typescript": "~4.2.2"
+  },
+  "scripts": {
+    "start": "npm run dev",
+    "serve": "serve storybook-static",
+    "dev": "export NODE_ENV=development && esbuild src/index.ts --outfile=dist/bundle.js --format=esm --bundle --watch --sourcemap --target=es2020,chrome58,firefox57,safari11 --loader:.png=dataurl --external:styled-components --external:@material-ui/* --external:react --external:react-dom --log-level=debug",
+    "dts": "cp ./bundle.d.ts ./dist",
+    "clean": "rimraf coverage build tmp",
+    "build": "node ./scripts/build.ts && yarn run dts",
+    "lint": "eslint . --ext .ts,.tsx",
+    "lint:watch": "esw . --watch --fix --ext .ts,.tsx",
+    "test:coverage": "jest --coverage",
+    "test:unit": "jest --watch",
+    "test:husky": "jest --passWithNoTests",
+    "test:cypress": "cypress run --config baseUrl=http://localhost:5000",
+    "storybook": "start-storybook -p 6006",
+    "storybook-no-cache": "start-storybook --no-manager-cache",
+    "build-storybook": "build-storybook"
+  }
+}
