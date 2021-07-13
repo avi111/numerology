@@ -1,6 +1,7 @@
 {
   "name": "@maya259/components",
   "version": "1.0.0",
+  "main": "dist/bundle.js",
   "dependencies": {
   },
   "devDependencies": {
@@ -31,7 +32,7 @@
     "start": "npm run dev",
     "serve": "serve storybook-static",
     "dev": "export NODE_ENV=development && esbuild src/index.ts --outfile=dist/bundle.js --format=esm --bundle --watch --sourcemap --target=es2020,chrome58,firefox57,safari11 --loader:.png=dataurl --external:styled-components --external:@material-ui/* --external:react --external:react-dom --log-level=debug",
-    "dts": "cp ./bundle.d.ts ./dist",
+    "dts": "cp ./index.d.ts ./dist",
     "clean": "rimraf coverage build tmp",
     "build": "node ./scripts/build.ts && yarn run dts",
     "lint": "eslint . --ext .ts,.tsx",

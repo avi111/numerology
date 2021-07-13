@@ -8,3 +8,4 @@ export default {
 };
 
 export const Simple = () => <Button>Click me!</Button>
+export const Primary = () => <Button primary>Click me!</Button>
