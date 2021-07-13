@@ -31,12 +31,14 @@ export const actions = ({
                 const data = appContext.lastResult?.result;
                 const style = `${Array.from(document.head.querySelectorAll("style")).map(style => style.innerHTML).join("")}`;
                 const body = new XMLSerializer().serializeToString(document.body?.querySelector(".ProfileReport") as Node);
-                PrepareDoc.prepare({
-                    style,
-                    body,
-                    strategy: Strategy.PROFILE,
-                    data
-                })
+                if(data) {
+                    PrepareDoc.prepare({
+                        style,
+                        body,
+                        strategy: Strategy.PROFILE,
+                        data
+                    })
+                }
             }
         }
     }
