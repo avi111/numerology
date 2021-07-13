@@ -9,7 +9,6 @@ import ExportCouple from "../export/Couple";
 export interface IPrepareDoc {
     style: string,
     body: string,
-    filename: string,
     strategy: Strategy,
     data: IExportDoc
 }
@@ -37,14 +36,12 @@ class PrepareDoc {
     constructor({
                     style,
                     body,
-                    filename,
                     strategy,
                     data
                 }: IPrepareDoc) {
         this.style = style;
         this.body = body;
         this.strategy = strategy;
-        this.filename = filename;
         this.data = data;
     }
 

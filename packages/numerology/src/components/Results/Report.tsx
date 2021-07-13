@@ -1,7 +1,7 @@
-import {Box, Typography} from "@material-ui/core";
 import {ClassNameMap} from "@material-ui/core/styles/withStyles";
 import React, {useContext} from "react";
 import {LanguageContext} from "../../contexts/LanguageContext";
+import {Report as RReport} from "@maya259/components"
 
 export interface IReport {
     word: string,
@@ -21,12 +21,12 @@ export const Report = ({
     const langContext = useContext(LanguageContext);
     const {getWord} = langContext;
     return (
-        <Box m={margin}>
-            <Typography variant="h6"
-                        classes={{root: classes.root}}>
-                {getWord(word)} - {value}
-            </Typography>
-            <Typography>{getWord(content)}</Typography>
-        </Box>
-    )
+        <RReport {...{
+            classes,
+            value,
+            word: getWord(word),
+            content: getWord(content)
+        }} />
+    );
+
 }

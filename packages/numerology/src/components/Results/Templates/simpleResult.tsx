@@ -5,6 +5,7 @@ import {Box, Card, CardContent, Typography} from "@material-ui/core";
 import RemoteContent from "../../../models/remoteContent/remoteContent";
 import categories from "../../../models/remoteContent/categories";
 import Title from "../Title";
+import {SimpleReport as SReport} from "@maya259/components";
 
 interface ISimpleResult {
     value: number | string,
@@ -53,19 +54,7 @@ const SimpleResult = ({
 
     const title = `${getWord(primaryText)}${secondaryText ? ` - ${getWord(secondaryText)}` : ''}${showValue ? `- ${value}:` : ''}`;
 
-    const cardContent = (
-        <Box className="SimpleResult">
-            <Box mb={4} display={inline ? "inline" : undefined}>
-                {(primaryText || secondaryText) && <Title
-                    {...{
-                        title,
-                        inline
-                    }}
-                />}
-                {content && <Typography component={inline ? "span" : "p"}>{content}</Typography>}
-            </Box>
-        </Box>
-    );
+    const cardContent = <SReport {...{title, content, inline}} />;
 
     return card ? wrapWithCard(cardContent) : cardContent;
 }

@@ -1,8 +1,8 @@
 import React from "react";
 import {Profile} from "@maya259/numerology-engine";
 import categories from "../../../models/remoteContent/categories";
-import SimpleResult from "../Templates/simpleResult";
 import {dictionaryKeys} from "../../../consts/dictionary";
+import SimpleResult from "../Templates/simpleResult";
 
 const Ehevi = ({profile}: { profile: Profile }) => {
     return <SimpleResult {...

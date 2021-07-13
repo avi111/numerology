@@ -29,7 +29,6 @@ export const actions = ({
         [actionNames.EXPORT]: () => {
             if (appContext.lastResult?.result as IExportDoc) {
                 const data = appContext.lastResult?.result;
-                // PrepareDoc.prepare(appContext.lastResult.result, Strategy.PROFILE);
                 const style = `${Array.from(document.head.querySelectorAll("style")).map(style => style.innerHTML).join("")}`;
                 const body = new XMLSerializer().serializeToString(document.body?.querySelector(".ProfileReport") as Node);
                 PrepareDoc.prepare({
