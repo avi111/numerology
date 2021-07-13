@@ -1,5 +1,7 @@
-import {Button} from "./src"
+import {Button, Report, IReport} from "./src"
 
 export {
-    Button
+    Button,
+    Report,
+    IReport
 }
