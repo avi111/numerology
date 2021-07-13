@@ -19,7 +19,7 @@ export const Report: React.FC<IReport> = ({
                                           }) => {
     return (
         <Box m={margin}>
-            <Typography variant="h6" classes={{root: classes.root}}>
+            <Typography variant="h6" classes={{root: classes?.root}}>
                 {word} - {value}
             </Typography>
             <Typography>{content}</Typography>

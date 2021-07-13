@@ -33,7 +33,7 @@
     "babel-loader": "^8.2.2"
   },
   "scripts": {
-    "build": "webpack && cp ./bundle.d.ts ./dist",
+    "build": "webpack && cp ./index.d.ts ./dist",
     "start": "webpack --watch",
     "test:watch": "npx jest --watch",
     "rimraf": "rm -rf node_modules",
