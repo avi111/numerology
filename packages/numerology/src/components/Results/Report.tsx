@@ -21,7 +21,7 @@ export const Report = ({
     const langContext = useContext(LanguageContext);
     const {getWord} = langContext;
     return (
-        <RReport {...{
+        <RReport.Report {...{
             classes,
             value,
             word: getWord(word),

@@ -7,7 +7,7 @@ export default {
   component: Report,
 };
 
-export const Simple = (({word,value,content, margin}) => <Report {...{
+export const Simple = (({word,value,content, margin}) => <Report.Report {...{
   word,
   value,
   content,

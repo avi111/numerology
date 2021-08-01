@@ -1,9 +1,8 @@
 import React, {useContext} from "react";
 import {LanguageContext} from "../../../contexts/LanguageContext";
 import './triangle.scss';
-import {Box, Card, CardContent, Typography} from "@material-ui/core";
-import classNames from "classnames";
 import {MainTriangle} from "@maya259/numerology-engine";
+import {Triangle as TTriangle} from "@maya259/components";
 
 const Triangle = ({
                       triangle,
@@ -13,40 +12,16 @@ const Triangle = ({
     const langContext = useContext(LanguageContext);
     const {getWord} = langContext;
     return (
-        <Card>
-            <CardContent>
-                <Box className={classNames({heb: hebrewDate})}>
-                    <Box>
-                        <Typography>
-                            {getWord('destiny')}: {triangle.destiny}
-                        </Typography>
-                        <Typography>
-                            {getWord('first name')}: {triangle.firstName}
-                        </Typography>
-                        <Typography>
-                            {getWord('birth day')}: {triangle.birthDay}
-                        </Typography>
-                    </Box>
-                    <div className="triangle-container" style={{width}}>
-                        <svg viewBox={`0 0 ${width} ${width}`}>
-                            <polygon className="triangle" points={
-                                `${width / 2} 0, ${width} ${width}, 0 ${width}`
-                            }/>
-                            Sorry, your browser does not support inline SVG.
-                        </svg>
-                        <div className="vertex1">
-                            {triangle.destiny}
-                        </div>
-                        <div className="vertex2">
-                            {triangle.birthDay}
-                        </div>
-                        <div className="vertex3">
-                            {triangle.firstName}
-                        </div>
-                    </div>
-                </Box>
-            </CardContent>
-        </Card>
+        <TTriangle {...{
+            triangle,
+            width,
+            hebrewDate,
+            words: {
+                destiny: getWord('destiny'),
+                firstName: getWord('first name'),
+                birthDay: getWord('birth day')
+            }
+        }}/>
     )
 }
 

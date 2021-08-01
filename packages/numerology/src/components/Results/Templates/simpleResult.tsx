@@ -1,11 +1,10 @@
 import React, {useContext, useEffect, useState} from "react";
 import {LanguageContext} from "../../../contexts/LanguageContext";
 import {UserContext} from "../../../contexts/UserContext";
-import {Box, Card, CardContent, Typography} from "@material-ui/core";
+import {Card, CardContent} from "@material-ui/core";
 import RemoteContent from "../../../models/remoteContent/remoteContent";
 import categories from "../../../models/remoteContent/categories";
-import Title from "../Title";
-import {SimpleReport as SReport} from "@maya259/components";
+import {Report} from "@maya259/components";
 
 interface ISimpleResult {
     value: number | string,
@@ -54,7 +53,7 @@ const SimpleResult = ({
 
     const title = `${getWord(primaryText)}${secondaryText ? ` - ${getWord(secondaryText)}` : ''}${showValue ? `- ${value}:` : ''}`;
 
-    const cardContent = <SReport {...{title, content, inline}} />;
+    const cardContent = <Report.SimpleReport {...{title, content, inline}} />;
 
     return card ? wrapWithCard(cardContent) : cardContent;
 }

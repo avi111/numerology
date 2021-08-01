@@ -1,17 +1,17 @@
 import React from 'react';
 
-import {SimpleReport} from "@maya259/components";
+import {Report} from "@maya259/components";
 
 export default {
     title: 'UI Components/Simple Report',
-    component: SimpleReport,
+    component: Report,
 };
 
 export const Simple = (({
                             content,
                             title,
                             inline
-                        }) => <SimpleReport {...{
+                        }) => <Report.SimpleReport {...{
     content,
     title,
     inline
