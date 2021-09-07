@@ -1,7 +1,7 @@
+import Profile from "@maya259/numerology-engine/MainTools/Profile";
 import IExportDoc, {ExportDocProps} from "../interfaces/IExportDoc";
 import ExportDoc from "../mainTools/exportDoc";
 import {IExportProps} from "../mainTools/PrepareDoc";
-import {Profile} from "@maya259/numerology-engine";
 
 class ExportProfile implements ExportDocProps {
     public export: () => void;

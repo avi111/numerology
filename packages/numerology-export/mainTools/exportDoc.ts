@@ -33,7 +33,7 @@ export class Strategy1 implements IExportStrategy {
             'xmlns:w=\'urn:schemas-microsoft-com:office:word\' ' +
             'xmlns=\'http://www.w3.org/TR/REC-html40\'>' +
             `<style>${style}</style>` +
-            '<head><meta charset=\'utf-8\'><title>Export HTML to Word Document with JavaScript</title></head><body>';
+            '<head><meta charset=\'utf-8\'><title>'+filename+'</title></head><body>';
         const footer = '</body></html>';
         const sourceHTML = header + body + footer;
 
@@ -87,14 +87,12 @@ export class Strategy2 implements IExportStrategy {
     public setHtml({style, body, filename}: IExecute) {
         const preHtml = '<html xmlns:o=\'urn:schemas-microsoft-com:office:office\' xmlns:w=\'urn:schemas-microsoft-com:office:word\' xmlns=\'http://www.w3.org/TR/REC-html40\'>' +
             '<head>' +
-            '<meta charset=\'utf-8\'><title>Export HTML To Doc</title>' +
+            '<meta charset=\'utf-8\'><title>'+filename+'</title>' +
             `<style>${style}</style>` +
             '</head>' +
             '<body>';
         const postHtml = '</body></html>';
-        const html = preHtml + body + postHtml;
-        console.log(html)
-        return html;
+        return preHtml + body + postHtml;
     }
 }
 

@@ -1,7 +1,7 @@
+import Couple from "@maya259/numerology-engine/MainTools/Couple";
 import IExportDoc, {ExportDocProps} from "../interfaces/IExportDoc";
 import ExportDoc from "../mainTools/exportDoc";
 import {IExportProps} from "../mainTools/PrepareDoc";
-import {Couple} from "@maya259/numerology-engine";
 
 class ExportCouple implements ExportDocProps {
     public export: () => void;

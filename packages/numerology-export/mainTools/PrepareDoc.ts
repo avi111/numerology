@@ -2,7 +2,6 @@ import IExportDoc, {ExportDocProps} from "../interfaces/IExportDoc";
 import ExportProfile from "../export/Profile";
 import {Strategy} from "../interfaces/strategy";
 import ExportChakra from "../export/Chakra";
-import ExportNameMapClass from "../export/NameMapClass";
 import ExportBusiness from "../export/Business";
 import ExportCouple from "../export/Couple";
 
@@ -60,9 +59,6 @@ class PrepareDoc {
                 break;
             case Strategy.PROFILE:
                 this.exporter = new ExportProfile(payload);
-                break;
-            case Strategy.NAME_MAP_CLASS:
-                this.exporter = new ExportNameMapClass(payload);
                 break;
             case Strategy.BUSINESS:
                 this.exporter = new ExportBusiness(payload);

@@ -1,7 +1,7 @@
+import Chakra from "@maya259/numerology-engine/Calculations/Chakra";
 import IExportDoc, {ExportDocProps} from "../interfaces/IExportDoc";
 import ExportDoc from "../mainTools/exportDoc";
 import {IExportProps} from "../mainTools/PrepareDoc";
-import {Chakra} from "@maya259/numerology-engine";
 
 class ExportChakra implements ExportDocProps {
     public export: () => void;

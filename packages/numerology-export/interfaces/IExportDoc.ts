@@ -1,10 +1,7 @@
-import {
-    Profile,
-    Couple,
-    Business,
-    Chakra,
-    NameMapClass,
-} from "@maya259/numerology-engine";
+import Chakra from "@maya259/numerology-engine/Calculations/Chakra";
+import Profile from "@maya259/numerology-engine/MainTools/Profile";
+import Business from "@maya259/numerology-engine/MainTools/Business";
+import Couple from "@maya259/numerology-engine/MainTools/Couple";
 
 export interface ExportDocProps {
     getFileName: () => string;
@@ -13,6 +10,6 @@ export interface ExportDocProps {
     data: IExportDoc;
 }
 
-type IExportDoc = Profile | Couple | Business | NameMapClass | Chakra;
+type IExportDoc = Profile | Couple | Business | Chakra;
 
 export default IExportDoc;

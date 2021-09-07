@@ -10,12 +10,6 @@ import ProfileProps from './MainTools/Profile';
 import { allLetters, REGULAR_LETTERS, SUFFIX_LETTERS } from "./consts/letters";
 import Square from "./helpers/square";
 
-const numerologyEngine = {
-
-}
-
-export default numerologyEngine;
-
 export {
     Gematria,
     MainTriangle,
