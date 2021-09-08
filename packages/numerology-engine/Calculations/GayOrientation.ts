@@ -62,8 +62,7 @@ class GayOrientation {
                 this.filterGayArr(
                     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                     // @ts-ignore
-                    this.magicSquare.actualSquare.flat()
-                        .map((n: string[]) => parseInt(n[0] + '', 10))),
+                    this.magicSquare.actualSquare.flat().map((n: string[]) => parseInt(n[0] + '', 10))),
         };
     }
 

@@ -21,13 +21,7 @@ class Hilltops implements Partial<Triangle>, TriangleProps {
     public extension: number[] = [];
     public hiddenHilltop: number[] = [];
     public hilltopNames: string[] = hilltopNames;
-
-    /*
-        getWord('search')
-        getWord('exit')
-        getWord('pegging')
-        getWord('harvesting')
-     */
+    public periods: string[];
 
     constructor(triangle: Triangle) {
         this.triangle = triangle;
@@ -39,6 +33,7 @@ class Hilltops implements Partial<Triangle>, TriangleProps {
         this.generateArray(4).forEach((num) => this.calculateChallenge(num));
         this.generateArray(8).forEach((num) => this.calculateExtension(num));
         this.generateArray(4).forEach((num) => this.calculateHiddenChallenge(num));
+        this.periods=this.getLifePeriods();
     }
 
     public generateArray(num: number): number[] {
@@ -140,7 +135,7 @@ class Hilltops implements Partial<Triangle>, TriangleProps {
         this.hiddenHilltop[num] = new Gematria('' + Math.abs(value)).small;
     }
 
-    public getLifePeriods() {
+    public getLifePeriods(): string[] {
         const start = 27 - this.destiny;
         const period = 9;
         let year = start;

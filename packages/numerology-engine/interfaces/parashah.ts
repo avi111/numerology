@@ -1,10 +1,10 @@
-interface Parashah {
+export interface Parashah {
     parashah: string | undefined;
     hebrew: string | undefined;
     ref: Portion | undefined;
 }
 
-interface HebcalResponse {
+export interface HebcalResponse {
     gy: number;
     gm: number;
     gd: number;
@@ -15,7 +15,7 @@ interface HebcalResponse {
     events: string[];
 }
 
-interface Item {
+export interface Item {
     category: string;
     hebrew: string;
     title: string;
@@ -27,7 +27,7 @@ interface Item {
     leyning?: Leyning;
 }
 
-interface ParashahResponse {
+export interface ParashahResponse {
     location?: { geo: string };
     date?: string;
     link?: string;
@@ -35,18 +35,18 @@ interface ParashahResponse {
     items: Item[];
 }
 
-interface Portion {
+export interface Portion {
     book: string;
     begin: Pasuk;
     end: Pasuk;
 }
 
-interface Pasuk {
+export interface Pasuk {
     chapter: string;
     pasuk: string;
 }
 
-interface Leyning {
+export interface Leyning {
     1: string;
     2: string;
     3: string;
@@ -58,13 +58,3 @@ interface Leyning {
     torah: string;
     haftarah: string;
 }
-
-export {
-    Parashah,
-    Pasuk,
-    ParashahResponse,
-    Item,
-    Leyning,
-    HebcalResponse,
-    Portion,
-};

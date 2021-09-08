@@ -16,7 +16,7 @@ const numerologyEngine = {
 
 export default numerologyEngine;
 
-export {
+export type {
     Gematria,
     MainTriangle,
     Profile,

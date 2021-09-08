@@ -99,7 +99,7 @@ class MainTriangle implements Triangle {
     }
     
     get hilltop(): number {
-        return this._hilltop;
+        return <number>this._hilltop;
     }
 
 // eslint-disable-next-line @typescript-eslint/ban-types
@@ -128,7 +128,7 @@ class MainTriangle implements Triangle {
     private readonly _power: number;
     private readonly _personalMagic: number;
     private readonly _year: Year;
-    private readonly _hilltop: number;
+    private readonly _hilltop: number | undefined;
 
     // eslint-disable-next-line @typescript-eslint/ban-types
     get objects(): { [p: string]: object } {

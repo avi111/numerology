@@ -4,13 +4,28 @@
     "noImplicitAny": true,
     "esModuleInterop": true,
     "target": "es5",
-    "module": "es6",
-    "jsx": "react",
+    "module": "esnext",
+    "jsx": "react-jsx",
     "allowJs": true,
     "moduleResolution": "node",
-    "sourceMap": true
+    "sourceMap": true,
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
   },
   "exclude": [
     "node_modules"
+  ],
+  "include": [
+    "**/*"
   ]
 }

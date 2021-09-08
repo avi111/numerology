@@ -1,10 +1,6 @@
 import Props from "./props";
 
-interface IProps {
+export interface IProps {
     props: Props;
     num?: number;
 }
-
-export {
-    IProps,
-};
