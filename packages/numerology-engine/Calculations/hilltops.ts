@@ -9,6 +9,20 @@ export const hilltopNames = [
     'harvesting',
 ];
 
+const numberOfChildren = {
+    "1-2": "1/2/3",
+    "2-2": "2/4",
+    "3-2": "2/3/5",
+    "4-2": "2/4/6",
+    "5-2": "2/5/7",
+    "6-2": "2/6/8",
+    "7-2": "2/7/9",
+    "1-6": "1+",
+    "2-6": "2+",
+    "3-6": "3+",
+    "4-6": "4+"
+}
+
 class Hilltops implements Partial<Triangle>, TriangleProps {
     public birthDay: number;
     public birthMonth: number;
@@ -22,6 +36,7 @@ class Hilltops implements Partial<Triangle>, TriangleProps {
     public hiddenHilltop: number[] = [];
     public hilltopNames: string[] = hilltopNames;
     public periods: string[];
+    public numberOfChildren: {[key: string]: string};
 
     constructor(triangle: Triangle) {
         this.triangle = triangle;
@@ -34,6 +49,7 @@ class Hilltops implements Partial<Triangle>, TriangleProps {
         this.generateArray(8).forEach((num) => this.calculateExtension(num));
         this.generateArray(4).forEach((num) => this.calculateHiddenChallenge(num));
         this.periods=this.getLifePeriods();
+        this.numberOfChildren = numberOfChildren;
     }
 
     public generateArray(num: number): number[] {
