@@ -23,6 +23,10 @@ const numberOfChildren = {
     "4-6": "4+"
 }
 
+const divorcePotential: number[] = [
+    21, 22, 23, 25, 26, 31, 32, 33, 34, 36, 42, 43, 45, 54, 61, 62, 63, 64, 65, 66, 82, 27, 72, 52
+];
+
 class Hilltops implements Partial<Triangle>, TriangleProps {
     public birthDay: number;
     public birthMonth: number;
@@ -37,6 +41,7 @@ class Hilltops implements Partial<Triangle>, TriangleProps {
     public hilltopNames: string[] = hilltopNames;
     public periods: string[];
     public numberOfChildren: {[key: string]: string};
+    public divorcePotential: number[];
 
     constructor(triangle: Triangle) {
         this.triangle = triangle;
@@ -50,6 +55,7 @@ class Hilltops implements Partial<Triangle>, TriangleProps {
         this.generateArray(4).forEach((num) => this.calculateHiddenChallenge(num));
         this.periods=this.getLifePeriods();
         this.numberOfChildren = numberOfChildren;
+        this.divorcePotential = divorcePotential;
     }
 
     public generateArray(num: number): number[] {
