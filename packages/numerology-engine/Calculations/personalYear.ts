@@ -21,6 +21,7 @@ class PersonalYear implements Partial<Props> {
     public now: Date;
     public age: number;
     public year: number;
+    public yearNext: number;
     public personalMonth: Map<number, number> = new Map();
 
     constructor(birthDate: Date, triangle: Triangle, year = 0) {
@@ -28,6 +29,7 @@ class PersonalYear implements Partial<Props> {
 
         const dateNow = new Date(Date.now());
         this.year = this.lastBirthday().getFullYear() + year;
+        this.yearNext=this.year+1;
         const fullYearNow = dateNow.getFullYear() + year;
         this.now = new Date(dateNow.setFullYear(fullYearNow));
 
