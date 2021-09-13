@@ -6,7 +6,7 @@ import Couple from "@maya259/numerology-engine/MainTools/Couple";
 export interface ExportDocProps {
     getFileName: () => string;
     prepare: () => string;
-    export: () => void;
+    export: (rtl?: boolean) => void;
     data: IExportDoc;
 }
 

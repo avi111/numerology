@@ -9,6 +9,7 @@ class MagicSquare extends Square {
     public input: Date | string;
     public exists: string[] = [];
     public missing: string[] = [];
+    public threeTimes: number[];
 
     constructor(input: Date | string) {
         super(square);
@@ -20,6 +21,8 @@ class MagicSquare extends Square {
         this.actualSquare = Square.fillSquare(dateNumbers, this.square);
 
         this.findRows();
+
+        this.threeTimes = this.getThreeTimes();
     }
 
     public splitNumbers(input: Date | string): number[] {

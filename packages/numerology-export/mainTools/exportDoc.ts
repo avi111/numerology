@@ -1,7 +1,7 @@
 import {IExecute} from "./PrepareDoc";
 
 interface IExportStrategy {
-    setHtml: ({style, body, filename}: IExecute) => string;
+    setHtml: ({style, body, filename, rtl}: IExecute) => string;
     download: (html: string, filename: string) => void
 }
 
@@ -13,11 +13,11 @@ class ExportDoc {
         this.setStrategy(new Strategy2());
     }
 
-    execute({style, body, filename}: IExecute) {
+    execute({style, body, filename, rtl}: IExecute) {
         if (this.strategy == undefined)
             return;
 
-        const html = this.strategy.setHtml({style, body, filename});
+        const html = this.strategy.setHtml({style, body, filename, rtl});
         this.strategy.download(html, filename);
         return html;
     }
@@ -28,12 +28,13 @@ class ExportDoc {
 }
 
 export class Strategy1 implements IExportStrategy {
-    public setHtml({style, body, filename}: IExecute) {
+    public setHtml({style, body, filename, rtl}: IExecute) {
         const header = '<html xmlns:o=\'urn:schemas-microsoft-com:office:office\' ' +
             'xmlns:w=\'urn:schemas-microsoft-com:office:word\' ' +
+            (rtl ? '"dir=\'rtl\'"' : '') +
             'xmlns=\'http://www.w3.org/TR/REC-html40\'>' +
             `<style>${style}</style>` +
-            '<head><meta charset=\'utf-8\'><title>'+filename+'</title></head><body>';
+            '<head><meta charset=\'utf-8\'><title>' + filename + '</title></head><body>';
         const footer = '</body></html>';
         const sourceHTML = header + body + footer;
 
@@ -84,10 +85,10 @@ export class Strategy2 implements IExportStrategy {
         document.body.removeChild(downloadLink);
     }
 
-    public setHtml({style, body, filename}: IExecute) {
-        const preHtml = '<html xmlns:o=\'urn:schemas-microsoft-com:office:office\' xmlns:w=\'urn:schemas-microsoft-com:office:word\' xmlns=\'http://www.w3.org/TR/REC-html40\'>' +
+    public setHtml({style, body, filename, rtl}: IExecute) {
+        const preHtml = '<html xmlns:o=\'urn:schemas-microsoft-com:office:office\' xmlns:w=\'urn:schemas-microsoft-com:office:word\' xmlns=\'http://www.w3.org/TR/REC-html40\' ' + (rtl ? '"dir=\'rtl\'"' : '') + '>' +
             '<head>' +
-            '<meta charset=\'utf-8\'><title>'+filename+'</title>' +
+            '<meta charset=\'utf-8\'><title>' + filename + '</title>' +
             `<style>${style}</style>` +
             '</head>' +
             '<body>';

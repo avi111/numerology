@@ -4,7 +4,7 @@ import ExportDoc from "../mainTools/exportDoc";
 import {IExportProps} from "../mainTools/PrepareDoc";
 
 class ExportChakra implements ExportDocProps {
-    public export: () => void;
+    public export: (rtl?: boolean) => void;
     public getFileName: () => string;
     public prepare: () => string;
     public data: IExportDoc;
@@ -18,10 +18,11 @@ class ExportChakra implements ExportDocProps {
             return body;
         };
 
-        this.export = () => new ExportDoc().execute({
+        this.export = (rtl) => new ExportDoc().execute({
             style,
             body: this.prepare(),
-            filename: this.getFileName()
+            filename: this.getFileName(),
+            rtl
         });
     }
 }

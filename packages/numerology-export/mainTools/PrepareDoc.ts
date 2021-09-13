@@ -6,10 +6,11 @@ import ExportBusiness from "../export/Business";
 import ExportCouple from "../export/Couple";
 
 export interface IPrepareDoc {
-    style: string,
-    body: string,
-    strategy: Strategy,
-    data: IExportDoc
+    style: string;
+    body: string;
+    strategy: Strategy;
+    data: IExportDoc;
+    rtl?: boolean;
 }
 
 export interface IExportProps {
@@ -21,7 +22,8 @@ export interface IExportProps {
 export interface IExecute {
     style: string,
     body: string,
-    filename: string
+    filename: string,
+    rtl?: boolean
 }
 
 class PrepareDoc {
@@ -31,17 +33,20 @@ class PrepareDoc {
     private style: string;
     private filename: string;
     private data: IExportDoc;
+    private rtl: boolean;
 
     constructor({
                     style,
                     body,
                     strategy,
-                    data
+                    data,
+                    rtl
                 }: IPrepareDoc) {
         this.style = style;
         this.body = body;
         this.strategy = strategy;
         this.data = data;
+        this.rtl=!!rtl;
     }
 
     public static prepare(prepareDoc: IPrepareDoc) {
@@ -77,7 +82,7 @@ class PrepareDoc {
 
     public export() {
         if (this.exporter) {
-            this.exporter.export();
+            this.exporter.export(this.rtl);
         }
     }
 }
