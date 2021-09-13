@@ -113,7 +113,7 @@ class PersonalYear implements Partial<Props> {
         for (let i = -2; i <= 10; i++) {
             const monthDate = new Date(Date.now());
             monthDate.setMonth(date.getMonth() + i);
-            this.personalMonth.set(i, PersonalYear.calculatePersonalMonth(monthDate, this.kabbalic));
+            this.personalMonth.set(monthDate.getMonth()+1, PersonalYear.calculatePersonalMonth(monthDate, this.kabbalic));
         }
     }
 
