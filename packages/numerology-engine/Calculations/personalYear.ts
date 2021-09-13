@@ -16,6 +16,7 @@ class PersonalYear implements Partial<Props> {
     public kabbalic: number;
     public western: number;
     public hidden: number;
+    public hiddenNext: number;
     public current: number;
     public now: Date;
     public age: number;
@@ -35,6 +36,7 @@ class PersonalYear implements Partial<Props> {
         this.kabbalic = PersonalYear.calculatePersonalYear(destiny, this.age, this.birthDate.getMonth() + 1, undefined);
         this.western = PersonalYear.calculatePersonalYear(destiny, this.age, undefined, undefined);
         this.hidden = PersonalYear.calculatePersonalYear(destiny, this.age, undefined, true);
+        this.hiddenNext = PersonalYear.calculatePersonalYear(destiny, this.age+1, undefined, true);
         this.current = new Gematria('' + this.year).small;
 
         this.setPersonalMonth(dateNow);
