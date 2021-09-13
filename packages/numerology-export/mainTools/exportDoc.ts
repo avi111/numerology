@@ -31,7 +31,7 @@ export class Strategy1 implements IExportStrategy {
     public setHtml({style, body, filename, rtl}: IExecute) {
         const header = '<html xmlns:o=\'urn:schemas-microsoft-com:office:office\' ' +
             'xmlns:w=\'urn:schemas-microsoft-com:office:word\' ' +
-            (rtl ? '"dir=\'rtl\'"' : '') +
+            (rtl ? 'dir=\'rtl\'' : '') +
             'xmlns=\'http://www.w3.org/TR/REC-html40\'>' +
             `<style>${style}</style>` +
             '<head><meta charset=\'utf-8\'><title>' + filename + '</title></head><body>';
@@ -86,7 +86,7 @@ export class Strategy2 implements IExportStrategy {
     }
 
     public setHtml({style, body, filename, rtl}: IExecute) {
-        const preHtml = '<html xmlns:o=\'urn:schemas-microsoft-com:office:office\' xmlns:w=\'urn:schemas-microsoft-com:office:word\' xmlns=\'http://www.w3.org/TR/REC-html40\' ' + (rtl ? '"dir=\'rtl\'"' : '') + '>' +
+        const preHtml = '<html xmlns:o=\'urn:schemas-microsoft-com:office:office\' xmlns:w=\'urn:schemas-microsoft-com:office:word\' xmlns=\'http://www.w3.org/TR/REC-html40\' ' + (rtl ? 'dir=\'rtl\'' : '') + '>' +
             '<head>' +
             '<meta charset=\'utf-8\'><title>' + filename + '</title>' +
             `<style>${style}</style>` +
