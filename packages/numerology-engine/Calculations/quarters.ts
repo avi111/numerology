@@ -16,7 +16,7 @@ class Quarters {
         this.months = [1, 2, 3, 4].map((index) => this.getQurater(index));
         this.age = this.personalYear.age;
         this.year = this.personalYear.year;
-        Object.keys(Array(4).fill(0)).map((num) => this.calculateQuarter(parseInt(num, 10)));
+        Object.keys(Array(4).fill(0)).forEach((num) => this.calculateQuarter(parseInt(num, 10)));
     }
 
     public calculateQuarter(num: number): void {
