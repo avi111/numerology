@@ -88,10 +88,14 @@ export class Strategy2 implements IExportStrategy {
     public setHtml({style, body, filename, rtl}: IExecute) {
         const preHtml = '<html xmlns:o=\'urn:schemas-microsoft-com:office:office\' xmlns:w=\'urn:schemas-microsoft-com:office:word\' xmlns=\'http://www.w3.org/TR/REC-html40\' ' + (rtl ? 'dir=\'rtl\'' : '') + '>' +
             '<head>' +
-            '<meta charset=\'utf-8\'><title>' + filename + '</title>' +
+            '<meta http-equiv="Content-Type" content="text/html; charset=utf-8">' +
+            '<meta name="ProgId" content="Word.Document">' +
+            '<meta name="Generator" content="Microsoft Word">' +
+            '<meta name="Originator" content="Microsoft Word">' +
+            '<title>' + filename + '</title>' +
             `<style>${style}</style>` +
             '</head>' +
-            '<body>';
+            '<body'+(rtl?' style=\'direction: rtl;\'':'')+'>';
         const postHtml = '</body></html>';
         return preHtml + body + postHtml;
     }
