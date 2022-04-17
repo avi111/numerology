@@ -1,38 +1,40 @@
 {
-  "name": "maya259",
-  "version": "1.0.0",
-  "author": "Avi Levkovich <avi111@gmail.com>",
-  "repository": "https://github.com/avi111/numerology.git",
-  "main": "index.js",
-  "license": "MIT",
-  "private": true,
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ]
-  },
-  "scripts": {
-    "bootstrap": "lerna bootstrap",
-    "start": "lerna run start --stream",
-    "tsc": "lerna run tsc --stream",
-    "test:watch": "lerna run test:watch --stream",
-    "dev": "lerna run dev",
-    "dev-logs": "lerna run dev --stream",
-    "dev-module": "lerna run dev",
-    "storybook": "lerna run storybook --stream",
-    "production": "lerna run production",
-    "build": "lerna run build --ignore @maya259/storybook --parallel",
-    "deploy": "lerna run deploy",
-    "rimraf": "rm -rf node_modules",
-    "installApp": "yarn rimraf && yarn install && yarn bootstrap"
-  },
-  "devDependencies": {
-    "lerna": "^3.22.1"
-  },
-  "resolutions": {
-    "babel-loader": "8.1.0",
-    "jest": "26.6.0",
-    "webpack": "4.44.2",
-    "webpack-dev-server": "3.11.1"
-  }
+    "name": "maya259",
+    "version": "1.0.0",
+    "author": "Avi Levkovich <avi111@gmail.com>",
+    "repository": "https://github.com/avi111/numerology.git",
+    "private": true,
+    "workspaces": {
+        "packages": [
+            "packages/*"
+        ],
+        "nohoist": [
+            "**/firebase-monorepo-core"
+        ]
+    },
+    "scripts": {
+        "workspace:build:core": "yarn workspace firebase-monorepo-core build",
+        "workspace:pack:core": "yarn workspace firebase-monorepo-core pack",
+        "workspace:build:functions": "yarn workspace firebase-monorepo-functions build",
+        "workspace:build:web": "yarn workspace firebase-monorepo-web build",
+        "workspace:start:core": "yarn workspace firebase-monorepo-core start",
+        "workspace:start:functions": "yarn workspace firebase-monorepo-functions start",
+        "workspace:start:web": "yarn workspace firebase-monorepo-web start",
+        "build:core": "yarn workspace:build:core",
+        "pack:core": "yarn workspace:pack:core",
+        "build:functions": "run-s workspace:build:core workspace:build:functions",
+        "build:web": "run-s workspace:build:core workspace:build:web",
+        "start:core": "yarn workspace:build:core",
+        "start:functions": "run-s workspace:build:core workspace:start:functions",
+        "start:web": "run-s workspace:build:core workspace:start:web",
+        "serve:web": "yarn workspace firebase-monorepo-web serve",
+        "deploy:functions": "firebase deploy --only functions",
+        "deploy:web": "firebase deploy --only hosting",
+        "rimraf": "rm -rf node_modules"
+    },
+    "devDependencies": {
+        "npm-run-all": "^4.1.5",
+        "rimraf": "^3.0.2",
+        "typescript": "^3.2.2"
+    }
 }
