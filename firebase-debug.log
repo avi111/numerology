@@ -1,0 +1,22 @@
+[debug] [2022-04-17T20:45:57.643Z] ----------------------------------------------------------------------
+[debug] [2022-04-17T20:45:57.646Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy --only functions
+[debug] [2022-04-17T20:45:57.646Z] CLI Version:   9.22.0
+[debug] [2022-04-17T20:45:57.646Z] Platform:      darwin
+[debug] [2022-04-17T20:45:57.647Z] Node Version:  v14.16.0
+[debug] [2022-04-17T20:45:57.648Z] Time:          Sun Apr 17 2022 23:45:57 GMT+0300 (Israel Daylight Time)
+[debug] [2022-04-17T20:45:57.648Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-04-17T20:45:57.714Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-04-17T20:45:57.715Z] > authorizing via signed-in user (avi111@gmail.com)
+[debug] [2022-04-17T20:45:57.715Z] [iam] checking project numerology-ae61d for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2022-04-17T20:45:57.718Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/numerology-ae61d:testIamPermissions  
+ {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
+[debug] [2022-04-17T20:45:58.640Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 17 Apr 2022 20:45:58 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=605","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-04-17T20:45:58.642Z] >>> HTTP REQUEST POST https://iam.googleapis.com/v1/projects/numerology-ae61d/serviceAccounts/numerology-ae61d@appspot.gserviceaccount.com:testIamPermissions  
+ {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2022-04-17T20:45:59.073Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Sun, 17 Apr 2022 20:45:59 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Deploying to 'numerology-ae61d'...
+[info] 
+[info] i  deploying functions 
+[info] Running command: yarn workspace:build:core
