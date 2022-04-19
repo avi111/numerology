@@ -21,7 +21,6 @@
         "@types/react-dom": "^16.9.0",
         "@types/testing-library__dom": "^7.5.0",
         "firebase": "^9.6.11",
-        "firebase-monorepo-core": "*",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
         "react-scripts": "3.4.1",
