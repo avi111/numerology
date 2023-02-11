@@ -55,7 +55,7 @@ describe('HebDate', () => {
 
     // TODO: mock fetch
     describe.skip('gets Parashah', () => {
-        it('maya', async (done: jest.DoneCallback) => {
+        it('maya', async () => {
             const hebDate = new HebDates(new Date('1979-9-25'));
             const result = await hebDate.getParashah();
             expect(result && result.parashah).toBeDefined();
@@ -68,11 +68,9 @@ describe('HebDate', () => {
                 expect(result.ref.begin.pasuk).toBeDefined();
                 expect(result.ref.begin.chapter).toBeDefined();
             }
-
-            done();
         }, 30000);
 
-        it('itamar', async (done: jest.DoneCallback) => {
+        it('itamar', async () => {
             const hebDate = new HebDates(new Date('2014-3-31'));
             const result = await hebDate.getParashah();
             expect(result && result.parashah).toBeDefined();
@@ -85,8 +83,6 @@ describe('HebDate', () => {
                 expect(result.ref.begin.pasuk).toBeDefined();
                 expect(result.ref.begin.chapter).toBeDefined();
             }
-
-            done();
         }, 30000);
     });
 });

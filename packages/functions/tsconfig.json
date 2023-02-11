@@ -7,7 +7,7 @@
         "outDir": "build",
         "sourceMap": true,
         "strict": true,
-        "target": "es2017",
+        "target": "es2020",
         "esModuleInterop": true,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
