@@ -6,6 +6,29 @@ import ProminentAgesName from "./prominentAgesName";
 type NameProps = Partial<Props>;
 
 class Name implements NameProps {
+    public familyName: string;
+    public firstName: string;
+    private readonly _periods: Array<string[] | undefined>;
+    private readonly fullName: string;
+    private readonly _fullNameValue: number;
+    private readonly _firstNameValue: number;
+    private readonly _ehevi: number;
+    private readonly _itzurim: number;
+    private readonly _prominentAges: ProminentAgesName;
+
+    constructor(familyName: string, firstName: string) {
+        this.familyName = familyName;
+        this.firstName = firstName;
+        this.fullName = this.firstName + this.familyName;
+        this._firstNameValue = Name.calculateFirstNameValue(this.firstName);
+        this._fullNameValue = Name.calculateFullNameValue(this.fullName);
+        this._ehevi = Name.calculateEhevi(this.fullName);
+        this._itzurim = Name.calculateItzurim(this.fullName);
+        const periodsRaw = Name.calculatePeriods(this.firstName);
+        this._prominentAges = new ProminentAgesName(periodsRaw);
+        this._periods = Name.displayPeriods(periodsRaw);
+    }
+
     get fullNameValue(): number {
         return this._fullNameValue;
     }
@@ -28,31 +51,6 @@ class Name implements NameProps {
 
     get prominentAges(): ProminentAgesName {
         return this._prominentAges;
-    }
-
-    public familyName: string;
-    public firstName: string;
-
-    private readonly _periods: Array<string[] | undefined>;
-    private readonly fullName: string;
-    private readonly _fullNameValue: number;
-    private readonly _firstNameValue: number;
-    private readonly _ehevi: number;
-    private readonly _itzurim: number;
-
-    private _prominentAges: ProminentAgesName;
-
-    constructor(familyName: string, firstName: string) {
-        this.familyName = familyName;
-        this.firstName = firstName;
-        this.fullName = this.firstName + this.familyName;
-        this._firstNameValue = Name.calculateFirstNameValue(this.firstName);
-        this._fullNameValue = Name.calculateFullNameValue(this.fullName);
-        this._ehevi = Name.calculateEhevi(this.fullName);
-        this._itzurim = Name.calculateItzurim(this.fullName);
-        const periodsRaw = Name.calculatePeriods(this.firstName);
-        this._prominentAges = new ProminentAgesName(periodsRaw);
-        this._periods = Name.displayPeriods(periodsRaw);
     }
 
     public static calculateFullNameValue(fullName: string): number {

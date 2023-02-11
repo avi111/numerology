@@ -1,26 +1,16 @@
 import express from 'express';
 import * as functions from 'firebase-functions';
+import * as bodyParser from "body-parser";
+import * as admin from 'firebase-admin';
 
-// ********************************************
-// Express Initilization
-// ********************************************
-
+admin.initializeApp(functions.config().firebase);
+const main = express();
 const app = express();
 
-// ********************************************
-// Routing Controllers Initilization
-// ********************************************
+main.use('/api/v1', app);
+main.use(bodyParser.json());
+main.use(bodyParser.urlencoded({extended: false}));
 
-// https://github.com/typestack/routing-controllers
+// const db = admin.firestore();
 
-app.get('/', (req, res) => {
-    res.status(200).json({
-        status: 'ok',
-    })
-})
-
-// ********************************************
-// Firebase Functions
-// ********************************************
-
-exports.app = functions.https.onRequest(app);
+exports.app = functions.https.onRequest(main);

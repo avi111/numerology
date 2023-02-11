@@ -1,17 +1,26 @@
 import './App.css';
 
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+// import firebase from "./firebase";
 
-import logo from './logo.svg';
+// firebase.functions().
+const App = () => {
+    const [response, setResponse] = useState();
+    useEffect(() => {
+        fetch("/api/v1/").then(res => res.json()).then(res => setResponse(res))
+    })
 
-function App() {
+    useEffect(() => {
+        console.log(response);
+    }, [response])
+
     return (
         <div className="App">
             <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
+                {response && JSON.stringify(response)}
             </header>
-        </div >
-    );
-}
+        </div>
+    )
+};
 
 export default App;
